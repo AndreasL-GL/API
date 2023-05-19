@@ -70,6 +70,7 @@ def process_request(js):
     #file = io.BytesIO()
     #df.to_excel(file)
     #file.seek(0)
+    df = df.style.apply(highlight_cells, axis=1)
     file = change_column_size_before_saving(df)
     filename = js['Handlare'] + str(js['ID']) + str(js['Datum'])
     return {"content":base64.b64encode(file.getvalue()).decode('utf-8'), "filename":filename}
