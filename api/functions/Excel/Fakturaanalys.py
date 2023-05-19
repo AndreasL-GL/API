@@ -67,12 +67,39 @@ def process_request(js):
     #df = df.append(column_totals, ignore_index=True)
     df = pd.concat([df,column_totals])
     print(df)
-    file = io.BytesIO()
-    df.to_excel(file)
-    file.seek(0)
+    #file = io.BytesIO()
+    #df.to_excel(file)
+    #file.seek(0)
+    file = change_column_size_before_saving(df)
     filename = js['Handlare'] + str(js['ID']) + str(js['Datum'])
     return {"content":base64.b64encode(file.getvalue()).decode('utf-8'), "filename":filename}
 
+def highlight_cells(row):
+    print(row)
+    if float(str(row['fakturapris']).replace(',','.').replace(' ', '')) > float(str(row['pris_BVB']).replace(',','.').replace(' ', '')):
+        return ['background-color: orange'] * len(row)
+    elif float(str(row['fakturapris']).replace(',','.').replace(' ', '')) > float(str(row['pris_centralt']).replace(',','.').replace(' ', '')):
+        return ['background-color: red'] * len(row)
+    else: return ['background-color: green'] * len(row)
+
+def change_column_size_before_saving(df):
+    file = io.BytesIO()
+    writer = pd.ExcelWriter(file, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Sheet1')
+
+    # Get the workbook and active worksheet objects
+    workbook = writer.book
+    worksheet = workbook.get_worksheet_by_name('Sheet1')
+
+    # Iterate over each column and set the column width to 1.2 times the default width
+    for i, column in enumerate(df.columns):
+        column_width = len(str(column)) * 1.2
+        worksheet.set_column(i, i, column_width)
+
+    # Save the modified Excel file
+    writer.close()
+    file.seek(0)
+    return file
 if __name__ == '__main__':
     with open(os.path.join(os.path.dirname(__file__),'request.json'), 'r', encoding='utf-8') as f:
         js = json.load(f)
