@@ -63,23 +63,19 @@ def process_request(js):
     
     column_totals = df[['Summa','Summa_BVB','Summa_centralt']].sum()
 
-# Append the totals as a new row at the bottom
-    #df = df.append(column_totals, ignore_index=True)
     df = pd.concat([df,column_totals])
-    print(df)
-    #file = io.BytesIO()
-    #df.to_excel(file)
-    #file.seek(0)
+    df.pop(0)
+    df.columns = [column.replace('_',' ') for column in df.columns]
     df = df.style.apply(highlight_cells, axis=1)
+    
     file = change_column_size_before_saving(df)
     filename = js['Handlare'] + str(js['ID']) + str(js['Datum'])
     return {"content":base64.b64encode(file.getvalue()).decode('utf-8'), "filename":filename}
 
 def highlight_cells(row):
-    print(row)
-    if float(str(row['fakturapris']).replace(',','.').replace(' ', '')) > float(str(row['pris_BVB']).replace(',','.').replace(' ', '')):
+    if float(str(row['fakturapris']).replace(',','.').replace(' ', '')) > float(str(row['pris BVB']).replace(',','.').replace(' ', '')):
         return ['background-color: orange'] * len(row)
-    elif float(str(row['fakturapris']).replace(',','.').replace(' ', '')) > float(str(row['pris_centralt']).replace(',','.').replace(' ', '')):
+    elif float(str(row['fakturapris']).replace(',','.').replace(' ', '')) > float(str(row['pris centralt']).replace(',','.').replace(' ', '')):
         return ['background-color: red'] * len(row)
     else: return ['background-color: green'] * len(row)
 
