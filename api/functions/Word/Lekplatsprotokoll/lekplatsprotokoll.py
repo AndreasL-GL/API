@@ -578,7 +578,7 @@ def __add_anmärkningar_deprecated(doc, js):
     for i, item in enumerate(js['Anmärkningar']):
 
         utrustningslista = [(utrustning['Items']['Montering_under_mark'], utrustning['Items']['Montering_ovan_mark']) for utrustning in js['Utrustning'] if utrustning['Items']['ID'] == item['Items']['UtrustningsID'] and 'Montering_ovan_mark' in utrustning['Items'].keys()]
-        if False: #(utrustningslista):
+        if any(utrustningslista): #(utrustningslista):
             montering_under_mark, montering_ovan_mark = utrustningslista[0]
             item['montering_under_mark'] = montering_under_mark
             item['montering_ovan_mark'] = montering_ovan_mark
@@ -634,7 +634,7 @@ def __add_anmärkningar_deprecated(doc, js):
         # smallhead = doc.styles.add_style('Underovanmark', doc.styles)
         # smallhead.font.size = Pt(14)
         # smallhead.font.color.rgb = RGBColor(100,200,100)
-        if False:#any(utrustningslista):
+        if True:#any(utrustningslista):
             ph = doc.add_paragraph()
             ph.text = "Montering ovan mark"
             ph.style = 'subheading2'
