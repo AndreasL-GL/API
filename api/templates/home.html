@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}{%for message in messages%}
+  {%if message=="success"%}
+  <div class="alert alert-success pb-2">
+    <ul class="flashes list-group-item list-unstyled mb-2">
+
+        <li>Successfully logged in as {{cookiename}}</li>
+
+    </ul>
+</div>{%endif%}{%endfor%}
+  {% endif %}
+{% endwith %}
+{% block headline %}Headline {% endblock headline %}
+        {% block content %}
+        Brief explanation of myself and this website.
+        {% endblock %}
+

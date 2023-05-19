@@ -1,0 +1,34 @@
+h2 {
+    padding-bottom:1em;
+}
+div {
+    font-family:'Times New Roman', Times, serif;
+}
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+}
+h4 {
+    text-align:center; 
+}
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+a {
+    text-decoration: none;
+    color: #1a1e21 !important :
+}
+
+    a:focus, a:hover {
+        color: #1a1e21 !important;
+    }
+#deletebutton {
+    width:20px;
+    height:auto;
+    margin-top:0px;
+    padding-top:0px;
+    float:right;
+}
+.inputimg {
+    max-height:100% !important;
+}

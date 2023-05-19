@@ -1,0 +1,16 @@
+.terraform*
+terraform_test
+awscliv2.zip
+installs.sh
+aws
+terraform/.terraform*
+terraform/terraform.tfstate*
+GLGithub
+GLGithub.pub
+*.sshGLGithub
+*.sshGLGithub.pub
+*login.txt
+login.txt
+Testing/ActionOutputs (2).json
+api/functions/Word/Lekplatsprotokoll/Testing_word_filer/*
+Testing/*

@@ -1,0 +1,3171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document
+	xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+	xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex"
+	xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex"
+	xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex"
+	xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex"
+	xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex"
+	xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex"
+	xmlns:cx6="http://schemas.microsoft.com/office/drawing/2016/5/12/chartex"
+	xmlns:cx7="http://schemas.microsoft.com/office/drawing/2016/5/13/chartex"
+	xmlns:cx8="http://schemas.microsoft.com/office/drawing/2016/5/14/chartex"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:aink="http://schemas.microsoft.com/office/drawing/2016/ink"
+	xmlns:am3d="http://schemas.microsoft.com/office/drawing/2017/model3d"
+	xmlns:o="urn:schemas-microsoft-com:office:office"
+	xmlns:oel="http://schemas.microsoft.com/office/2019/extlst"
+	xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+	xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+	xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+	xmlns:w10="urn:schemas-microsoft-com:office:word"
+	xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+	xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+	xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml"
+	xmlns:w16cex="http://schemas.microsoft.com/office/word/2018/wordml/cex"
+	xmlns:w16cid="http://schemas.microsoft.com/office/word/2016/wordml/cid"
+	xmlns:w16="http://schemas.microsoft.com/office/word/2018/wordml"
+	xmlns:w16du="http://schemas.microsoft.com/office/word/2023/wordml/word16du"
+	xmlns:w16sdtdh="http://schemas.microsoft.com/office/word/2020/wordml/sdtdatahash"
+	xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex"
+	xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+	xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+	xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+	xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh wp14">
+	<w:body>
+		<w:p w14:paraId="43F5F487" w14:textId="32104B8C" w:rsidR="00E82B94" w:rsidRDefault="00F32004" w:rsidP="002B3975">
+			<w:r>
+				<w:rPr>
+					<w:noProof/>
+				</w:rPr>
+				<w:drawing>
+					<wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="362EF906" wp14:editId="5FAEF0E0">
+						<wp:extent cx="1590630" cy="574158"/>
+						<wp:effectExtent l="0" t="0" r="0" b="0"/>
+						<wp:docPr id="1634268631" name="Picture 1" descr="Logo  Description automatically generated"/>
+						<wp:cNvGraphicFramePr>
+							<a:graphicFrameLocks
+								xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+							</wp:cNvGraphicFramePr>
+							<a:graphic
+								xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+								<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+									<pic:pic
+										xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+										<pic:nvPicPr>
+											<pic:cNvPr id="1634268631" name="Picture 1" descr="Logo  Description automatically generated"/>
+											<pic:cNvPicPr/>
+										</pic:nvPicPr>
+										<pic:blipFill>
+											<a:blip r:embed="rId11" cstate="print">
+												<a:extLst>
+													<a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+														<a14:useLocalDpi
+															xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>
+														</a:ext>
+													</a:extLst>
+												</a:blip>
+												<a:stretch>
+													<a:fillRect/>
+												</a:stretch>
+											</pic:blipFill>
+											<pic:spPr>
+												<a:xfrm>
+													<a:off x="0" y="0"/>
+													<a:ext cx="1604615" cy="579206"/>
+												</a:xfrm>
+												<a:prstGeom prst="rect">
+													<a:avLst/>
+												</a:prstGeom>
+											</pic:spPr>
+										</pic:pic>
+									</a:graphicData>
+								</a:graphic>
+							</wp:inline>
+						</w:drawing>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="03EB4B90" w14:textId="0AFA6B60" w:rsidR="005E5A0F" w:rsidRPr="007D262B" w:rsidRDefault="005E5A0F" w:rsidP="00DE780D">
+					<w:pPr>
+						<w:pStyle w:val="Title"/>
+						<w:rPr>
+							<w:color w:val="60A730"/>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+							<w14:textOutline w14:w="9525" w14:cap="rnd" w14:cmpd="sng" w14:algn="ctr">
+								<w14:solidFill>
+									<w14:srgbClr w14:val="00B050"/>
+								</w14:solidFill>
+								<w14:prstDash w14:val="solid"/>
+								<w14:bevel/>
+							</w14:textOutline>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:t>Besiktningsutlåtande</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="74BE9638" w14:textId="77777777" w:rsidR="005E5A0F" w:rsidRPr="007D262B" w:rsidRDefault="005E5A0F" w:rsidP="00DE780D">
+					<w:pPr>
+						<w:pStyle w:val="Subtitle"/>
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t xml:space="preserve">Över utförd säkerhetsbesiktning av </w:t>
+					</w:r>
+					<w:r w:rsidR="00743421" w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t>lekplats/</w:t>
+					</w:r>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t>lekredskap</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="4E95EA6A" w14:textId="77777777" w:rsidR="001B4CAD" w:rsidRDefault="00200923" w:rsidP="005E5A0F">
+					<w:pPr>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:b/>
+							<w:noProof/>
+						</w:rPr>
+						<mc:AlternateContent>
+							<mc:Choice Requires="wps">
+								<w:drawing>
+									<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251677696" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="160C61E0" wp14:editId="74138392">
+										<wp:simplePos x="0" y="0"/>
+										<wp:positionH relativeFrom="column">
+											<wp:posOffset>3972</wp:posOffset>
+										</wp:positionH>
+										<wp:positionV relativeFrom="paragraph">
+											<wp:posOffset>73394</wp:posOffset>
+										</wp:positionV>
+										<wp:extent cx="5704205" cy="1"/>
+										<wp:effectExtent l="0" t="0" r="0" b="0"/>
+										<wp:wrapNone/>
+										<wp:docPr id="51" name="Rak 51"/>
+										<wp:cNvGraphicFramePr/>
+										<a:graphic
+											xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+											<a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+												<wps:wsp>
+													<wps:cNvCnPr/>
+													<wps:spPr>
+														<a:xfrm flipV="1">
+															<a:off x="0" y="0"/>
+															<a:ext cx="5704205" cy="1"/>
+														</a:xfrm>
+														<a:prstGeom prst="line">
+															<a:avLst/>
+														</a:prstGeom>
+														<a:ln>
+															<a:solidFill>
+																<a:srgbClr val="00B050"/>
+															</a:solidFill>
+														</a:ln>
+													</wps:spPr>
+													<wps:style>
+														<a:lnRef idx="1">
+															<a:schemeClr val="accent1"/>
+														</a:lnRef>
+														<a:fillRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:fillRef>
+														<a:effectRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:effectRef>
+														<a:fontRef idx="minor">
+															<a:schemeClr val="tx1"/>
+														</a:fontRef>
+													</wps:style>
+													<wps:bodyPr/>
+												</wps:wsp>
+											</a:graphicData>
+										</a:graphic>
+										<wp14:sizeRelV relativeFrom="margin">
+											<wp14:pctHeight>0</wp14:pctHeight>
+										</wp14:sizeRelV>
+									</wp:anchor>
+								</w:drawing>
+							</mc:Choice>
+							<mc:Fallback>
+								<w:pict>
+									<v:line from=".3pt,5.8pt" id="Rak 51" o:gfxdata="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 " o:spid="_x0000_s1026" strokecolor="#00b050" style="position:absolute;flip:y;z-index:251677696;visibility:visible;mso-wrap-style:square;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-height-percent:0;mso-height-relative:margin" to="449.45pt,5.8pt" w14:anchorId="679DB9CF"/>
+								</w:pict>
+							</mc:Fallback>
+						</mc:AlternateContent>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="0892E3D2" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00BB508F" w:rsidRDefault="006A1A16" w:rsidP="006A1A16">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:sectPr w:rsidR="006A1A16" w:rsidRPr="00BB508F" w:rsidSect="009C1CB2">
+							<w:headerReference w:type="even" r:id="rId12"/>
+							<w:headerReference w:type="default" r:id="rId13"/>
+							<w:footerReference w:type="even" r:id="rId14"/>
+							<w:footerReference w:type="default" r:id="rId15"/>
+							<w:headerReference w:type="first" r:id="rId16"/>
+							<w:footerReference w:type="first" r:id="rId17"/>
+							<w:type w:val="continuous"/>
+							<w:pgSz w:w="11906" w:h="16838"/>
+							<w:pgMar w:top="1252" w:right="1417" w:bottom="1417" w:left="1417" w:header="0" w:footer="708" w:gutter="0"/>
+							<w:cols w:space="708"/>
+							<w:docGrid w:linePitch="360"/>
+						</w:sectPr>
+					</w:pPr>
+				</w:p>
+				<w:tbl>
+					<w:tblPr>
+						<w:tblStyle w:val="TableGridLight"/>
+						<w:tblW w:w="0" w:type="auto"/>
+						<w:tblLook w:val="01E0" w:firstRow="1" w:lastRow="1" w:firstColumn="1" w:lastColumn="1" w:noHBand="0" w:noVBand="0"/>
+					</w:tblPr>
+					<w:tblGrid>
+						<w:gridCol w:w="2178"/>
+						<w:gridCol w:w="2210"/>
+						<w:gridCol w:w="2166"/>
+						<w:gridCol w:w="2506"/>
+					</w:tblGrid>
+					<w:tr w:rsidR="006A1A16" w:rsidRPr="00834300" w14:paraId="30A8825F" w14:textId="77777777" w:rsidTr="00BB6281">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="063A9F3F" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00834300">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Besiktningsman</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="11FBF0F5" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Besiktningsdatum</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="09579BE8" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Beställare</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2316" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="0104CFE7" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00834300">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Lekplatsadress/Lekplatsnr</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="006A1A16" w:rsidRPr="00392E43" w14:paraId="2C94864A" w14:textId="77777777" w:rsidTr="00BB6281">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="4B9E4BDB" w14:textId="5C942D75" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="00392E43" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:i/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:i/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Andreas Löfkvist</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="12D0F1A2" w14:textId="209265E6" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="00F43E95" w:rsidP="00AE4E75">
+								<w:pPr>
+									<w:tabs>
+										<w:tab w:val="right" w:pos="2053"/>
+									</w:tabs>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+									<w:t>2023-05-15</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="74D28035" w14:textId="011F59DF" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="00C63EF1" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+									<w:t>test</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2316" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="4A8D5F79" w14:textId="1119ECC4" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="00C63EF1" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+									<w:t>Andreas</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="006A1A16" w:rsidRPr="00834300" w14:paraId="728D4A81" w14:textId="77777777" w:rsidTr="00BB6281">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="58F09CD9" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Ort</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="21BE141D" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Utskriftsdatum</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="141669DD" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Kontaktperson</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2316" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="3AE80825" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00834300" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Telefonnummer</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="006A1A16" w:rsidRPr="00392E43" w14:paraId="0A620554" w14:textId="77777777" w:rsidTr="00BB6281">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="3170399D" w14:textId="52C71CE2" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="395F1487" w14:textId="33AC412B" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="00C63EF1" w:rsidP="00262350">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+									<w:t>2023-05-15</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2303" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="0FA34661" w14:textId="5915675B" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="2316" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="05CFA7B9" w14:textId="730A4B36" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="00BD4380">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+							</w:p>
+						</w:tc>
+					</w:tr>
+				</w:tbl>
+				<w:p w14:paraId="6D7325EE" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="006A1A16">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:rFonts w:ascii="Arial-BoldMT" w:hAnsi="Arial-BoldMT" w:cs="Arial-BoldMT"/>
+							<w:b/>
+							<w:bCs/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+						<w:sectPr w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidSect="00BD4380">
+							<w:type w:val="continuous"/>
+							<w:pgSz w:w="11906" w:h="16838" w:code="9"/>
+							<w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="709" w:footer="709" w:gutter="0"/>
+							<w:cols w:space="709"/>
+							<w:docGrid w:linePitch="360"/>
+						</w:sectPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="75830110" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="006A1A16">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:rFonts w:ascii="Arial-BoldMT" w:hAnsi="Arial-BoldMT" w:cs="Arial-BoldMT"/>
+							<w:b/>
+							<w:bCs/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:b/>
+							<w:noProof/>
+						</w:rPr>
+						<mc:AlternateContent>
+							<mc:Choice Requires="wps">
+								<w:drawing>
+									<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251696128" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="75628301" wp14:editId="5F48C488">
+										<wp:simplePos x="0" y="0"/>
+										<wp:positionH relativeFrom="column">
+											<wp:posOffset>5715</wp:posOffset>
+										</wp:positionH>
+										<wp:positionV relativeFrom="paragraph">
+											<wp:posOffset>85725</wp:posOffset>
+										</wp:positionV>
+										<wp:extent cx="5704205" cy="0"/>
+										<wp:effectExtent l="0" t="0" r="0" b="0"/>
+										<wp:wrapNone/>
+										<wp:docPr id="1" name="Rak 1"/>
+										<wp:cNvGraphicFramePr/>
+										<a:graphic
+											xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+											<a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+												<wps:wsp>
+													<wps:cNvCnPr/>
+													<wps:spPr>
+														<a:xfrm flipV="1">
+															<a:off x="0" y="0"/>
+															<a:ext cx="5704205" cy="0"/>
+														</a:xfrm>
+														<a:prstGeom prst="line">
+															<a:avLst/>
+														</a:prstGeom>
+														<a:ln>
+															<a:solidFill>
+																<a:srgbClr val="00B050"/>
+															</a:solidFill>
+														</a:ln>
+													</wps:spPr>
+													<wps:style>
+														<a:lnRef idx="1">
+															<a:schemeClr val="accent1"/>
+														</a:lnRef>
+														<a:fillRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:fillRef>
+														<a:effectRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:effectRef>
+														<a:fontRef idx="minor">
+															<a:schemeClr val="tx1"/>
+														</a:fontRef>
+													</wps:style>
+													<wps:bodyPr/>
+												</wps:wsp>
+											</a:graphicData>
+										</a:graphic>
+										<wp14:sizeRelV relativeFrom="margin">
+											<wp14:pctHeight>0</wp14:pctHeight>
+										</wp14:sizeRelV>
+									</wp:anchor>
+								</w:drawing>
+							</mc:Choice>
+							<mc:Fallback>
+								<w:pict>
+									<v:line from=".45pt,6.75pt" id="Rak 1" o:gfxdata="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 " o:spid="_x0000_s1026" strokecolor="#00b050" style="position:absolute;flip:y;z-index:251696128;visibility:visible;mso-wrap-style:square;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-height-percent:0;mso-height-relative:margin" to="449.6pt,6.75pt" w14:anchorId="6CE0B232"/>
+								</w:pict>
+							</mc:Fallback>
+						</mc:AlternateContent>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="3DCCA857" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="47FB0C89" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidRDefault="006A1A16" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+						<w:sectPr w:rsidR="006A1A16" w:rsidRPr="000422C6" w:rsidSect="00836B6B">
+							<w:headerReference w:type="default" r:id="rId18"/>
+							<w:type w:val="continuous"/>
+							<w:pgSz w:w="11906" w:h="16838" w:code="9"/>
+							<w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="709" w:footer="709" w:gutter="0"/>
+							<w:cols w:num="2" w:space="709"/>
+							<w:docGrid w:linePitch="360"/>
+						</w:sectPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="1A7B878F" w14:textId="2E7446DE" w:rsidR="00E63C2D" w:rsidRPr="00E63C2D" w:rsidRDefault="00E63C2D" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:b/>
+							<w:bCs/>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="051CB18D" w14:textId="6061941A" w:rsidR="00BB508F" w:rsidRPr="00726179" w:rsidRDefault="00BB508F" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:b/>
+							<w:bCs/>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="00726179">
+						<w:rPr>
+							<w:b/>
+							<w:bCs/>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:t>Besiktningens omfattning</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="38D4102A" w14:textId="77777777" w:rsidR="006A1A16" w:rsidRPr="00BB508F" w:rsidRDefault="006A1A16" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="3A7CFFF6" w14:textId="77777777" w:rsidR="00BB508F" w:rsidRPr="007D262B" w:rsidRDefault="00BB508F" w:rsidP="00BB508F">
+					<w:pPr>
+						<w:pStyle w:val="ListParagraph"/>
+						<w:numPr>
+							<w:ilvl w:val="0"/>
+							<w:numId w:val="3"/>
+						</w:numPr>
+						<w:rPr>
+							<w:rStyle w:val="IntenseEmphasis"/>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:rStyle w:val="IntenseEmphasis"/>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t>Typ av besiktning</w:t>
+					</w:r>
+					<w:r w:rsidR="006E4120" w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:rStyle w:val="IntenseEmphasis"/>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t xml:space="preserve"> och besiktningskriterier</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="68745F00" w14:textId="77777777" w:rsidR="00BB508F" w:rsidRDefault="00BB508F" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="536D6CA6" w14:textId="431495A6" w:rsidR="001B4CAD" w:rsidRDefault="00000000" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:sz w:val="20"/>
+								<w:szCs w:val="20"/>
+							</w:rPr>
+							<w:id w:val="-1946213050"/>
+							<w14:checkbox>
+								<w14:checked w14:val="0"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00C63EF1">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:sz w:val="20"/>
+									<w:szCs w:val="20"/>
+								</w:rPr>
+								<w:t>☐</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00C63EF1">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="003232EC">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Årlig säkerhetsbesiktning</w:t>
+					</w:r>
+					<w:r w:rsidR="003232EC">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:tab/>
+					</w:r>
+					<w:r w:rsidR="00BB508F">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:tab/>
+					</w:r>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:sz w:val="20"/>
+								<w:szCs w:val="20"/>
+							</w:rPr>
+							<w:id w:val="-763771237"/>
+							<w14:checkbox>
+								<w14:checked w14:val="1"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00987740">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:sz w:val="20"/>
+									<w:szCs w:val="20"/>
+								</w:rPr>
+								<w:t>☒</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00C63EF1">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="003232EC">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Installationsbesiktning</w:t>
+					</w:r>
+					<w:r w:rsidR="00DD639A">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="27EDFA7E" w14:textId="77777777" w:rsidR="00BB508F" w:rsidRPr="00BB508F" w:rsidRDefault="002F76A6" w:rsidP="003232EC">
+					<w:pPr>
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t xml:space="preserve">Utförs mot SS-EN 1176 och </w:t>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:t>tillämplig lagstiftning*</w:t>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:tab/>
+						<w:t xml:space="preserve">Utförs mot SS-EN 1176, tillverkarens anvisningar och </w:t>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:t>tillämplig lagstiftning*</w:t>
+					</w:r>
+					<w:r>
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:br/>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:br/>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:b/>
+							<w:i/>
+							<w:sz w:val="14"/>
+							<w:szCs w:val="14"/>
+						</w:rPr>
+						<w:t>* Såsom PBL (2010:900), BBR, Produktsäkerhetslagen (2004:451), Produktansvarslagen (SFS 1992:18), Ordningslagen (SFS 1993:1617)</w:t>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:br/>
+					</w:r>
+					<w:r>
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t xml:space="preserve">Fitness-utrustning vid andra lekredskap besiktigas enligt SS-EN 1176 och </w:t>
+					</w:r>
+					<w:r w:rsidRPr="00276592">
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:t>tillämplig lagstiftning*</w:t>
+					</w:r>
+					<w:r>
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t xml:space="preserve"> och ej enligt SS-EN 16630:2015</w:t>
+					</w:r>
+					<w:r w:rsidR="003232EC" w:rsidRPr="00BB508F">
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:tab/>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="6FAF739C" w14:textId="77777777" w:rsidR="006E4120" w:rsidRPr="007D262B" w:rsidRDefault="006E4120" w:rsidP="006E4120">
+					<w:pPr>
+						<w:pStyle w:val="ListParagraph"/>
+						<w:numPr>
+							<w:ilvl w:val="0"/>
+							<w:numId w:val="3"/>
+						</w:numPr>
+						<w:rPr>
+							<w:rStyle w:val="IntenseEmphasis"/>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:rStyle w:val="IntenseEmphasis"/>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t>Fysisk omfattning</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="38F31E95" w14:textId="77777777" w:rsidR="006E4120" w:rsidRDefault="006E4120" w:rsidP="006E4120">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="61E91E28" w14:textId="2F44DD1E" w:rsidR="006E4120" w:rsidRDefault="00000000" w:rsidP="006E4120">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:sz w:val="20"/>
+								<w:szCs w:val="20"/>
+							</w:rPr>
+							<w:id w:val="-612058650"/>
+							<w14:checkbox>
+								<w14:checked w14:val="1"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00705A33">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:sz w:val="20"/>
+									<w:szCs w:val="20"/>
+								</w:rPr>
+								<w:t>☒</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00705A33">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="006E4120">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Endast lekredskap med tillhörande stötdämpande underlag (isla</w:t>
+					</w:r>
+					<w:r w:rsidR="00DE4A9A">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>gsyta</w:t>
+					</w:r>
+					<w:r w:rsidR="005C4D2B">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"> kontrolleras med stickprover</w:t>
+					</w:r>
+					<w:r w:rsidR="00DE4A9A">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>)</w:t>
+					</w:r>
+					<w:r w:rsidR="0079326C">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>.</w:t>
+					</w:r>
+					<w:r w:rsidR="00F03C71">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="002F76A6">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Samt brunnar i direkt närhet</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="4736D12D" w14:textId="77777777" w:rsidR="000D449D" w:rsidRDefault="000D449D" w:rsidP="006E4120">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="1D0393BA" w14:textId="41084570" w:rsidR="006E4120" w:rsidRDefault="00000000" w:rsidP="006E4120">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:sz w:val="20"/>
+								<w:szCs w:val="20"/>
+							</w:rPr>
+							<w:id w:val="98682997"/>
+							<w14:checkbox>
+								<w14:checked w14:val="0"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00987740">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:sz w:val="20"/>
+									<w:szCs w:val="20"/>
+								</w:rPr>
+								<w:t>☐</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00705A33">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="006E4120">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Lekplats inklusive staket/stängsel/buskage som avgränsar lekplatsen samt brunnar inom 10 m utanför staket/stängsel/buskage. Fasta bänkar och bord samt träd och buskar omfattas</w:t>
+					</w:r>
+					<w:r w:rsidR="006E4120" w:rsidRPr="000D449D">
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"> inte</w:t>
+					</w:r>
+					<w:r w:rsidR="006E4120">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"> av besiktningen.</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="2D46FB06" w14:textId="77777777" w:rsidR="000D449D" w:rsidRDefault="000D449D" w:rsidP="006E4120">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="2DB11CE0" w14:textId="1FA7D15F" w:rsidR="00B41AE6" w:rsidRDefault="00000000" w:rsidP="00BB508F">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:sectPr w:rsidR="00B41AE6" w:rsidSect="006A1A16">
+							<w:type w:val="continuous"/>
+							<w:pgSz w:w="11906" w:h="16838" w:code="9"/>
+							<w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="709" w:footer="709" w:gutter="0"/>
+							<w:cols w:space="709"/>
+							<w:docGrid w:linePitch="360"/>
+						</w:sectPr>
+					</w:pPr>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:sz w:val="20"/>
+								<w:szCs w:val="20"/>
+							</w:rPr>
+							<w:id w:val="-1835833453"/>
+							<w14:checkbox>
+								<w14:checked w14:val="0"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00987740">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:sz w:val="20"/>
+									<w:szCs w:val="20"/>
+								</w:rPr>
+								<w:t>☐</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00705A33">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="000D449D">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Områd</w:t>
+					</w:r>
+					<w:r w:rsidR="00EC12DE">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>e markerat på karta (se bilaga 1</w:t>
+					</w:r>
+					<w:r w:rsidR="000D449D">
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>(förutom lekredskap med tillhörande islagsytor även träd och buskar samt kommunikationsvägar)) inklusive brunnar på lekplatsen och i lekplatsens närområde (upp till 20 m utanför kartans markering)</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="565227FE" w14:textId="77777777" w:rsidR="00B41AE6" w:rsidRDefault="00B41AE6" w:rsidP="00BB508F">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="7EAD9078" w14:textId="2C33B276" w:rsidR="00BB508F" w:rsidRDefault="006A1A16" w:rsidP="00BB508F">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:b/>
+							<w:noProof/>
+						</w:rPr>
+						<mc:AlternateContent>
+							<mc:Choice Requires="wps">
+								<w:drawing>
+									<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251698176" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="3022E2A0" wp14:editId="455CEAF8">
+										<wp:simplePos x="0" y="0"/>
+										<wp:positionH relativeFrom="column">
+											<wp:posOffset>-96520</wp:posOffset>
+										</wp:positionH>
+										<wp:positionV relativeFrom="paragraph">
+											<wp:posOffset>92075</wp:posOffset>
+										</wp:positionV>
+										<wp:extent cx="5704205" cy="0"/>
+										<wp:effectExtent l="0" t="0" r="0" b="0"/>
+										<wp:wrapNone/>
+										<wp:docPr id="3" name="Rak 3"/>
+										<wp:cNvGraphicFramePr/>
+										<a:graphic
+											xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+											<a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+												<wps:wsp>
+													<wps:cNvCnPr/>
+													<wps:spPr>
+														<a:xfrm flipV="1">
+															<a:off x="0" y="0"/>
+															<a:ext cx="5704205" cy="0"/>
+														</a:xfrm>
+														<a:prstGeom prst="line">
+															<a:avLst/>
+														</a:prstGeom>
+														<a:ln>
+															<a:solidFill>
+																<a:srgbClr val="00B050"/>
+															</a:solidFill>
+														</a:ln>
+													</wps:spPr>
+													<wps:style>
+														<a:lnRef idx="1">
+															<a:schemeClr val="accent1"/>
+														</a:lnRef>
+														<a:fillRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:fillRef>
+														<a:effectRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:effectRef>
+														<a:fontRef idx="minor">
+															<a:schemeClr val="tx1"/>
+														</a:fontRef>
+													</wps:style>
+													<wps:bodyPr/>
+												</wps:wsp>
+											</a:graphicData>
+										</a:graphic>
+										<wp14:sizeRelV relativeFrom="margin">
+											<wp14:pctHeight>0</wp14:pctHeight>
+										</wp14:sizeRelV>
+									</wp:anchor>
+								</w:drawing>
+							</mc:Choice>
+							<mc:Fallback>
+								<w:pict>
+									<v:line from="-7.6pt,7.25pt" id="Rak 3" o:gfxdata="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 " o:spid="_x0000_s1026" strokecolor="#00b050" style="position:absolute;flip:y;z-index:251698176;visibility:visible;mso-wrap-style:square;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-height-percent:0;mso-height-relative:margin" to="441.55pt,7.25pt" w14:anchorId="431D12C8"/>
+								</w:pict>
+							</mc:Fallback>
+						</mc:AlternateContent>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="10B07EEC" w14:textId="77777777" w:rsidR="00836B6B" w:rsidRPr="007D262B" w:rsidRDefault="00836B6B" w:rsidP="005E5A0F">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="5E01D569" w14:textId="77777777" w:rsidR="00950CDF" w:rsidRPr="007D262B" w:rsidRDefault="00950CDF" w:rsidP="00950CDF">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="6C49B885" w14:textId="55E1F2E2" w:rsidR="00836B6B" w:rsidRPr="007D262B" w:rsidRDefault="00836B6B" w:rsidP="006A1A16">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:sectPr w:rsidR="00836B6B" w:rsidRPr="007D262B" w:rsidSect="00836B6B">
+							<w:type w:val="continuous"/>
+							<w:pgSz w:w="11906" w:h="16838" w:code="9"/>
+							<w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="709" w:footer="709" w:gutter="0"/>
+							<w:cols w:num="2" w:space="709"/>
+							<w:docGrid w:linePitch="360"/>
+						</w:sectPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="20697945" w14:textId="77777777" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:b/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="004A7478">
+						<w:rPr>
+							<w:b/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+						<w:t>Besiktningsman</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="095E07DD" w14:textId="77777777" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:bCs/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="77605ACF" w14:textId="5606F747" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00C63EF1" w:rsidP="00C63EF1">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:bCs/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:bCs/>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t>Andreas Löfkvist</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="4688B9E0" w14:textId="77777777" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:rPr>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="064F97D3" w14:textId="5041F170" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="004A7478">
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t xml:space="preserve">Telefon: </w:t>
+					</w:r>
+					<w:r>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:lang w:val="de-DE"/>
+						</w:rPr>
+						<w:t>0707979512</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="36803E23" w14:textId="0199868F" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="004A7478">
+						<w:rPr>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t xml:space="preserve">E-mail: </w:t>
+					</w:r>
+					<w:r>
+						<w:rPr>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:lang w:val="de-DE"/>
+						</w:rPr>
+						<w:t>andreas.lofkvist@greenlandscaping.se</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="70DC9F4D" w14:textId="37A8FCAE" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00C63EF1" w:rsidP="00C63EF1">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:color w:val="008080"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:color w:val="008080"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t>Aendraes.com</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="5AD83DF7" w14:textId="77777777" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:jc w:val="center"/>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="34CE0346" w14:textId="77777777" w:rsidR="00880C22" w:rsidRPr="004A7478" w:rsidRDefault="00880C22" w:rsidP="00880C22">
+					<w:pPr>
+						<w:autoSpaceDE w:val="0"/>
+						<w:autoSpaceDN w:val="0"/>
+						<w:adjustRightInd w:val="0"/>
+						<w:rPr>
+							<w:color w:val="000000"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="4D04E679" w14:textId="77777777" w:rsidR="00E92676" w:rsidRPr="004A7478" w:rsidRDefault="003E7E39" w:rsidP="00E92676">
+					<w:pPr>
+						<w:rPr>
+							<w:color w:val="000000" w:themeColor="text1"/>
+							<w:sz w:val="22"/>
+							<w:szCs w:val="22"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:b/>
+							<w:noProof/>
+						</w:rPr>
+						<mc:AlternateContent>
+							<mc:Choice Requires="wps">
+								<w:drawing>
+									<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251692032" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="62126EA4" wp14:editId="782B8103">
+										<wp:simplePos x="0" y="0"/>
+										<wp:positionH relativeFrom="column">
+											<wp:posOffset>6350</wp:posOffset>
+										</wp:positionH>
+										<wp:positionV relativeFrom="paragraph">
+											<wp:posOffset>61595</wp:posOffset>
+										</wp:positionV>
+										<wp:extent cx="5704205" cy="0"/>
+										<wp:effectExtent l="0" t="0" r="0" b="0"/>
+										<wp:wrapNone/>
+										<wp:docPr id="60" name="Rak 60"/>
+										<wp:cNvGraphicFramePr/>
+										<a:graphic
+											xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+											<a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+												<wps:wsp>
+													<wps:cNvCnPr/>
+													<wps:spPr>
+														<a:xfrm flipV="1">
+															<a:off x="0" y="0"/>
+															<a:ext cx="5704205" cy="0"/>
+														</a:xfrm>
+														<a:prstGeom prst="line">
+															<a:avLst/>
+														</a:prstGeom>
+														<a:ln>
+															<a:solidFill>
+																<a:srgbClr val="00B050"/>
+															</a:solidFill>
+														</a:ln>
+													</wps:spPr>
+													<wps:style>
+														<a:lnRef idx="1">
+															<a:schemeClr val="accent1"/>
+														</a:lnRef>
+														<a:fillRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:fillRef>
+														<a:effectRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:effectRef>
+														<a:fontRef idx="minor">
+															<a:schemeClr val="tx1"/>
+														</a:fontRef>
+													</wps:style>
+													<wps:bodyPr/>
+												</wps:wsp>
+											</a:graphicData>
+										</a:graphic>
+										<wp14:sizeRelV relativeFrom="margin">
+											<wp14:pctHeight>0</wp14:pctHeight>
+										</wp14:sizeRelV>
+									</wp:anchor>
+								</w:drawing>
+							</mc:Choice>
+							<mc:Fallback>
+								<w:pict>
+									<v:line from=".5pt,4.85pt" id="Rak 60" o:gfxdata="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 " o:spid="_x0000_s1026" strokecolor="#00b050" style="position:absolute;flip:y;z-index:251692032;visibility:visible;mso-wrap-style:square;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-height-percent:0;mso-height-relative:margin" to="449.65pt,4.85pt" w14:anchorId="5448A3E5"/>
+								</w:pict>
+							</mc:Fallback>
+						</mc:AlternateContent>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="500A96FC" w14:textId="5604AECD" w:rsidR="00E92676" w:rsidRPr="00AC32F1" w:rsidRDefault="00292330" w:rsidP="00E92676">
+					<w:pPr>
+						<w:rPr>
+							<w:sz w:val="22"/>
+							<w:szCs w:val="22"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:sz w:val="22"/>
+							<w:szCs w:val="22"/>
+						</w:rPr>
+						<w:t>Härmed intygas att besiktningen utförts enligt gällande regler.</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="5DE6791D" w14:textId="4C2D6222" w:rsidR="0051677D" w:rsidRPr="00E92676" w:rsidRDefault="00292330" w:rsidP="00E92676">
+					<w:pPr>
+						<w:rPr>
+							<w:b/>
+						</w:rPr>
+					</w:pPr>
+					<w:r>
+						<w:rPr>
+							<w:i/>
+							<w:iCs/>
+							<w:sz w:val="22"/>
+							<w:szCs w:val="22"/>
+						</w:rPr>
+						<w:t>Digitalt signerad av Andreas Löfkvist, 2023-05-15</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="29605966" w14:textId="60C2E6C5" w:rsidR="0051677D" w:rsidRPr="00E92676" w:rsidRDefault="0051677D">
+					<w:pPr>
+						<w:spacing w:after="200" w:line="276" w:lineRule="auto"/>
+						<w:rPr>
+							<w:color w:val="00B050"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="00E92676">
+						<w:rPr>
+							<w:color w:val="00B050"/>
+						</w:rPr>
+						<w:br w:type="page"/>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="47E1538D" w14:textId="502DCEDA" w:rsidR="001D17A5" w:rsidRPr="007D262B" w:rsidRDefault="001D17A5" w:rsidP="00296C9B">
+					<w:pPr>
+						<w:pStyle w:val="Heading2"/>
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:lastRenderedPageBreak/>
+						<w:t>Anmärkningar</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="483F7CEC" w14:textId="507587A3" w:rsidR="00296C9B" w:rsidRPr="007D262B" w:rsidRDefault="00296C9B" w:rsidP="00296C9B">
+					<w:pPr>
+						<w:pStyle w:val="Heading2"/>
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:b w:val="0"/>
+							<w:noProof/>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<mc:AlternateContent>
+							<mc:Choice Requires="wps">
+								<w:drawing>
+									<wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251700224" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="182D0BE3" wp14:editId="132DC9E7">
+										<wp:simplePos x="0" y="0"/>
+										<wp:positionH relativeFrom="column">
+											<wp:posOffset>-92710</wp:posOffset>
+										</wp:positionH>
+										<wp:positionV relativeFrom="paragraph">
+											<wp:posOffset>40005</wp:posOffset>
+										</wp:positionV>
+										<wp:extent cx="5704205" cy="0"/>
+										<wp:effectExtent l="0" t="0" r="0" b="0"/>
+										<wp:wrapNone/>
+										<wp:docPr id="4" name="Rak 4"/>
+										<wp:cNvGraphicFramePr/>
+										<a:graphic
+											xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+											<a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
+												<wps:wsp>
+													<wps:cNvCnPr/>
+													<wps:spPr>
+														<a:xfrm flipV="1">
+															<a:off x="0" y="0"/>
+															<a:ext cx="5704205" cy="0"/>
+														</a:xfrm>
+														<a:prstGeom prst="line">
+															<a:avLst/>
+														</a:prstGeom>
+														<a:ln>
+															<a:solidFill>
+																<a:srgbClr val="00B050"/>
+															</a:solidFill>
+														</a:ln>
+													</wps:spPr>
+													<wps:style>
+														<a:lnRef idx="1">
+															<a:schemeClr val="accent1"/>
+														</a:lnRef>
+														<a:fillRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:fillRef>
+														<a:effectRef idx="0">
+															<a:schemeClr val="accent1"/>
+														</a:effectRef>
+														<a:fontRef idx="minor">
+															<a:schemeClr val="tx1"/>
+														</a:fontRef>
+													</wps:style>
+													<wps:bodyPr/>
+												</wps:wsp>
+											</a:graphicData>
+										</a:graphic>
+										<wp14:sizeRelV relativeFrom="margin">
+											<wp14:pctHeight>0</wp14:pctHeight>
+										</wp14:sizeRelV>
+									</wp:anchor>
+								</w:drawing>
+							</mc:Choice>
+							<mc:Fallback>
+								<w:pict>
+									<v:line from="-7.3pt,3.15pt" id="Rak 4" o:gfxdata="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 " o:spid="_x0000_s1026" strokecolor="#00b050" style="position:absolute;flip:y;z-index:251700224;visibility:visible;mso-wrap-style:square;mso-height-percent:0;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;mso-position-horizontal:absolute;mso-position-horizontal-relative:text;mso-position-vertical:absolute;mso-position-vertical-relative:text;mso-height-percent:0;mso-height-relative:margin" to="441.85pt,3.15pt" w14:anchorId="1807CEE5"/>
+								</w:pict>
+							</mc:Fallback>
+						</mc:AlternateContent>
+					</w:r>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t xml:space="preserve">Drift- och underhållsplan </w:t>
+					</w:r>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+							<w:sz w:val="16"/>
+							<w:szCs w:val="16"/>
+						</w:rPr>
+						<w:t>(beställarens uppgifter samt/alt besiktningsmannens anmärkningar)</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="46A84F90" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRDefault="00296C9B" w:rsidP="00296C9B">
+					<w:pPr>
+						<w:rPr>
+							<w:b/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:p w14:paraId="42011B62" w14:textId="64A8367D" w:rsidR="00296C9B" w:rsidRPr="00F1652F" w:rsidRDefault="00000000" w:rsidP="00296C9B">
+					<w:pPr>
+						<w:rPr>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-US"/>
+						</w:rPr>
+					</w:pPr>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:u w:val="single"/>
+								<w:lang w:val="en-GB"/>
+							</w:rPr>
+							<w:id w:val="-1371688047"/>
+							<w14:checkbox>
+								<w14:checked w14:val="1"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00F1652F">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:u w:val="single"/>
+									<w:lang w:val="en-GB"/>
+								</w:rPr>
+								<w:t>☒</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00F1652F">
+						<w:rPr>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="00296C9B" w:rsidRPr="0040565D">
+						<w:rPr>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+						<w:t>Finns</w:t>
+					</w:r>
+					<w:r w:rsidR="00296C9B" w:rsidRPr="0040565D">
+						<w:rPr>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+						<w:tab/>
+					</w:r>
+					<w:sdt>
+						<w:sdtPr>
+							<w:rPr>
+								<w:u w:val="single"/>
+								<w:lang w:val="en-GB"/>
+							</w:rPr>
+							<w:id w:val="-1733688379"/>
+							<w14:checkbox>
+								<w14:checked w14:val="0"/>
+								<w14:checkedState w14:val="2612" w14:font="MS Gothic"/>
+								<w14:uncheckedState w14:val="2610" w14:font="MS Gothic"/>
+							</w14:checkbox>
+						</w:sdtPr>
+						<w:sdtContent>
+							<w:r w:rsidR="00987740">
+								<w:rPr>
+									<w:rFonts w:ascii="MS Gothic" w:eastAsia="MS Gothic" w:hAnsi="MS Gothic" w:hint="eastAsia"/>
+									<w:u w:val="single"/>
+									<w:lang w:val="en-GB"/>
+								</w:rPr>
+								<w:t>☐</w:t>
+							</w:r>
+						</w:sdtContent>
+					</w:sdt>
+					<w:r w:rsidR="00F1652F">
+						<w:rPr>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-GB"/>
+						</w:rPr>
+						<w:t xml:space="preserve"></w:t>
+					</w:r>
+					<w:r w:rsidR="00296C9B" w:rsidRPr="00F1652F">
+						<w:rPr>
+							<w:u w:val="single"/>
+							<w:lang w:val="en-US"/>
+						</w:rPr>
+						<w:t>Saknas</w:t>
+					</w:r>
+				</w:p>
+				<w:tbl>
+					<w:tblPr>
+						<w:tblW w:w="0" w:type="auto"/>
+						<w:tblBorders>
+							<w:top w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+							<w:left w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+							<w:bottom w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+							<w:right w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+							<w:insideH w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+							<w:insideV w:val="single" w:sz="4" w:space="0" w:color="auto"/>
+						</w:tblBorders>
+						<w:tblLook w:val="01E0" w:firstRow="1" w:lastRow="1" w:firstColumn="1" w:lastColumn="1" w:noHBand="0" w:noVBand="0"/>
+					</w:tblPr>
+					<w:tblGrid>
+						<w:gridCol w:w="8246"/>
+						<w:gridCol w:w="816"/>
+					</w:tblGrid>
+					<w:tr w:rsidR="00296C9B" w:rsidRPr="00392E43" w14:paraId="59964920" w14:textId="77777777" w:rsidTr="0008181D">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="8388" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="3F8450CC" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+									<w:t>Leverantörens anvisningar:</w:t>
+								</w:r>
+							</w:p>
+							<w:p w14:paraId="521C85EA" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>-</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>, Bra att ha vid tex reparationer av lekredskap, detta kan säkra att man använder originaldelar</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="824" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="2B4A39C0" w14:textId="22A1899C" w:rsidR="00296C9B" w:rsidRPr="00881632" w:rsidRDefault="004678C6" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+									</w:rPr>
+									<w:t>Ja</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="00296C9B" w:rsidRPr="004678C6" w14:paraId="50576785" w14:textId="77777777" w:rsidTr="0008181D">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="8388" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="75802A50" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+									<w:t>Hänvisningsskylt:</w:t>
+								</w:r>
+							</w:p>
+							<w:p w14:paraId="50E42929" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>-</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t xml:space="preserve">, </w:t>
+								</w:r>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Bra om olycka inträffar, så att personer kan ringa och ledsaga räddningstjänst eller liknande.</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="824" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="5C0BEB86" w14:textId="453335CF" w:rsidR="00296C9B" w:rsidRPr="00881632" w:rsidRDefault="004678C6" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+									</w:rPr>
+									<w:t>Ja</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="00296C9B" w:rsidRPr="004678C6" w14:paraId="3EEF0852" w14:textId="77777777" w:rsidTr="0008181D">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="8388" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="442B2C1D" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+									<w:t>Rutiner olyckor/incidenter:</w:t>
+								</w:r>
+							</w:p>
+							<w:p w14:paraId="4748235C" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>-</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>, viktigt för att kunna utvärdera om redskap är felaktiga och ej anpassade för användarna</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="824" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="35815D8F" w14:textId="41636235" w:rsidR="00296C9B" w:rsidRPr="00881632" w:rsidRDefault="00F1652F" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+									</w:rPr>
+									<w:t>Ja</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="00296C9B" w:rsidRPr="004678C6" w14:paraId="328338EB" w14:textId="77777777" w:rsidTr="0008181D">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="8388" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="731F15AA" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+									<w:t>Rutiner för underhåll</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>:</w:t>
+								</w:r>
+							</w:p>
+							<w:p w14:paraId="0A8F1FD6" w14:textId="0A7A56DE" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>-</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>, viktigt för att ha fungerande redskap längre och säkrare, vilket är ekonomiskt försvarbart</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="824" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="2FC4F8A2" w14:textId="3275F3E9" w:rsidR="00296C9B" w:rsidRPr="00881632" w:rsidRDefault="00F1652F" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+									</w:rPr>
+									<w:t>Ja</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="00296C9B" w:rsidRPr="004678C6" w14:paraId="43C75462" w14:textId="77777777" w:rsidTr="0008181D">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="8388" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="6F2B4F95" w14:textId="77777777" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="16"/>
+										<w:szCs w:val="16"/>
+									</w:rPr>
+									<w:t>Sparande av dokument:</w:t>
+								</w:r>
+							</w:p>
+							<w:p w14:paraId="6B98FA84" w14:textId="34F08711" w:rsidR="00296C9B" w:rsidRPr="006B2DE6" w:rsidRDefault="00296C9B" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>-</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>, bra om man tex byt</w:t>
+								</w:r>
+								<w:r w:rsidR="009E4366">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>e</w:t>
+								</w:r>
+								<w:r w:rsidRPr="006B2DE6">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>r entreprenör, dessa dokument förenklar driften av redskapen</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="824" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="66CF8FAA" w14:textId="406A6EB5" w:rsidR="00296C9B" w:rsidRPr="00881632" w:rsidRDefault="00F1652F" w:rsidP="0008181D">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r>
+									<w:rPr>
+										<w:b/>
+										<w:lang w:val="en-GB"/>
+									</w:rPr>
+									<w:t>Ja</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+				</w:tbl>
+				<w:p w14:paraId="741B176C" w14:textId="513984D0" w:rsidR="009B4B8F" w:rsidRPr="00F65104" w:rsidRDefault="00296C9B" w:rsidP="00F65104">
+					<w:pPr>
+						<w:rPr>
+							<w:b/>
+							<w:u w:val="single"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="006B2DE6">
+						<w:rPr>
+							<w:i/>
+							<w:sz w:val="20"/>
+							<w:szCs w:val="20"/>
+						</w:rPr>
+						<w:t>Enligt SS-EN 1176-7, avsnitt 8.1.1, 8.2.3, 8.2.4, 8.2.5, 8.2.6, 8.2.7, 8.2.9</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="4071BAF5" w14:textId="6DC13D7A" w:rsidR="005E5A0F" w:rsidRPr="007D262B" w:rsidRDefault="004553CB" w:rsidP="00C73FCD">
+					<w:pPr>
+						<w:pStyle w:val="Heading1"/>
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+					</w:pPr>
+					<w:r w:rsidRPr="007D262B">
+						<w:rPr>
+							<w:color w:val="60A730"/>
+						</w:rPr>
+						<w:t>Förklaring av anmärkningar</w:t>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="661E15EA" w14:textId="77777777" w:rsidR="005E5A0F" w:rsidRDefault="005E5A0F" w:rsidP="005E5A0F">
+					<w:pPr>
+						<w:rPr>
+							<w:b/>
+						</w:rPr>
+					</w:pPr>
+				</w:p>
+				<w:tbl>
+					<w:tblPr>
+						<w:tblStyle w:val="TableGrid"/>
+						<w:tblW w:w="0" w:type="auto"/>
+						<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+					</w:tblPr>
+					<w:tblGrid>
+						<w:gridCol w:w="1532"/>
+						<w:gridCol w:w="7530"/>
+					</w:tblGrid>
+					<w:tr w:rsidR="004553CB" w:rsidRPr="00C73FCD" w14:paraId="763BD3C9" w14:textId="77777777" w:rsidTr="004553CB">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="1537" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="2B3BB07D" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Anmärkning</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="7673" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="2BEE7644" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Typ av fel</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="004553CB" w:rsidRPr="00C73FCD" w14:paraId="10067619" w14:textId="77777777" w:rsidTr="004553CB">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="1537" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="7038B1FD" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>A</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="7673" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="4A112D5F" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Risk för allvarlig skada alternativt stor risk för mindre skada</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="004553CB" w:rsidRPr="00C73FCD" w14:paraId="554DEA9B" w14:textId="77777777" w:rsidTr="004553CB">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="1537" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="62ED55BA" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>B</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="7673" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="45FEA6B3" w14:textId="4F2CC592" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Mindre risk för mindre skada alternativt stor risk för liten skada</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="004553CB" w:rsidRPr="00C73FCD" w14:paraId="4DFA95EF" w14:textId="77777777" w:rsidTr="004553CB">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="1537" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="292E2463" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>C</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="7673" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="6A36A8E7" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Liten risk för mindre skada alternativt mindre risk för liten skada</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="004553CB" w:rsidRPr="00C73FCD" w14:paraId="45040668" w14:textId="77777777" w:rsidTr="004553CB">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="1537" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="2156E0DF" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>-</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="7673" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="1CFD85D5" w14:textId="77777777" w:rsidR="004553CB" w:rsidRPr="00C73FCD" w:rsidRDefault="004553CB" w:rsidP="005E5A0F">
+								<w:pPr>
+									<w:rPr>
+										<w:b/>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+								</w:pPr>
+								<w:r w:rsidRPr="00C73FCD">
+									<w:rPr>
+										<w:sz w:val="20"/>
+										<w:szCs w:val="20"/>
+									</w:rPr>
+									<w:t>Inga risker identifierade</w:t>
+								</w:r>
+							</w:p>
+						</w:tc>
+					</w:tr>
+				</w:tbl>
+				<w:p w14:paraId="4676AF4E" w14:textId="77777777" w:rsidR="00EF140E" w:rsidRPr="00EF140E" w:rsidRDefault="00EF140E" w:rsidP="00EF140E"/>
+				<w:p w14:paraId="76E43F7E" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+					<w:r>
+						<w:br w:type="page"/>
+					</w:r>
+				</w:p>
+				<w:p w14:paraId="2D64B099" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+					<w:pPr>
+						<w:pStyle w:val="Bigheading"/>
+					</w:pPr>
+					<w:r>
+						<w:lastRenderedPageBreak/>
+						<w:t>Översiktsbild av lekplatsen</w:t>
+					</w:r>
+				</w:p>
+				<w:tbl>
+					<w:tblPr>
+						<w:tblW w:w="0" w:type="auto"/>
+						<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+					</w:tblPr>
+					<w:tblGrid>
+						<w:gridCol w:w="9072"/>
+					</w:tblGrid>
+					<w:tr w:rsidR="00BB44D9" w14:paraId="0D1824C7" w14:textId="77777777">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="9072" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="0AD79FBF" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+						</w:tc>
+					</w:tr>
+					<w:tr w:rsidR="00BB44D9" w14:paraId="5A33A944" w14:textId="77777777">
+						<w:tc>
+							<w:tcPr>
+								<w:tcW w:w="9072" w:type="dxa"/>
+							</w:tcPr>
+							<w:p w14:paraId="72479738" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+							<w:p w14:paraId="3F8130A3" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+								<w:r>
+									<w:rPr>
+										<w:noProof/>
+									</w:rPr>
+									<w:drawing>
+										<wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="380BF75E" wp14:editId="3E1D9A47">
+											<wp:extent cx="3810000" cy="4064000"/>
+											<wp:effectExtent l="0" t="0" r="0" b="0"/>
+											<wp:docPr id="1634268632" name="Picture 1634268632"/>
+											<wp:cNvGraphicFramePr>
+												<a:graphicFrameLocks
+													xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+												</wp:cNvGraphicFramePr>
+												<a:graphic
+													xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+													<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+														<pic:pic
+															xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+															<pic:nvPicPr>
+																<pic:cNvPr id="0" name="image.jpg"/>
+																<pic:cNvPicPr/>
+															</pic:nvPicPr>
+															<pic:blipFill>
+																<a:blip r:embed="rId19"/>
+																<a:stretch>
+																	<a:fillRect/>
+																</a:stretch>
+															</pic:blipFill>
+															<pic:spPr>
+																<a:xfrm>
+																	<a:off x="0" y="0"/>
+																	<a:ext cx="3810000" cy="4064000"/>
+																</a:xfrm>
+																<a:prstGeom prst="rect">
+																	<a:avLst/>
+																</a:prstGeom>
+															</pic:spPr>
+														</pic:pic>
+													</a:graphicData>
+												</a:graphic>
+											</wp:inline>
+										</w:drawing>
+									</w:r>
+								</w:p>
+							</w:tc>
+						</w:tr>
+					</w:tbl>
+					<w:p w14:paraId="0AF17D8F" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+						<w:pPr>
+							<w:pStyle w:val="Bigheading"/>
+						</w:pPr>
+						<w:r>
+							<w:t>Produktbeskrivning</w:t>
+						</w:r>
+					</w:p>
+					<w:tbl>
+						<w:tblPr>
+							<w:tblStyle w:val="GridTable1Light"/>
+							<w:tblW w:w="0" w:type="auto"/>
+							<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+						</w:tblPr>
+						<w:tblGrid>
+							<w:gridCol w:w="674"/>
+							<w:gridCol w:w="3092"/>
+							<w:gridCol w:w="3276"/>
+							<w:gridCol w:w="959"/>
+							<w:gridCol w:w="1061"/>
+						</w:tblGrid>
+						<w:tr w:rsidR="00BB44D9" w14:paraId="076739B5" w14:textId="77777777" w:rsidTr="00BB44D9">
+							<w:trPr>
+								<w:cnfStyle w:val="100000000000" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+							</w:trPr>
+							<w:tc>
+								<w:tcPr>
+									<w:cnfStyle w:val="001000000000" w:firstRow="0" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									<w:tcW w:w="720" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="6D6A80FB" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:r>
+										<w:t>Nr</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="3600" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="29E31991" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="100000000000" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Produkt</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="3600" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="0858973C" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="100000000000" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Tillverkare/artnr</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="1008" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="49AE9E2E" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="100000000000" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Årtal</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="1152" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="4AF72C31" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="100000000000" w:firstRow="1" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Bild nr</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+						</w:tr>
+						<w:tr w:rsidR="00BB44D9" w14:paraId="7685DFE3" w14:textId="77777777" w:rsidTr="00BB44D9">
+							<w:tc>
+								<w:tcPr>
+									<w:cnfStyle w:val="001000000000" w:firstRow="0" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									<w:tcW w:w="720" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="1E1D896E" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:r>
+										<w:t>1</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="3600" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="6E2E0F09" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="000000000000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Bro</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="3600" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="7803B072" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="000000000000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>-</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="1008" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="40950012" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="000000000000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>-1993</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="1152" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="2F3099B7" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:cnfStyle w:val="000000000000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:oddVBand="0" w:evenVBand="0" w:oddHBand="0" w:evenHBand="0" w:firstRowFirstColumn="0" w:firstRowLastColumn="0" w:lastRowFirstColumn="0" w:lastRowLastColumn="0"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Bild: 1</w:t>
+									</w:r>
+								</w:p>
+							</w:tc>
+						</w:tr>
+					</w:tbl>
+					<w:p w14:paraId="08EB0293" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+						<w:pPr>
+							<w:pStyle w:val="Bigheading"/>
+						</w:pPr>
+						<w:r>
+							<w:t>Besiktningsresultat</w:t>
+						</w:r>
+					</w:p>
+					<w:tbl>
+						<w:tblPr>
+							<w:tblW w:w="0" w:type="auto"/>
+							<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+						</w:tblPr>
+						<w:tblGrid>
+							<w:gridCol w:w="3024"/>
+							<w:gridCol w:w="3024"/>
+							<w:gridCol w:w="3024"/>
+						</w:tblGrid>
+						<w:tr w:rsidR="00BB44D9" w14:paraId="57BBF059" w14:textId="77777777">
+							<w:tc>
+								<w:tcPr>
+									<w:tcW w:w="3024" w:type="dxa"/>
+								</w:tcPr>
+								<w:p w14:paraId="3ACE85AA" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+								<w:p w14:paraId="1FEA9072" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:pPr>
+										<w:pStyle w:val="Smallheading"/>
+									</w:pPr>
+									<w:r>
+										<w:t>Bild: 1</w:t>
+									</w:r>
+								</w:p>
+								<w:p w14:paraId="04B4160C" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+									<w:r>
+										<w:rPr>
+											<w:noProof/>
+										</w:rPr>
+										<w:drawing>
+											<wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="10B47A6D" wp14:editId="76C958E6">
+												<wp:extent cx="1524000" cy="1524000"/>
+												<wp:effectExtent l="0" t="0" r="0" b="0"/>
+												<wp:docPr id="1634268633" name="Picture 1634268633"/>
+												<wp:cNvGraphicFramePr>
+													<a:graphicFrameLocks
+														xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+													</wp:cNvGraphicFramePr>
+													<a:graphic
+														xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+														<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+															<pic:pic
+																xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+																<pic:nvPicPr>
+																	<pic:cNvPr id="0" name="image.jpg"/>
+																	<pic:cNvPicPr/>
+																</pic:nvPicPr>
+																<pic:blipFill>
+																	<a:blip r:embed="rId20"/>
+																	<a:stretch>
+																		<a:fillRect/>
+																	</a:stretch>
+																</pic:blipFill>
+																<pic:spPr>
+																	<a:xfrm>
+																		<a:off x="0" y="0"/>
+																		<a:ext cx="1524000" cy="1524000"/>
+																	</a:xfrm>
+																	<a:prstGeom prst="rect">
+																		<a:avLst/>
+																	</a:prstGeom>
+																</pic:spPr>
+															</pic:pic>
+														</a:graphicData>
+													</a:graphic>
+												</wp:inline>
+											</w:drawing>
+										</w:r>
+									</w:p>
+								</w:tc>
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="3024" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="0BBE796B" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+								</w:tc>
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="3024" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="2544B40C" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+								</w:tc>
+							</w:tr>
+						</w:tbl>
+						<w:p w14:paraId="600064D1" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+						<w:p w14:paraId="0A2881A4" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="Bigheading"/>
+							</w:pPr>
+							<w:r>
+								<w:lastRenderedPageBreak/>
+								<w:t>Anmärkningar:</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="4F0230A4" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="subheading"/>
+								<w:keepNext/>
+							</w:pPr>
+							<w:r>
+								<w:t>Produkt 1, Bro</w:t>
+							</w:r>
+						</w:p>
+						<w:tbl>
+							<w:tblPr>
+								<w:tblStyle w:val="TableGridLight"/>
+								<w:tblW w:w="0" w:type="auto"/>
+								<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+							</w:tblPr>
+							<w:tblGrid>
+								<w:gridCol w:w="8492"/>
+								<w:gridCol w:w="570"/>
+							</w:tblGrid>
+							<w:tr w:rsidR="00BB44D9" w14:paraId="170181F1" w14:textId="77777777">
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="8640" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="2210E908" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>Inga anmärkningar funna vid besiktningstillfället</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="576" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="7DC8AF7E" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>-</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+							</w:tr>
+						</w:tbl>
+						<w:p w14:paraId="2FE2B61F" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="small"/>
+							</w:pPr>
+							<w:r>
+								<w:t>SS-EN 1176-1177 alt 16630</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="27718640" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="subheading2"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Montering ovan mark</w:t>
+							</w:r>
+						</w:p>
+						<w:tbl>
+							<w:tblPr>
+								<w:tblStyle w:val="TableGridLight"/>
+								<w:tblW w:w="0" w:type="auto"/>
+								<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+							</w:tblPr>
+							<w:tblGrid>
+								<w:gridCol w:w="8492"/>
+								<w:gridCol w:w="570"/>
+							</w:tblGrid>
+							<w:tr w:rsidR="00BB44D9" w14:paraId="24A40F44" w14:textId="77777777">
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="8640" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="49380790" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>Egenkontrollerna påvisar att man monterat enligt tillverkarnas anvisningar</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="576" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="0586EFA4" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>-</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+							</w:tr>
+						</w:tbl>
+						<w:p w14:paraId="44EA6F61" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="small"/>
+							</w:pPr>
+							<w:r>
+								<w:t xml:space="preserve">Enligt SS EN 1176-1:6.2.2 </w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="70BFC79C" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="subheading2"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Montering under mark</w:t>
+							</w:r>
+						</w:p>
+						<w:tbl>
+							<w:tblPr>
+								<w:tblStyle w:val="TableGridLight"/>
+								<w:tblW w:w="0" w:type="auto"/>
+								<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+							</w:tblPr>
+							<w:tblGrid>
+								<w:gridCol w:w="8492"/>
+								<w:gridCol w:w="570"/>
+							</w:tblGrid>
+							<w:tr w:rsidR="00BB44D9" w14:paraId="5668B970" w14:textId="77777777">
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="8640" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="085990AE" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>Egenkontrollerna påvisar att man monterat enligt tillverkarnas anvisningar</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="576" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="6F1010FD" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>-</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+							</w:tr>
+						</w:tbl>
+						<w:p w14:paraId="0A9EDD86" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="small"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Enligt SS EN 1176-1:6.2.2</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="0BA51D5F" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="subheading2"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Montering under TEST</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="1C0F3919" w14:textId="68B8B4ED" w:rsidR="00D161B2" w:rsidRDefault="00000000" w:rsidP="00D161B2">
+							<w:pPr>
+								<w:pBdr>
+									<w:bottom w:val="single" w:sz="4" w:space="1" w:color="7F7F7F" w:themeColor="text1" w:themeTint="80"/>
+								</w:pBdr>
+							</w:pPr>
+							<w:r>
+								<w:t>Egenkontrollerna påvisar att man monterat enligt tillverkarnas anvisningar</w:t>
+							</w:r>
+                            <w:rPr>
+                                <tab w:val="right"/>
+                            </w:rPr>
+                            <w:r>
+								<w:t>C </w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="23C6F976" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="small"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Enligt SS EN 1176-1:6.2.2</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="235CE26F" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+						<w:p w14:paraId="3D678980" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="Bigheading"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Stötdämpande underlag:</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="4812D0C9" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:r>
+								<w:t>Inga kommentarer gällande underlag</w:t>
+							</w:r>
+						</w:p>
+						<w:p w14:paraId="14E08E55" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00BB44D9"/>
+						<w:p w14:paraId="05C10828" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="Bigheading"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Brunnar:</w:t>
+							</w:r>
+						</w:p>
+						<w:tbl>
+							<w:tblPr>
+								<w:tblStyle w:val="TableGridLight"/>
+								<w:tblW w:w="0" w:type="auto"/>
+								<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
+							</w:tblPr>
+							<w:tblGrid>
+								<w:gridCol w:w="8492"/>
+								<w:gridCol w:w="570"/>
+							</w:tblGrid>
+							<w:tr w:rsidR="00BB44D9" w14:paraId="1011F83F" w14:textId="77777777">
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="8640" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="59629FA0" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>Ej kontrollerade.</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+								<w:tc>
+									<w:tcPr>
+										<w:tcW w:w="576" w:type="dxa"/>
+									</w:tcPr>
+									<w:p w14:paraId="3792A6B3" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+										<w:r>
+											<w:t>-</w:t>
+										</w:r>
+									</w:p>
+								</w:tc>
+							</w:tr>
+						</w:tbl>
+						<w:p w14:paraId="1C6D4CD9" w14:textId="77777777" w:rsidR="00BB44D9" w:rsidRDefault="00000000">
+							<w:pPr>
+								<w:pStyle w:val="small"/>
+							</w:pPr>
+							<w:r>
+								<w:t>Enligt ordningslagen 3 kap 5§</w:t>
+							</w:r>
+						</w:p>
+						<w:sectPr w:rsidR="00BB44D9" w:rsidSect="00BD4380">
+							<w:headerReference w:type="default" r:id="rId21"/>
+							<w:footerReference w:type="default" r:id="rId22"/>
+							<w:type w:val="continuous"/>
+							<w:pgSz w:w="11906" w:h="16838"/>
+							<w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417" w:header="708" w:footer="708" w:gutter="0"/>
+							<w:cols w:space="708"/>
+							<w:docGrid w:linePitch="360"/>
+						</w:sectPr>
+					</w:body>
+				</w:document>

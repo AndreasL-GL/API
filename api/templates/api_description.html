@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% if messages %}{%for message in messages%}
+{%if message=="success"%}
+<div class="alert alert-success pb-2">
+  <ul class="flashes list-group-item list-unstyled mb-2">
+
+      <li>{{message}}</li>
+
+  </ul>
+</div>{%endif%}{%endfor%}
+{% endif %}
+{% endwith %}
