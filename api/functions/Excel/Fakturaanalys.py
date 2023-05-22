@@ -67,7 +67,6 @@ def process_request(js):
     df.pop(0)
     df.columns = [column.replace('_',' ') for column in df.columns]
     df = df.style.apply(highlight_cells, axis=1)
-    
     file = change_column_size_before_saving(df)
     filename = js['Handlare'] + str(js['ID']) + str(js['Datum'])
     return {"content":base64.b64encode(file.getvalue()).decode('utf-8'), "filename":filename}

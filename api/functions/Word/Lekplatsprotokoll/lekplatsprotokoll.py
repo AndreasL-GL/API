@@ -8,7 +8,7 @@ import mailmerge
 from PIL import Image
 import docx
 from docx.shared import Pt, Inches, RGBColor
-from Office_helper_functions.Word.form_field import set_checkbox_value, compress_word_file
+from Office_helper_functions.Word.form_field import set_checkbox_value
 from Office_helper_functions.Image.Image_operations import resize_and_autoorient
 from functions.Word.add_image_to_zipfile import add_icon_to_word_file
 import base64
@@ -873,7 +873,7 @@ if __name__ == '__main__':
     # with open(os.path.join(os.path.dirname(__file__),'sample.json'),'r', encoding="utf-8") as f:
     #     js = json.load(f)
     # doc = create_protocol('Funktionskontrolllekplatsdemo',"Lista_lekplats_besiktningsprotokoll",js)
-    test_one=False
+    test_one=True
     if not test_one:
         jsonpath = os.path.join(os.path.dirname(__file__),'Lekplatsprotokoll_json_filer')
         destpath = os.path.join(os.path.dirname(__file__), 'Testing_word_filer')
@@ -889,8 +889,9 @@ if __name__ == '__main__':
     if test_one:
         with open(os.path.join(os.path.dirname(__file__), 'tt.json'), encoding='utf-8') as f:
             js = json.load(f)
-            doc = run_functions(js)
-            doc.save(os.path.join(os.path.dirname(__file__),'steg_1.docx'))
+            doc,filename = run_functions(js)
+            print(doc)
+            doc.save(os.path.join(os.path.dirname(__file__),filename+'.docx'))
         
 
     ### TODO:

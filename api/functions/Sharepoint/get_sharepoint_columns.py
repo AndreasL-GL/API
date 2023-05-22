@@ -12,8 +12,8 @@ def get_body_from_sharepoint_api(js):
     resultlist = []
     if 'body' in js.keys(): js = js['body']
     for item in js['d']['results']:
-        if item['StaticName'] not in sharepoint_columns_remove_list:
-            resultlist.append({"Moment":item['Title'], "link":item['StaticName']})
+        if item['EntityPropertyName'] not in sharepoint_columns_remove_list:
+            resultlist.append({"Moment":item['Title'], "link":item['EntityPropertyName']})
     return resultlist
 
 def get_sharepoint_access_headers_through_client_id():

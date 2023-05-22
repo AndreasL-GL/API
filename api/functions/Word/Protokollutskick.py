@@ -87,19 +87,17 @@ def change_icon_in_header(doc):
 def run_functions(js):
     """Runs all the different functions. Takes json as input, returns a json with file-content and filename."""
     title = js["Title"]
-    kontrollmoment = get_template.get_fields(list_=title)
-    
+    kontrollmoment = get_template.get_fields(list_=title)    
+    momentstr = ""
     with open('001file.json', "w", encoding='utf-8') as f:
         json.dump(kontrollmoment,f, indent=4, ensure_ascii=False)
+    js["Kontrollmoment"] = kontrollmoment
     for i,item in enumerate(js['Items']['value']):
         momentstr = ""
         for jitem in item['Kontrollmoment']:
             momentstr = momentstr+'- '+jitem['Value']+'\n'
-
-
         js['Items']['value'][i]['Kontrollmoment'] = momentstr
-
-    js["Kontrollmoment"] = kontrollmoment
+    js['Kontrollmoment'] = [item for item in js['Kontrollmoment'] if item['Moment'] in momentstr]
     js = create_json.create_json_for_word_functions(js)
     file= download_template_file()
     file = add_template_data(file, js)
