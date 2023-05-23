@@ -3,13 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{%block title%}GL API{%endblock%}</title>
+    <title>{%block title%}GLNET API{%endblock%}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="static/styles.css" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <style>
+        body{
+          background-color:darkgreen;
+        }
+        .icon {
+          width: 40px;  /* Specify the desired width */
+          height: auto;  /* Maintain the aspect ratio */
+      }
+    </style>
 
   </head>
   <body>
+      
+  <div display="container colored_div" class="container mx-8 bg-white" style="width:62% !important;"><div class="row justify-content-center colored_div">
+     <h1 class="text-center pt-5">GLNET API <img src="{{ url_for('static', filename='GL_Fjaril.png')}}" class="icon"></h1>
+    
+    <div class="col-sm-9 colored_div">
+        <h2 class="text-center mt-3">{% block headline %}Json2Word{% endblock headline %}</h2>
+        {% block content %}
+        Here's where the content is usually contained
+        {% endblock %}
+    </div>
+    {% block right_menu %} <div style="position:relative;padding-top:2em;padding-left:2em;" class="col-sm-2 colored_div" name="side menu">
+    </div>{% endblock %}</br>
+</div>
+      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     
   </body>

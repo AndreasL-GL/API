@@ -325,6 +325,7 @@ def add_utrustning(doc,js):
     if js['Items']['value'][0]['Typavbesiktning']['Value'] == 'Installationsbesiktning':
         
         for i, item in enumerate(js['Utrustning']):
+            print(item)
             if "Utegymredskap" in item['Items'].keys() and "Utrustning" not in item['Items'].keys(): 
 
                 Produkt = item['Items']['Utegymredskap']['Value']
@@ -441,9 +442,11 @@ def add_anmärkningar(doc, js):
     hh.style = 'Big heading'
     hh.paragraph_format.keep_with_next = True
     for i,utrustning in enumerate(js['Utrustning']):
+        
         utrustning=utrustning['Items']
         anmärkningar = [anmärkning for anmärkning in js['Anmärkningar'] if anmärkning['Items']['UtrustningsID'] == utrustning['ID']]
-        #print(utrustning.keys())
+
+
         if 'Utrustning' not in utrustning.keys():
             utrustning['Utrustning'] =  {'Value':utrustning['Utegymredskap']['Value']}
         h = doc.add_heading('Produkt '+str(i+1)+', '+ utrustning['Utrustning']['Value'], 0)
@@ -890,7 +893,6 @@ if __name__ == '__main__':
         with open(os.path.join(os.path.dirname(__file__), 'tt.json'), encoding='utf-8') as f:
             js = json.load(f)
             doc,filename = run_functions(js)
-            print(doc)
             doc.save(os.path.join(os.path.dirname(__file__),filename+'.docx'))
         
 

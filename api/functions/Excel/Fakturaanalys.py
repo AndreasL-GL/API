@@ -3,7 +3,7 @@ import json
 import io
 import base64
 import os
-
+import numpy as np
 
 
 def read_BVB(cdf):
@@ -30,15 +30,16 @@ def merge_tables(cdf):
     #cdf = df[['Artikelnr','Artikelben1']]
 
     df2 = read_kundavtal(cdf)
-    df = df[['á pris', 'Artikelnr', 'Artikelben1']]
-    df = df.reindex(columns = ['Artikelnr', 'Artikelben1','á pris'])
-    df.columns = ['Artikelnr','Benämning_BVB','pris_BVB']
+    df = df[['á pris', 'Artikelnr', 'Artikelben1', "ACCEPTERAS","REKOMMENDERAS","UNDVIKS"]]
+    df = df.reindex(columns = ['Artikelnr', 'Artikelben1','á pris', "ACCEPTERAS","REKOMMENDERAS","UNDVIKS"])
+    df.columns = ['Artikelnr','Benämning_BVB','pris_BVB', "ACCEPTERAS","REKOMMENDERAS","UNDVIKS"]
     df2 = df2[['Std-avtal1', "CLASS8DESCR/PARTDESCR1", "partno"]]
     df2.columns = ['pris_centralt', "Beskrivning_centralt", "Artikelnr"]
-
-    merged_dataframe = pd.merge(df, df2, on='Artikelnr', how='left')
-    merged_dataframe = merged_dataframe.reindex(columns=['Artikelnr', 'Benämning_BVB','Beskrivning_centralt','pris_BVB', 'pris_centralt'])
+    df["Status"] = np.select([df['ACCEPTERAS'].notnull(), df['REKOMMENDERAS'].notnull(), df['UNDVIKS'].notnull()],
+                            [df['ACCEPTERAS'], df['REKOMMENDERAS'], df['UNDVIKS']], default=" ")
     
+    merged_dataframe = pd.merge(df2,df, on='Artikelnr', how='left')
+    merged_dataframe = merged_dataframe.reindex(columns=['Artikelnr', 'Benämning_BVB', "Status",'Beskrivning_centralt','pris_BVB', 'pris_centralt'])
     merged_dataframe = pd.merge(merged_dataframe,cdf, on='Artikelnr', how='inner')
     
     merged_dataframe['pris_centralt'] = pd.to_numeric(merged_dataframe['pris_centralt'], errors='coerce')
@@ -48,25 +49,29 @@ def merge_tables(cdf):
     
     
     merged_dataframe['pris_BVB'] = pd.to_numeric(merged_dataframe['pris_BVB'], errors='coerce')
-    merged_dataframe['Summa_BVB'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_BVB']
+    #merged_dataframe['Summa_BVB'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_BVB']
     merged_dataframe['Summa_centralt'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_centralt']
     merged_dataframe.pop("Benämning_BVB")
     merged_dataframe.pop("Beskrivning_centralt")
-    merged_dataframe=merged_dataframe.reindex(columns=['Artikelnr','Benämning', 'pris_BVB', 'pris_centralt', 'fakturapris', 
-       'Kvantitet', 'Summa', 'Summa_BVB', 'Summa_centralt'])
-    merged_dataframe['skillnad'] = merged_dataframe['pris_BVB']-merged_dataframe['fakturapris'].map(lambda x: float(x.replace(',','.').replace(' ','')))
+    merged_dataframe=merged_dataframe.reindex(columns=['Artikelnr','Benämning',"Status", 'pris_BVB', 'pris_centralt', 'fakturapris', 
+       'Kvantitet', 'Summa', 'Summa_centralt'])
+    merged_dataframe['skillnad'] = merged_dataframe['pris_centralt']-merged_dataframe['fakturapris'].map(lambda x: float(x.replace(',','.').replace(' ','')))
     return merged_dataframe
 
 def process_request(js):
     cdf = pd.read_json(json.dumps(js['Items']))
     df = merge_tables(cdf)
     
-    column_totals = df[['Summa','Summa_BVB','Summa_centralt']].sum()
+    column_totals = df[['Summa','Summa_centralt']].sum()
 
     df = pd.concat([df,column_totals])
+    sumdf=pd.DataFrame([{"Summa":df["Summa"].sum(), "Summa_centralt":df["Summa_centralt"].sum(), "Benämning":"SUMMA:"}])
+    sumdf["skillnad"] = sumdf["Summa"]-sumdf["Summa_centralt"]
+    sumdf["skillnad"] = sumdf["skillnad"]*-1
+    df = pd.concat([df,sumdf])
     df.pop(0)
     df.columns = [column.replace('_',' ') for column in df.columns]
-    df = df.style.apply(highlight_cells, axis=1)
+    #df = df.style.apply(highlight_cells, axis=1)
     file = change_column_size_before_saving(df)
     filename = js['Handlare'] + str(js['ID']) + str(js['Datum'])
     return {"content":base64.b64encode(file.getvalue()).decode('utf-8'), "filename":filename}
@@ -96,10 +101,11 @@ def change_column_size_before_saving(df):
     writer.close()
     file.seek(0)
     return file
+
 if __name__ == '__main__':
     with open(os.path.join(os.path.dirname(__file__),'request.json'), 'r', encoding='utf-8') as f:
-        js = json.load(f)
+        js = json.load(f)['body']
     file = process_request(js)
     with open(os.path.join(os.path.dirname(__file__),'test2.xlsx'), 'wb') as f:
-        f.write(base64.b64decode(file["content"]).decode('utf-8'))
+        f.write(base64.b64decode(file["content"]))
         
