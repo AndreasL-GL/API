@@ -441,12 +441,19 @@ def add_anmärkningar(doc, js):
     hh = doc.add_heading('Anmärkningar:', 0)
     hh.style = 'Big heading'
     hh.paragraph_format.keep_with_next = True
+    extra_Anmärkning = []
     for i,utrustning in enumerate(js['Utrustning']):
         
+        
         utrustning=utrustning['Items']
-        anmärkningar = [anmärkning for anmärkning in js['Anmärkningar'] if anmärkning['Items']['UtrustningsID'] == utrustning['ID']]
-
-
+        for item in js['Anmärkningar']:
+            
+            if 'UtrustningsID' not in item['Items'].keys():
+                extra_Anmärkning.append(item)
+                item['Items']['UtrustningsID']=-1
+        [print(item['Items'].keys()) for item in js['Anmärkningar'] if "UtrustningsID" not in item['Items'].keys()]
+        anmärkningar = [anmärkning for anmärkning in js['Anmärkningar'] if anmärkning['Items']['UtrustningsID'] == utrustning['ID'] if "UtrustningsID" in anmärkning['Items'].keys()]
+        
         if 'Utrustning' not in utrustning.keys():
             utrustning['Utrustning'] =  {'Value':utrustning['Utegymredskap']['Value']}
         h = doc.add_heading('Produkt '+str(i+1)+', '+ utrustning['Utrustning']['Value'], 0)
@@ -569,7 +576,63 @@ def add_anmärkningar(doc, js):
                 p = doc.add_paragraph()
                 p.text = "Enligt SS EN 1176-1:6.2.2"
                 p.style = 'small'
-            
+    # for anmärkning in extra_Anmärkning:
+    #     print("Hello")
+    #     if anmärkning['Items']['{HasAttachments}']:
+    #         table=doc.add_table(rows=0, cols=4)
+    #         index = 0
+    #         table.style.paragraph_format.keep_together = True
+    #         while index < len(anmärkning['Image']):
+    #             row0 = table.add_row()
+    #             row =row0.cells
+    #             for i in range(0,4):
+    #                 if index == len(anmärkning['Image']): continue
+    #                 row[i]
+    #                 file = io.BytesIO(base64.b64decode(anmärkning['Image'][index]['content']))
+    #                 file.seek(0)
+    #                 file = resize_and_autoorient(file,100,100)
+    #                 p=row[i].paragraphs[0]
+    #                 p.style= 'imgp'
+    #                 p.paragraph_format.keep_with_next=True
+    #                 run = p.add_run()
+    #                 picture = run.add_picture(file)
+    #                 index +=1
+                    
+    #                 #  LÄGG TILL ANMÄRKNINGAR
+    #     table = doc.add_table(rows=1, cols=2)
+    #     table.style = 'Grid Table Light'
+    #     table.style.paragraph_format.keep_with_next = True
+    #     row = table.rows[0].cells
+    #     row[0].text = anmärkning['Items']['Kommentar']
+    #     row[0].paragraphs[0].paragraph_format.keep_with_next=True
+    #     row[1].text = anmärkning['Items']['Bed_x00f6_mning']['Value']
+    #     row[1].paragraphs[0].paragraph_format.keep_with_next=True
+    #     for cell in table.columns[0].cells:
+    #         cell.width = Inches(6)
+    #     for cell in table.columns[1].cells:
+    #         cell.width = Inches(0.4)
+    #         # Standard under tabell
+    #     p1 = doc.add_paragraph()
+    #     p1.text = anmärkning['Items']['Utrustningstyp']['Value']
+    #     p1.style = 'small'
+    # if not any(anmärkningar):
+    #     table = doc.add_table(rows=1, cols=2)
+    #     table.style = 'Grid Table Light'
+    #     table.style.paragraph_format.keep_with_next = True
+    #     row = table.rows[0].cells
+    #     row[0].text = "Inga anmärkningar funna vid besiktningstillfället"
+    #     row[0].paragraphs[0].paragraph_format.keep_with_next=True
+    #     row[1].text = "-"
+    #     row[1].paragraphs[0].paragraph_format.keep_with_next=True
+    #     for cell in table.columns[0].cells:
+    #         cell.width = Inches(6)
+    #     for cell in table.columns[1].cells:
+    #         cell.width = Inches(0.4)
+    #         # Standard under tabell
+    #     p1 = doc.add_paragraph()
+    #     p1.text = "Saknas"
+    #     p1.style = 'small'
+        
     
 def __add_anmärkningar_deprecated(doc, js):
     doc.add_paragraph()
