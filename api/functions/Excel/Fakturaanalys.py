@@ -37,35 +37,50 @@ def merge_tables(cdf):
     df2.columns = ['pris_centralt', "Beskrivning_centralt", "Artikelnr"]
     df["Status"] = np.select([df['ACCEPTERAS'].notnull(), df['REKOMMENDERAS'].notnull(), df['UNDVIKS'].notnull()],
                             [df['ACCEPTERAS'], df['REKOMMENDERAS'], df['UNDVIKS']], default=" ")
+    df = df[['Artikelnr','Benämning_BVB','pris_BVB','Status']]
+    m = pd.merge(cdf,df, on="Artikelnr", how="left")
+    m2 = pd.merge(m, df2, on='Artikelnr', how="left") 
     
-    merged_dataframe = pd.merge(df2,df, on='Artikelnr', how='left')
-    merged_dataframe = merged_dataframe.reindex(columns=['Artikelnr', 'Benämning_BVB', "Status",'Beskrivning_centralt','pris_BVB', 'pris_centralt'])
-    merged_dataframe = pd.merge(merged_dataframe,cdf, on='Artikelnr', how='inner')
+    m2 = m2[['Artikelnr','Benämning','Kvantitet','fakturapris', 'Status', 'pris_centralt', 'Summa']]
+    m2['fakturapris'] = m2['fakturapris'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
+    m2['pris_centralt'] = m2['pris_centralt'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
+    m2['Summa'] = m2['Summa'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
+    m2['Kvantitet'] = m2['Kvantitet'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
     
-    merged_dataframe['pris_centralt'] = pd.to_numeric(merged_dataframe['pris_centralt'], errors='coerce')
-    merged_dataframe['Kvantitet'] = merged_dataframe['Kvantitet'].map(lambda x: int(x.split(',')[0]))
-    merged_dataframe['Kvantitet'] = pd.to_numeric(merged_dataframe['Kvantitet'], errors='coerce')
-    merged_dataframe['Summa'] = merged_dataframe['Summa'].map(lambda x: float(x.replace(',','.').replace(' ','')))
+    m2["Summa_centralt"] = m2['pris_centralt']*m2['Kvantitet']
+    m2['skillnad'] = m2['pris_centralt']-m2['fakturapris']
     
     
-    merged_dataframe['pris_BVB'] = pd.to_numeric(merged_dataframe['pris_BVB'], errors='coerce')
-    #merged_dataframe['Summa_BVB'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_BVB']
-    merged_dataframe['Summa_centralt'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_centralt']
-    merged_dataframe.pop("Benämning_BVB")
-    merged_dataframe.pop("Beskrivning_centralt")
-    merged_dataframe=merged_dataframe.reindex(columns=['Artikelnr','Benämning',"Status", 'pris_BVB', 'pris_centralt', 'fakturapris', 
-       'Kvantitet', 'Summa', 'Summa_centralt'])
-    merged_dataframe['skillnad'] = merged_dataframe['pris_centralt']-merged_dataframe['fakturapris'].map(lambda x: float(x.replace(',','.').replace(' ','')))
-    return merged_dataframe
+    # print("\n\n\n\n",m2.columns)
+    # merged_dataframe = pd.merge(df2,df, on='Artikelnr', how='left')
+    # merged_dataframe = merged_dataframe.reindex(columns=['Artikelnr', 'Benämning_BVB', "Status",'Beskrivning_centralt','pris_BVB', 'pris_centralt'])
+    # merged_dataframe = pd.merge(merged_dataframe,cdf, on='Artikelnr', how='left')
+    
+    # merged_dataframe['pris_centralt'] = pd.to_numeric(merged_dataframe['pris_centralt'], errors='coerce')
+    # merged_dataframe['Kvantitet'] = merged_dataframe['Kvantitet'].map(lambda x: int(x.split(',')[0]))
+    # merged_dataframe['Kvantitet'] = pd.to_numeric(merged_dataframe['Kvantitet'], errors='coerce')
+    # merged_dataframe['Summa'] = merged_dataframe['Summa'].map(lambda x: float(x.replace(',','.').replace(' ','')))
+    
+    
+    # merged_dataframe['pris_BVB'] = pd.to_numeric(merged_dataframe['pris_BVB'], errors='coerce')
+    # #merged_dataframe['Summa_BVB'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_BVB']
+    # merged_dataframe['Summa_centralt'] = merged_dataframe['Kvantitet']*merged_dataframe['pris_centralt']
+    # merged_dataframe.pop("Benämning_BVB")
+    # merged_dataframe.pop("Beskrivning_centralt")
+    # merged_dataframe=merged_dataframe.reindex(columns=['Artikelnr','Benämning',"Status", 'pris_BVB', 'pris_centralt', 'fakturapris', 
+    #    'Kvantitet', 'Summa', 'Summa_centralt'])
+    # merged_dataframe['skillnad'] = merged_dataframe['pris_centralt']-merged_dataframe['fakturapris'].map(lambda x: float(x.replace(',','.').replace(' ','')))
+    return m2,df2
 
 def process_request(js):
     cdf = pd.read_json(json.dumps(js['Items']))
-    df = merge_tables(cdf)
+    df,df2 = merge_tables(cdf)
     
-    column_totals = df[['Summa','Summa_centralt']].sum()
-
+    column_totals = pd.merge(df2,df, on='Artikelnr', how='left')[['Summa','Summa_centralt']].sum()
+    print(column_totals)
     df = pd.concat([df,column_totals])
-    sumdf=pd.DataFrame([{"Summa":df["Summa"].sum(), "Summa_centralt":df["Summa_centralt"].sum(), "Benämning":"SUMMA:"}])
+    print(df)
+    sumdf=pd.DataFrame([{"Summa":pd.merge(df2,df, on='Artikelnr', how='left')["Summa"].sum(), "Summa_centralt":pd.merge(df2,df, on='Artikelnr', how='left')["Summa_centralt"].sum(), "Benämning":"SUMMA KONTROLLERADE PRISER:"}])
     sumdf["skillnad"] = sumdf["Summa"]-sumdf["Summa_centralt"]
     sumdf["skillnad"] = sumdf["skillnad"]*-1
     df = pd.concat([df,sumdf])
@@ -88,16 +103,11 @@ def change_column_size_before_saving(df):
     writer = pd.ExcelWriter(file, engine='xlsxwriter')
     df.to_excel(writer, index=False, sheet_name='Sheet1')
 
-    # Get the workbook and active worksheet objects
     workbook = writer.book
     worksheet = workbook.get_worksheet_by_name('Sheet1')
-
-    # Iterate over each column and set the column width to 1.2 times the default width
     for i, column in enumerate(df.columns):
         column_width = len(str(column)) * 1.2
         worksheet.set_column(i, i, column_width)
-
-    # Save the modified Excel file
     writer.close()
     file.seek(0)
     return file
