@@ -37,10 +37,10 @@ def get_cert_no(site,certlist, fitness):
 
 def create_protocol(site, lista, js):
     
-    
     if 'Certifikatinfo' not in js.keys():
         js = js['body']
-        js1 = js["Items"]['value'][0]
+    print(js.keys())
+    js1 = js["Items"]['value'][0]
     certifikatjs=[]
     if "fitnessutegym" in js1.keys():
         
