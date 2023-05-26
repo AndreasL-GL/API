@@ -36,17 +36,23 @@ def get_cert_no(site,certlist, fitness):
 
 
 def create_protocol(site, lista, js):
-
     
-    if 'Certifikatinfo' not in js.keys():js = js['body']
-    certifikatjs = js['Certifikatinfo']['value'][0]
+    
+    if 'Certifikatinfo' not in js.keys():
+        js = js['body']
+        js1 = js["Items"]['value'][0]
+    certifikatjs=[]
+    if "fitnessutegym" in js1.keys():
+        
+        certifikatjs = [item for item in js['Certifikatinfo']['value'] if item['Utegym']][0]
+    else: certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
+        
     
     for item in js['Items']['value']:
         if 'Adress' not in item.keys():
             item['Adress'] = ' '
     trigger = js['Trigger']
     
-    js1 = js["Items"]['value'][0]
     if not any(certifikatjs): js1['Certnr'] = 'saknas'
     js1['Informationsskylt'] = ['Finns' if js1['Informationsskylt'] else 'Saknas på ett eller flera redskap'][0]
     js1['Anv_x00e4_ndarinformation'] = ['Finns' if js1['Anv_x00e4_ndarinformation'] else 'Saknas på ett eller flera redskap'][0]
@@ -94,19 +100,16 @@ def populate_template(js1, certifikatjs, js, trigger):
     js1['Created'] = js1['Created'].split('T')[0]
     if not 'Certnr' in certifikatjs.keys(): certifikatjs['Certnr'] = 'saknas'
     js1['Certnr'] = certifikatjs['Certnr']
-    
+    if "Datum" in js1.keys():   js1["Besiktningsdatum"] = js1['Datum']
     if js1["Certnr"].lower() == 'saknas' and js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Fitness mall ej cert.docx'))
-        print("1")
     elif js1["Certnr"].lower() != 'saknas' and js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Fitness mall cert.docx'))
-        print("2")
     elif js1["Certnr"].lower() != 'saknas' and not js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Lekplatsbesiktning mall cert.docx'))
-        print("3")
     elif js1["Certnr"].lower() == 'saknas' and not js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Lekplatsbesiktning mall ej cert.docx'))
-        print("4")
+
  
 
     js1["H_x00e4_nvisningsskylt"] = "Ja" if js1["H_x00e4_nvisningsskylt"]==True else "Nej"
@@ -188,10 +191,8 @@ def populate_template(js1, certifikatjs, js, trigger):
     add_översiktsbild(doc,js)
     add_utrustning(doc,js)
 
-    if len(js['Utrustning']) >7 and len(js['Utrustning']) <= 12: doc.add_page_break()
-    # add_page_break(doc)
+    #if len(js['Utrustning']) >7 and len(js['Utrustning']) <= 12: doc.add_page_break()
     add_anmärkningar(doc,js)
-    # add_page_break(doc)
     add_underlag(doc,js)
     if any(js['Staket']):
         add_grindar(doc,js)
@@ -292,10 +293,6 @@ def add_utrustning(doc,js):
     hh.style.paragraph_format.keep_with_next=True
     
     
-    
-    
-    
-
     table = doc.add_table(rows=0,cols=3)
     index1 = 1
     imagedict = {}
@@ -325,7 +322,6 @@ def add_utrustning(doc,js):
     if js['Items']['value'][0]['Typavbesiktning']['Value'] == 'Installationsbesiktning':
         
         for i, item in enumerate(js['Utrustning']):
-            print(item)
             if "Utegymredskap" in item['Items'].keys() and "Utrustning" not in item['Items'].keys(): 
 
                 Produkt = item['Items']['Utegymredskap']['Value']
@@ -379,7 +375,6 @@ def add_utrustning(doc,js):
     return None
 
 def add_underlag(doc,js):
-    doc.add_page_break()
     doc.add_paragraph()
     hh = doc.add_heading('Stötdämpande underlag:', 0)
     hh.style = 'Big heading'
@@ -404,18 +399,13 @@ def add_underlag(doc,js):
             cell.width = Inches(0.4)
         return None
     count=0
-    for i, item in enumerate(js['Underlag']):
-        p = doc.add_paragraph()
-        if 'Utrustning' not in item.keys():
-            if 'Kommentar' in item.keys():
-                item['Utrustning'] = item['Kommentar']
-            else:
-                item['Utrustning'] = 'Utrustning'
-                item['Kommentar'] = ['-']
-        if not any([i+1 for i, utr in enumerate(js['Utrustning']) if utr['Items']['ID'] == item['UtrustningsID']]):
+    ## TODO Sortera efter Utrustning istället för underlag.
+    for i,item in enumerate(js['Utrustning']):
+
+        if not any([i+1 for i, und in enumerate(js['Underlag']) if und['ID'] == [item['Items']['ID']]]):
             continue
-        count+=1
-        p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Utrustning']) if utr['Items']['ID'] == item['UtrustningsID']][0])+':' + item['Utrustning']
+
+        p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Underlag']) if utr['UtrustningsID'] == item['Items']['ID']][0])+':' + item['Utrustning']
         p.style = 'bold'
         p.paragraph_format.keep_with_next = True
         table = doc.add_table(rows=1, cols=2)
@@ -434,10 +424,45 @@ def add_underlag(doc,js):
             cell.width = Inches(6)
         for cell in table.columns[1].cells:
             cell.width = Inches(0.4)
-    return None
+        return None
+    
+
+    
+    # for i, item in enumerate(js['Underlag']):
+    #     p = doc.add_paragraph()
+    #     if 'Utrustning' not in item.keys():
+    #         if 'Kommentar' in item.keys():
+    #             item['Utrustning'] = item['Kommentar']
+    #         else:
+    #             item['Utrustning'] = 'Utrustning'
+    #             item['Kommentar'] = ['-']
+    #     if not any([i+1 for i, utr in enumerate(js['Utrustning']) if utr['Items']['ID'] == item['UtrustningsID']]):
+    #         continue
+    #     count+=1
+        
+        
+    #     p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Utrustning']) if utr['Items']['ID'] == item['UtrustningsID']][0])+':' + item['Utrustning']
+    #     p.style = 'bold'
+    #     p.paragraph_format.keep_with_next = True
+    #     table = doc.add_table(rows=1, cols=2)
+    #     table.style = 'Grid Table Light'
+    #     table.style.paragraph_format.keep_with_next = True
+    #     row = table.rows[0].cells
+    #     row[0].text = item['Kommentar']
+    #     row[0].paragraphs[0].paragraph_format.keep_with_next=True
+    #     row[0].style = 'vsmall'
+    #     row[1].text = item['Bed_x00f6_mning']['Value']
+    #     row[1].paragraphs[0].paragraph_format.keep_with_next=True
+    #     p = doc.add_paragraph()
+    #     p.text = "Enligt SS-EN 1176-1:4.2.8.5"
+    #     p.style = 'small'
+    #     for cell in table.columns[0].cells:
+    #         cell.width = Inches(6)
+    #     for cell in table.columns[1].cells:
+    #         cell.width = Inches(0.4)
+    # return None
     
 def add_anmärkningar(doc, js):
-    doc.add_page_break()
     hh = doc.add_heading('Anmärkningar:', 0)
     hh.style = 'Big heading'
     hh.paragraph_format.keep_with_next = True
@@ -451,7 +476,7 @@ def add_anmärkningar(doc, js):
             if 'UtrustningsID' not in item['Items'].keys():
                 extra_Anmärkning.append(item)
                 item['Items']['UtrustningsID']=-1
-        [print(item['Items'].keys()) for item in js['Anmärkningar'] if "UtrustningsID" not in item['Items'].keys()]
+
         anmärkningar = [anmärkning for anmärkning in js['Anmärkningar'] if anmärkning['Items']['UtrustningsID'] == utrustning['ID'] if "UtrustningsID" in anmärkning['Items'].keys()]
         
         if 'Utrustning' not in utrustning.keys():
@@ -576,6 +601,10 @@ def add_anmärkningar(doc, js):
                 p = doc.add_paragraph()
                 p.text = "Enligt SS EN 1176-1:6.2.2"
                 p.style = 'small'
+                
+                
+                
+                
     # for anmärkning in extra_Anmärkning:
     #     print("Hello")
     #     if anmärkning['Items']['{HasAttachments}']:
@@ -929,16 +958,13 @@ def run_functions(js):
     if "Items" in js.keys():js1 = js['Items']['value'][0]
     else: js1 = js['body']['Items']['value'][0]
     
-    #file = compress_word_file(file.getvalue())
     filename="Protokoll_"+str(js1['ID'])+'_'+js1['Title']+'_'+js1['Adress']+'_'+js1['Datum']
     if __name__=='__main__': return doc, filename
     return {"content": base64.b64encode(file.getvalue()).decode('utf-8'), "filename": filename}
 
 
 if __name__ == '__main__':
-    # with open(os.path.join(os.path.dirname(__file__),'sample.json'),'r', encoding="utf-8") as f:
-    #     js = json.load(f)
-    # doc = create_protocol('Funktionskontrolllekplatsdemo',"Lista_lekplats_besiktningsprotokoll",js)
+
     test_one=True
     if not test_one:
         jsonpath = os.path.join(os.path.dirname(__file__),'Lekplatsprotokoll_json_filer')
@@ -946,7 +972,6 @@ if __name__ == '__main__':
         for item in os.listdir(jsonpath):
             if '' in item:    
                 filename = os.path.join(jsonpath,item)
-                print(filename)
                 with open(filename,'r', encoding="utf-8") as f:
                     js = json.load(f)
                     doc,filename = run_functions(js)
