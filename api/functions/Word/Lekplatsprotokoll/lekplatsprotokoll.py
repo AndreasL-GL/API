@@ -39,13 +39,17 @@ def create_protocol(site, lista, js):
     
     if 'Certifikatinfo' not in js.keys():
         js = js['body']
-    print(js.keys())
     js1 = js["Items"]['value'][0]
     certifikatjs=[]
-    if "fitnessutegym" in js1.keys():
-        
-        certifikatjs = [item for item in js['Certifikatinfo']['value'] if item['Utegym']][0]
-    else: certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
+    if "Fitnessbesiktning" in js1.keys():
+        if js1["Fitnessbesiktning"]:
+            certifikatjs = [item for item in js['Certifikatinfo']['value'] if item['Utegym']][0]
+            print(certifikatjs['Certnr'])
+        else: 
+            certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
+    
+    else: 
+        certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
         
     
     for item in js['Items']['value']:
