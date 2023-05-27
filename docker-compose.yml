@@ -3,20 +3,20 @@ version: '3.8'
 services:
   api:
     build: ./api
-    command: gunicorn --bind 0.0.0.0:80 app:app
+    command: gunicorn --bind 0.0.0.0:5000 app:app
     volumes: 
     - ./api:/usr/src/app/
     
     ports:
     - 5000:5000
-  nginx:
-    build: ./services/nginx
-    environment:
-      - VIRTUAL_HOST=your_domain
-      - LETSENCRYPT_HOST=your_domain
-    ports:
-      - 80:80
-      - 443:443
-    depends_on:
-      - api
-    restart: always
+  # nginx:
+  #   build: ./services/nginx
+  #   environment:
+  #     - VIRTUAL_HOST=your_domain
+  #     - LETSENCRYPT_HOST=your_domain
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   depends_on:
+  #     - api
+  #   restart: always
