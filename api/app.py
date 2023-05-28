@@ -25,7 +25,8 @@ app.register_blueprint(html_pages)
 
 @app.route("/", methods=['GET', 'POST'])
 def Home():
-    Sql.initialize_db()
+    sql = Sql()
+    sql.initialize_db()
     return render_template('home.html')
 
 

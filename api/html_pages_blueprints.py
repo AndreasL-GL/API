@@ -1,4 +1,4 @@
-from flask import Blueprint, request, send_file,jsonify, abort
+from flask import Blueprint, request, send_file,jsonify, abort, render_template
 from functions.authentication import require_api_key
 from Json2Word.compose import compose_doc
 from functions.SQL_commands import Sql
@@ -16,8 +16,7 @@ def word_preview():
     file_id = request.args.get('file')
     js = {}
     file = run(js)
-    
-    return send_file(file)
+    return render_template('Json2Word.html')
 
 
 @html_pages.route('/ip')

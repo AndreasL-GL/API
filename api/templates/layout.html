@@ -16,6 +16,7 @@
           height: auto;  /* Maintain the aspect ratio */
       }
     </style>
+    <link rel="icon" href="{{url_for('static', filename='GL_Fjaril.png')}}">
 
   </head>
   <body>
@@ -24,7 +25,7 @@
      <h1 class="text-center pt-5">GLNET API <img src="{{ url_for('static', filename='GL_Fjaril.png')}}" class="icon"></h1>
     
     <div class="col-sm-9 colored_div">
-        <h2 class="text-center mt-3">{% block headline %}Json2Word{% endblock headline %}</h2>
+        <h2 class="text-center mt-3" style="border-bottom:2px solid gray ;padding-bottom: 8px;margin-bottom: 8px;">{% block headline %}Json2Word{% endblock headline %}</h2>
         {% block content %}
         Here's where the content is usually contained
         {% endblock %}

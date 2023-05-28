@@ -5,6 +5,7 @@ from functions.Word.Lekplatsprotokoll import lekplatsprotokoll
 from Json2Word.compose import compose_doc
 import io,base64
 import docx
+
 word_path = Blueprint('skapa word-protokoll', __name__)
 
 
