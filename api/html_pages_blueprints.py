@@ -13,9 +13,9 @@ def word_preview():
     # I want to check if a route is in my routes and if it is i assign an extra random letter to it
     # I may want to have an internal storage of all my json files that gets discarded after some time.
     # Maybe just store it in a database file?
-    file_id = request.args.get('file')
-    js = {}
-    file = run(js)
+    #file_id = request.args.get('file')
+    #js = {}
+    #file = run(js)
     return render_template('Json2Word.html')
 
 
