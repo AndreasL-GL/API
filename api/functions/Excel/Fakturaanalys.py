@@ -51,7 +51,9 @@ def merge_tables(cdf):
     m2['Kvantitet'] = m2['Kvantitet'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
     
     m2["Summa_centralt"] = m2['pris_centralt']*m2['Kvantitet']
+    m2.replace(to_replace=0, value=np.nan, inplace=True)
     m2['skillnad'] = m2['pris_centralt']-m2['fakturapris']
+    print(m2)
     
     
     # print("\n\n\n\n",m2.columns)
