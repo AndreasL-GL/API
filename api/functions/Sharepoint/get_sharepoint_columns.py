@@ -53,6 +53,8 @@ def get_fields(site, list_):
     l = requests.get(url, headers=headers)
     js= json.loads(l.text)
     js = get_body_from_sharepoint_api(js)
+    with open(os.path.join(os.path.dirname(__file__),'log.json'), 'w') as f:
+        json.dump(f, indent=4)
     return js
 
 def get_by_url(url):
