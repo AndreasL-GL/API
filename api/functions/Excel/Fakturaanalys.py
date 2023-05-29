@@ -42,8 +42,8 @@ def merge_tables(cdf):
     m2 = pd.merge(m, df2, on='Artikelnr', how="left") 
     
     m2 = m2[['Artikelnr','Benämning','Kvantitet','fakturapris', 'Status', 'pris_centralt', 'Summa']]
-    
-    m2.replace(to_replace=None, value=0, inplace=True)
+    #m2.replace(to_replace=None, value=0, inplace=True)
+    m2.fillna(value=0, inplace=True)
     m2.replace(to_replace='None', value=0, inplace=True)
     m2['fakturapris'] = m2['fakturapris'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
     m2['pris_centralt'] = m2['pris_centralt'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
@@ -80,9 +80,7 @@ def process_request(js):
     df,df2 = merge_tables(cdf)
     
     column_totals = pd.merge(df2,df, on='Artikelnr', how='left')[['Summa','Summa_centralt']].sum()
-    print(column_totals)
     df = pd.concat([df,column_totals])
-    print(df)
     sumdf=pd.DataFrame([{"Summa":pd.merge(df2,df, on='Artikelnr', how='left')["Summa"].sum(), "Summa_centralt":pd.merge(df2,df, on='Artikelnr', how='left')["Summa_centralt"].sum(), "Benämning":"SUMMA KONTROLLERADE PRISER:"}])
     sumdf["skillnad"] = sumdf["Summa"]-sumdf["Summa_centralt"]
     sumdf["skillnad"] = sumdf["skillnad"]*-1
