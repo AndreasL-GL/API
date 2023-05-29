@@ -11,6 +11,7 @@ with open(os.path.join(os.path.join(os.path.dirname(os.path.dirname(os.path.dirn
 def get_body_from_sharepoint_api(js):
     resultlist = []
     if 'body' in js.keys(): js = js['body']
+    print(js)
     for item in js['d']['results']:
         if item['EntityPropertyName'] not in sharepoint_columns_remove_list:
             resultlist.append({"Moment":item['Title'], "link":item['EntityPropertyName']})
@@ -47,8 +48,8 @@ def get_sharepoint_access_headers_through_client_id():
 def get_fields(site, list_):
     headers=get_sharepoint_access_headers_through_client_id()
     tenant = "greenlandscapingmalmo"
-    site = site.split('sites/')[1]
-    url = f"https://{tenant}.sharepoint.com/sites/{site}/_api/web/lists/getbytitle('{list_}')/fields"
+    #site = site.split('sites/')[1]
+    url = site + f"/_api/web/lists/getbytitle('{list_}')/fields"
     l = requests.get(url, headers=headers)
     js= json.loads(l.text)
     js = get_body_from_sharepoint_api(js)
