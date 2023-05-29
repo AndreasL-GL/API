@@ -415,7 +415,7 @@ def add_underlag(doc,js):
             continue
         #print(js['Underlag'].keys())
         #print(underlag)
-        p.text = 'Produkt '+str(i+1)
+        p.text = 'Produkt '+str(i+1) + item['Items']['Utrustning']['Value']
         p.style = 'bold'
         p.paragraph_format.keep_with_next = True
         table = doc.add_table(rows=1, cols=2)

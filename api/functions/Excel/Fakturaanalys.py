@@ -42,6 +42,9 @@ def merge_tables(cdf):
     m2 = pd.merge(m, df2, on='Artikelnr', how="left") 
     
     m2 = m2[['Artikelnr','Benämning','Kvantitet','fakturapris', 'Status', 'pris_centralt', 'Summa']]
+    
+    m2.replace(to_replace=None, value=0, inplace=True)
+    m2.replace(to_replace='None', value=0, inplace=True)
     m2['fakturapris'] = m2['fakturapris'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
     m2['pris_centralt'] = m2['pris_centralt'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
     m2['Summa'] = m2['Summa'].map(lambda x: float(str(x).replace(',','.').replace(' ','')))
