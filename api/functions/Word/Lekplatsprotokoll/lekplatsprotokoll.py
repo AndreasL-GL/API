@@ -415,14 +415,16 @@ def add_underlag(doc,js):
             continue
         #print(js['Underlag'].keys())
         #print(underlag)
-        for underlag in underlag_:
-            p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Underlag']) if utr['UtrustningsID'] == item['Items']['ID']][0])+':' + item['Items']['Utrustning']['Value']
-            p.style = 'bold'
-            p.paragraph_format.keep_with_next = True
-            table = doc.add_table(rows=1, cols=2)
-            table.style = 'Grid Table Light'
-            table.style.paragraph_format.keep_with_next = True
-            row = table.rows[0].cells
+        p.text = 'Produkt '+str(i+1)
+        p.style = 'bold'
+        p.paragraph_format.keep_with_next = True
+        table = doc.add_table(rows=1, cols=2)
+        table.style = 'Grid Table Light'
+        table.style.paragraph_format.keep_with_next = True
+        for i, underlag in enumerate(underlag_):
+            
+            
+            row = table.rows[i].cells
             if "Kommentar" not in underlag.keys():underlag['Kommentar'] = '-'
             
             row[0].text = underlag['Kommentar']
