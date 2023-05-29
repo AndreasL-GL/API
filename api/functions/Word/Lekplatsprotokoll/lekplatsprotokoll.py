@@ -292,11 +292,10 @@ def add_utrustning(doc,js):
         cell.width = Inches(0.7)
     for cell in table.columns[4].cells:
         cell.width = Inches(0.8)
+    ps = doc.add_paragraph()
     hh = doc.add_heading('Besiktningsresultat', 0)
     hh.style = 'Big heading'
     hh.style.paragraph_format.keep_with_next=True
-    
-    
     table = doc.add_table(rows=0,cols=3)
     index1 = 1
     imagedict = {}
@@ -406,29 +405,39 @@ def add_underlag(doc,js):
     ## TODO Sortera efter Utrustning istället för underlag.
     for i,item in enumerate(js['Utrustning']):
 
-        if not any([i+1 for i, und in enumerate(js['Underlag']) if und['ID'] == [item['Items']['ID']]]):
-            continue
-
-        p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Underlag']) if utr['UtrustningsID'] == item['Items']['ID']][0])+':' + item['Utrustning']
-        p.style = 'bold'
-        p.paragraph_format.keep_with_next = True
-        table = doc.add_table(rows=1, cols=2)
-        table.style = 'Grid Table Light'
-        table.style.paragraph_format.keep_with_next = True
-        row = table.rows[0].cells
-        row[0].text = item['Kommentar']
-        row[0].paragraphs[0].paragraph_format.keep_with_next=True
-        row[0].style = 'vsmall'
-        row[1].text = item['Bed_x00f6_mning']['Value']
-        row[1].paragraphs[0].paragraph_format.keep_with_next=True
+       # if not any([i+1 for i, und in enumerate(js['Underlag']) if und['ID'] == [item['Items']['ID']]]):
+       #     continue
         p = doc.add_paragraph()
-        p.text = "Enligt SS-EN 1176-1:4.2.8.5"
-        p.style = 'small'
-        for cell in table.columns[0].cells:
-            cell.width = Inches(6)
-        for cell in table.columns[1].cells:
-            cell.width = Inches(0.4)
-        return None
+        underlag_ = [ijtem for ijtem in js["Underlag"] if ijtem["UtrustningsID"] == item['Items']["ID"]]
+        #print(item['Items'].keys())
+
+        if not any(underlag_):
+            continue
+        #print(js['Underlag'].keys())
+        #print(underlag)
+        for underlag in underlag_:
+            p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Underlag']) if utr['UtrustningsID'] == item['Items']['ID']][0])+':' + item['Items']['Utrustning']['Value']
+            p.style = 'bold'
+            p.paragraph_format.keep_with_next = True
+            table = doc.add_table(rows=1, cols=2)
+            table.style = 'Grid Table Light'
+            table.style.paragraph_format.keep_with_next = True
+            row = table.rows[0].cells
+            if "Kommentar" not in underlag.keys():underlag['Kommentar'] = '-'
+            
+            row[0].text = underlag['Kommentar']
+            row[0].paragraphs[0].paragraph_format.keep_with_next=True
+            row[0].style = 'vsmall'
+
+            row[1].text = underlag['Bed_x00f6_mning']['Value']
+            row[1].paragraphs[0].paragraph_format.keep_with_next=True
+            p = doc.add_paragraph()
+            p.text = "Enligt SS-EN 1176-1:4.2.8.5"
+            p.style = 'small'
+            for cell in table.columns[0].cells:
+                cell.width = Inches(6)
+            for cell in table.columns[1].cells:
+                cell.width = Inches(0.4)
     
 
     
@@ -467,6 +476,7 @@ def add_underlag(doc,js):
     # return None
     
 def add_anmärkningar(doc, js):
+    doc.add_page_break()
     hh = doc.add_heading('Anmärkningar:', 0)
     hh.style = 'Big heading'
     hh.paragraph_format.keep_with_next = True
