@@ -30,6 +30,7 @@ def replace_column_names(df):
 
 
 def faktura_mot_prislista(js, jointype):
+    if not any(js["Items"]): return {"Error": "Could not find any items in invoice."}
     if not jointype:jointype = "inner"
     excel=base64.b64decode(js['Excel'])
 

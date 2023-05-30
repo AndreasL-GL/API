@@ -64,8 +64,8 @@ def get_excel_file(): #WORKING
 def faktura_mot_excel(): 
     data = request.json
     
-    faktura_mot_prislista(data, request.args.get('join'))
-    return jsonify(process_request(data))
+    rs =faktura_mot_prislista(data, request.args.get('join'))
+    return jsonify(rs)
 
 def upload():
     # Get the file from the request
