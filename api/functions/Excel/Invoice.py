@@ -2,7 +2,7 @@ import pandas as pd
 import base64, io
 
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
-    excel = pd.read_excel(excel)
+    excel = pd.read_excel(excel, engine="openpyxl")
     pdf = pd.DataFrame(pdf['Items'])
     if "fakturapris" in pdf.keys():
         pdf["Styckpris"] = pdf.pop("fakturapris")
