@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
+from functions.Excel.Invoice import faktura_mot_prislista
 import os,io,base64, openpyxl
 from tools_get_files import save_file_on_error
 from functions.Excel.Fakturaanalys import process_request
@@ -57,3 +58,22 @@ def get_excel_file(): #WORKING
     excel_file,filename=convert_file_to_workbook(file_content)
     file_content_base64 = base64.b64encode(excel_file.read()).decode('utf-8')
     return jsonify({"content":file_content_base64,"filename":filename})
+
+@fakturaextraktion.route("/api/excel/faktura_mot_excel", methods=["POST"])
+@require_api_key
+def faktura_mot_excel(): 
+    data = request.json
+    
+    faktura_mot_prislista(data, request.args.get('join'))
+    return jsonify(process_request(data))
+
+def upload():
+    # Get the file from the request
+
+    file = request.files['file']
+    wb = openpyxl.load_workbook(file)
+    wb.save(os.path.join(os.path.dirname(__file__),'temp.xlsx'))
+    # Do whatever you need to do with the file here
+    # ...
+
+    return jsonify({"content": "Hello"}) 
