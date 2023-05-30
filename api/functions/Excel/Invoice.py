@@ -31,11 +31,7 @@ def replace_column_names(df):
 
 def faktura_mot_prislista(js, jointype):
     if not jointype:jointype = "inner"
-    print(type(js["Excel"]), js["Excel"][:15])
     excel=base64.b64decode(js['Excel'])
-    print(type(excel), excel[:15])
-    excel = base64.b64decode(excel)
-    print(type(excel), excel[:15])
 
     with open(os.path.join(os.path.dirname(__file__),'fsss.xlsx'),'wb') as f:
         f.write(excel)
