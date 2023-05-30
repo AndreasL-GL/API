@@ -121,4 +121,3 @@ if __name__ == '__main__':
     file = process_request(js)
     with open(os.path.join(os.path.dirname(__file__),'test2.xlsx'), 'wb') as f:
         f.write(base64.b64decode(file["content"]))
-        

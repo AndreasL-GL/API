@@ -37,3 +37,5 @@ def compose_document(js):
     del doc, js
     bio.seek(0)
     return bio
+if __name__ == '__main__':
+    "Hello"
