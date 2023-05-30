@@ -4,11 +4,12 @@ import base64, io
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     excel = pd.read_excel(excel)
     pdf = pd.DataFrame(pdf['Items'])
-    pdf["Styckpris"] = pdf.pop("fakturapris")
-
+    if "fakturapris" in pdf.keys():
+        pdf["Styckpris"] = pdf.pop("fakturapris")
+    print(pdf.head())
     df = replace_column_names(excel)
     mergedf = pd.merge(pdf,df,how=type_of_join,on="Artikelnr")
-
+    print(mergedf.head())
     return mergedf
 
 def replace_column_names(df):
@@ -27,7 +28,9 @@ def replace_column_names(df):
     if "Nettopris" in df.columns:
         df["Styckpris_prislista"] = df.pop("Nettopris")
     df = df[["Beskrivning_prislista","Artikelnr","Styckpris_prislista"]]
+    print(df.columns)
     return df
+
 
 def faktura_mot_prislista(js, jointype):
     if not jointype:jointype = "inner"
