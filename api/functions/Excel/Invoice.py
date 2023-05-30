@@ -1,15 +1,13 @@
 import pandas as pd
-import base64, io
+import base64, io, json, os
 
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
-    excel = pd.read_excel(excel, engine="openpyxl")
-    pdf = pd.DataFrame(pdf['Items'])
+    excel = pd.read_excel(excel)
+    pdf = pd.DataFrame(pdf)
     if "fakturapris" in pdf.keys():
         pdf["Styckpris"] = pdf.pop("fakturapris")
-    print(pdf.head())
     df = replace_column_names(excel)
     mergedf = pd.merge(pdf,df,how=type_of_join,on="Artikelnr")
-    print(mergedf.head())
     return mergedf
 
 def replace_column_names(df):
@@ -28,14 +26,19 @@ def replace_column_names(df):
     if "Nettopris" in df.columns:
         df["Styckpris_prislista"] = df.pop("Nettopris")
     df = df[["Beskrivning_prislista","Artikelnr","Styckpris_prislista"]]
-    print(df.columns)
     return df
 
 
 def faktura_mot_prislista(js, jointype):
     if not jointype:jointype = "inner"
-    excel = io.BytesIO(base64.b64decode(js['Excel']))
-    excel.seek(0)
+    print(type(js["Excel"]), js["Excel"][:15])
+    excel=base64.b64decode(js['Excel'])
+    print(type(excel), excel[:15])
+    excel = base64.b64decode(excel)
+    print(type(excel), excel[:15])
+
+    with open(os.path.join(os.path.dirname(__file__),'fsss.xlsx'),'wb') as f:
+        f.write(excel)
     df = join_pdf_records_and_excel(js['Items'],excel, jointype)
     file = io.BytesIO()
     df.to_excel(file)
@@ -43,3 +46,8 @@ def faktura_mot_prislista(js, jointype):
     filename = js["Handlare"]+"_"+js["Fakturanr"]+".xlsx"
     return {"Excel":base64.b64encode(file.getvalue()).decode('utf-8'), "Filename":filename}
     
+if __name__ == '__main__':
+    with open(os.path.join(os.path.dirname(__file__),'xlsx.json'), 'r', encoding='utf-8') as f:
+        js = json.load(f)
+    file = faktura_mot_prislista(js, 'inner')
+    print(file.keys())
