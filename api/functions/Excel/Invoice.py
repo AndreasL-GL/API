@@ -10,6 +10,8 @@ def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     if "Beskrivning" in excel.columns: excel["Beskrivning prislista"] = excel.pop("Beskrivning")
     df = excel
     #df = replace_column_names(excel)
+    df['Artikelnr'] = df['Artikelnr'].astype(str)
+    pdf['Artikelnr'] = pdf['Artikelnr'].astype(str)
     mergedf = pd.merge(pdf,df,how=type_of_join,on="Artikelnr")
     return mergedf
 
