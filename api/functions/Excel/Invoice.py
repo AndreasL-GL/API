@@ -6,8 +6,8 @@ def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     pdf = pd.DataFrame(pdf)
     if "fakturapris" in pdf.keys():
         pdf["Styckpris"] = pdf.pop("fakturapris")
-    excel["Styckpris prislista"] = excel.pop("Pris")
-    excel["Beskrivning prislista"] = excel.pop("Beskrivning")
+    #excel["Styckpris prislista"] = excel.pop("Pris")
+    if "Beskrivning" in excel.columns: excel["Beskrivning prislista"] = excel.pop("Beskrivning")
     df = excel
     #df = replace_column_names(excel)
     mergedf = pd.merge(pdf,df,how=type_of_join,on="Artikelnr")
