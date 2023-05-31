@@ -6,7 +6,10 @@ def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     pdf = pd.DataFrame(pdf)
     if "fakturapris" in pdf.keys():
         pdf["Styckpris"] = pdf.pop("fakturapris")
-    df = replace_column_names(excel)
+    excel["Styckpris prislista"] = excel.pop("Pris")
+    excel["Beskrivning prislista"] = excel.pop("Beskrivning")
+    df = excel
+    #df = replace_column_names(excel)
     mergedf = pd.merge(pdf,df,how=type_of_join,on="Artikelnr")
     return mergedf
 
@@ -31,7 +34,7 @@ def replace_column_names(df):
 
 def faktura_mot_prislista(js, jointype):
     if not any(js["Items"]): return {"Error": "Could not find any items in invoice."}
-    if not jointype:jointype = "inner"
+    if not jointype: jointype = "inner"
     excel=base64.b64decode(js['Excel'])
 
     with open(os.path.join(os.path.dirname(__file__),'fsss.xlsx'),'wb') as f:
