@@ -5,6 +5,8 @@ import base64, io, json, os
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     excel = pd.read_excel(excel)
     pdf = pd.DataFrame(pdf)
+    if "Pris" in excel.columns:
+        excel['Styckpris_prislista'] = excel.pop('Pris')
     if "fakturapris" in pdf.keys():
         pdf["Styckpris"] = pdf.pop("fakturapris")
     #excel["Styckpris prislista"] = excel.pop("Pris")
