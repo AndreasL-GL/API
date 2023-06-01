@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
-from functions.Excel.Invoice import faktura_mot_prislista
+from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge
 import os,io,base64, openpyxl
 from tools_get_files import save_file_on_error
 from functions.Excel.Fakturaanalys import process_request
@@ -65,6 +65,15 @@ def faktura_mot_excel():
     data = request.json
     
     rs =faktura_mot_prislista(data, request.args.get('join'))
+    return jsonify(rs)
+
+
+@fakturaextraktion.route("/api/excel/fuzzy_merge", methods=["POST"])
+@require_api_key
+def fuzzy_merge(): 
+    data = request.json
+    
+    rs = fuzzy_merge(data['Left'],data['Right'],data['Right_Column'],data['Left_Column'])
     return jsonify(rs)
 
 def upload():
