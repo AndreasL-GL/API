@@ -1,6 +1,7 @@
 import pandas as pd
 from fuzzywuzzy import fuzz
 import base64, io, json, os
+from flask import abort, make_response
 
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     excel = pd.read_excel(excel)
@@ -46,9 +47,11 @@ def faktura_mot_prislista(js, jointype):
     if not jointype: jointype = "inner"
     excel=base64.b64decode(js['Excel'])
 
-    with open(os.path.join(os.path.dirname(__file__),'fsss.xlsx'),'wb') as f:
-        f.write(excel)
     df = join_pdf_records_and_excel(js['Items'],excel, jointype)
+    if len(df) == 0: 
+        rs = make_response('')
+        rs.status_code = 204
+        return rs
     file = io.BytesIO()
     df.to_excel(file)
     file.seek(0)
