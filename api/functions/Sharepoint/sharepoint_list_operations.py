@@ -68,6 +68,8 @@ def request_fields(site_url, list_name, get_fields=True, field=None, headers=get
             if (data['FieldTypeKind'] == 6 or data['FieldTypeKind'] == 15) and 'Choices' in field.keys():
                 data['Choices'] = field['Choices']
             if 'Required' in field.keys(): data['Required'] = field['Required']
+            if 'CustomFormatter' in field.keys(): data['CustomFormatter'] = field['CustomFormatter']
+            if 'SchemaXML' in field.keys(): data['SchemaXML'] = field['SchemaXML']
             if 'Hidden' in field.keys(): data['Hidden'] = False
             if 'DefaultValue' in field.keys():data['DefaultValue'] = field['DefaultValue']
             # if "EntityPropertyName" in field.keys(): data["EntityPropertyName"] = field["EntityPropertyName"]
@@ -107,6 +109,8 @@ def copy_list(target_site, destination_site, target_list,destination_list=None,h
     if not destination_list: destination_list = target_list
     if target_list == destination_list and target_site == destination_site:
         return "Error: Target list and destination list can't be the same."
+    ### CREATE A CHECK HERE TO SEE IF A LIST EXISTS
+    
     
     # Creates list and sets it to visible in quicklaunch
     rs = create_list(destination_site,destination_list, headers=headers)
@@ -183,7 +187,39 @@ def copy_list_and_all_items(source_site, source_list, destination_site,destinati
         return 201
     else: return 500
     
+def add_field(site_url,list_name, field = {
+    "__metadata": {
+          "type": "SP.Field"
+      },
+    "Description": "Mydescription",
+    "Title": "MyTitle",
+    "FieldTypeKind": 6,
+    "Choices": ["Choice 1", "Choice 2", "Choice 3"],
+    "Required": True,
+    "Hidden": False,
+    "DefaultValue": "",
+    "EnforceUniqueValues": True
+},
+    headers=get_sharepoint_access_headers_through_client_id()):
+    url = f"{site_url}/_api/web/lists/getByTitle('{list_name}')/fields"
+    req = requests.post(url, json=field,headers=headers)
+    return req.status_code
     
+    
+    
+def get_fieldtypes(destination_site):
+    response = requests.get(f"{destination_site}/_api/web/AvailableFields?$select=FieldTypeKind&$select=TypeAsString&$filter=FieldTypeKind ne null&$orderby=FieldTypeKind&$top=1000&$apply=groupby(FieldTypeKind))", headers=headers)
+    r = response.json()['d']['results']
+    setlist = list(set(field_type["FieldTypeKind"] for field_type in r))
+    typelist =[]
+    numlist = []
+    for item in setlist:
+        for ftype in r:
+            if ftype["FieldTypeKind"] == item and item not in numlist:
+                typelist.append(ftype)
+                numlist.append(item)
+                continue
+    return typelist
     
 if __name__ == '__main__':
     source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerVellingebostder"
@@ -191,4 +227,9 @@ if __name__ == '__main__':
     
     source_list = "MKB Egenkontroll Oxie Periodiska 2023"
     destination_list = source_list
-    copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+    #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+    headers=get_sharepoint_access_headers_through_client_id()
+    print(get_fieldtypes(destination_site=destination_site))
+# Make the API call
+    
+   # r = [item for item in r if item["FieldTypeKind"]]

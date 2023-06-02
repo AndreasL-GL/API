@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request,make_response
-from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_items
+from flask import Blueprint, render_template, request,make_response, jsonify
+from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_items, get_fieldtypes, add_field
 from functions.authentication import require_api_key
 
 
@@ -23,4 +23,26 @@ def copy_list():
         response = make_response("Failed to create list or copy items.")
         response.status_code=500
     return response
+
+@sharepoint.route("/api/sharepoint/FieldTypes", methods=["GET"])
+@require_api_key
+def fieldtype():
+    site = request.args.get('site')
+    return jsonify(get_fieldtypes(site))
+
+@sharepoint.route("/api/sharepoint/AddField", methods=["POST"])
+@require_api_key
+def add_sp_field():
+    js = request.get_json()
+    site = js["Site Url"]
+    list_name = js["List"]
+    field = js["Field"]
     
+    try: 
+        rs = add_field(site,list_name,field)
+        response = make_response("Success")
+        response.status_code = rs.status_code
+    except Exception as e:
+        response = make_response(str(e)) 
+        response.status_code = 500
+    return response
