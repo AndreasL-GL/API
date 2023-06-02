@@ -9,6 +9,7 @@ from flow_tools_blueprints import flow_starting_page, get_sharepoint_columns_, g
 from excel_tools_blueprints import excel_dagbok, fakturaextraktion
 from blueprints_word import word_path
 from html_pages_blueprints import html_pages
+from blueprints_sharepoint import sharepoint
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(__file__),'config'),"config.ini"))
 
@@ -22,6 +23,7 @@ app.register_blueprint(get_kontrollmoment)
 app.register_blueprint(excel_dagbok)
 app.register_blueprint(fakturaextraktion)
 app.register_blueprint(html_pages)
+app.register_blueprint(sharepoint)
 
 @app.route("/", methods=['GET', 'POST'])
 def Home():

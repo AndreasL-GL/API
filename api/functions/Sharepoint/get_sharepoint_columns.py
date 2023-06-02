@@ -67,6 +67,7 @@ def get_sites():
     l = requests.get(url, headers=headers)
     js = json.loads(l.text)
     return js
+
 if __name__ == '__main__':
    # site = "GLMalmAB-EgenkontrollerVellingebostder"
     #list_ = "MKB Egenkontroll Oxie Periodiska 2023"
