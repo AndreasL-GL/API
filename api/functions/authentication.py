@@ -18,9 +18,9 @@ def require_api_key(func):
         api_key = request.args.get("API_KEY")
         if api_key not in config["DEFAULTS"]['API_KEYS']:
             abort(401, description="Invalid API key")
-        try: return func(*args, **kwargs)
-        except Exception as e:
-            abort(500,str(e))
+        return func(*args, **kwargs)
+        #except Exception as e:
+         #   abort(500,str(e))
     return decorated_function
 
 
