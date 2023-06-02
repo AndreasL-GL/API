@@ -6,7 +6,7 @@ from functions.authentication import require_api_key
 sharepoint = Blueprint('sharepoint', __name__)
 
 
-@sharepoint.route("/api/sharepoint/copy_list_and_all_items")
+@sharepoint.route("/api/sharepoint/copy_list_and_all_items", methods=["POST"])
 @require_api_key
 def copy_list():
     js = request.get_json()
