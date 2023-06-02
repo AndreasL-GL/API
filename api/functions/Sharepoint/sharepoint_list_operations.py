@@ -3,7 +3,10 @@ import os
 import json
 from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
 
-
+def rq(url,headers=get_sharepoint_access_headers_through_client_id()):
+    jq = requests.get(url,headers=headers)
+    #print(jq.text)
+    return jq.json()
 
 def set_field_visibility(site_url, list_name, fields=["Lampbyte"], headers = get_sharepoint_access_headers_through_client_id()):
     list_id = requests.get(f"{site_url}/_api/web/lists/GetByTitle('{list_name}')", headers=headers).json()['d']['Id']
@@ -163,7 +166,7 @@ def add_all_items(source_site,destination_site,source_list,headers=get_sharepoin
     
     fields_source = requests.get(f"{source_site}/_api/web/lists/getByTitle('{source_list}')/Fields",headers=headers).json()['d']['results']
     fields_destination = requests.get(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')/Fields",headers=headers).json()['d']['results']
-    with open(os.path.join(os.path.dirname(__file__),'items.json'), 'w') as f: json.dump(source_items,f,indent=3)
+    #with open(os.path.join(os.path.dirname(__file__),'items.json'), 'w') as f: json.dump(source_items,f,indent=3)
     
     for item in source_items:
         newitem = {}
@@ -175,7 +178,28 @@ def add_all_items(source_site,destination_site,source_list,headers=get_sharepoin
                     newitem[dfield['EntityPropertyName']] = item[sfield['EntityPropertyName']]
         newitem = {key:value for key,value in newitem.items() if value and key}
         rs = requests.post(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')/Items",json=newitem,headers=headers)
+        add_attachments(source_site=source_site,source_list=source_list,destination_site=destination_site,destination_list=destination_list,item=item,item_id=rs.json()["d"]['ID'],headers=headers)
     return rs.status_code
+
+def add_attachments(source_site,source_list,destination_site,item=None,item_id=None,destination_list=None,headers=get_sharepoint_access_headers_through_client_id()):
+    if not destination_list: destination_list = source_list
+    if item:    
+        ks = rq(item['AttachmentFiles']['__deferred']['uri'],headers=headers)
+        files = ks['d']['results']
+        rslist = []
+        for file in files:
+            path = file['ServerRelativeUrl']
+            url = f"{source_site}/_api/web/GetFileByServerRelativeUrl('{path}')/$value"
+            rs = requests.get(url, headers=headers)
+            filecontent = rs.content
+            fname = file["FileName"]
+            
+            send_file_url = f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')/items({item_id})/AttachmentFiles/add(FileName='{fname}')"
+            response = requests.post(send_file_url, headers=headers, data=filecontent)
+            rslist.append(response)
+        if any(rslist): item['Attachments'] = True
+        else: item['Attachments'] = False
+
 
     
 def copy_list_and_all_items(source_site, source_list, destination_site,destination_list=None):
@@ -223,13 +247,14 @@ def get_fieldtypes(destination_site):
     
 if __name__ == '__main__':
     source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerVellingebostder"
-    destination_site = "https://greenlandscapingmalmo.sharepoint.com/sites/EgenkontrollMalm"
+    destination_site = "https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikationer"
     
-    source_list = "MKB Egenkontroll Oxie Periodiska 2023"
+    source_list = "MKB Egenkontroll Augustenborg Periodiska 2023"
     destination_list = source_list
     #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
     headers=get_sharepoint_access_headers_through_client_id()
-    print(get_fieldtypes(destination_site=destination_site))
+    rs = copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+    print(rs)
 # Make the API call
     
    # r = [item for item in r if item["FieldTypeKind"]]
