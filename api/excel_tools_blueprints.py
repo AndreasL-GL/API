@@ -35,7 +35,7 @@ def upload(): ## Working
 @fakturaextraktion.route("/api/fakturaanalys_fix_columns", methods=['POST'])
 @require_api_key
 def column():
-    js = request.json()
+    js = request.json
     excel = set_main_columns(js["excel"])
     
     return jsonify({"excel": excel})
