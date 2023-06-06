@@ -119,6 +119,7 @@ def change_column_size_before_saving(df):
 
 def set_main_columns(excel):
     excel = pd.read_excel(base64.b64decode(excel))
+    if "Kvantitet" not in excel.columns: df["Kvantitet"] = 1
     excel = excel[["Styckpris","Artikelnr","Beskrivning","Kvantitet","Styckpris_prislista"]]
     excel["Prisskillnad"] = excel["Styckpris_prislista"] -  excel["Styckpris"].apply(lambda x:float(x.replace(',','.').replace(' ', '')))
     excel["Kvantitet"] =  excel["Kvantitet"].apply(lambda x:float(x.replace(',','.').replace(' ', '')))
