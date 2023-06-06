@@ -2,6 +2,7 @@ import requests
 import os
 import json
 from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
+import random, string
 
 def rq(url,headers=get_sharepoint_access_headers_through_client_id()):
     jq = requests.get(url,headers=headers)
@@ -53,7 +54,7 @@ def create_list(site_url, Title='MylistTitle',data = {
 
 
 
-def request_fields(site_url, list_name, get_fields=True, field=None, headers=get_sharepoint_access_headers_through_client_id()):
+def request_fields(site_url, list_name, get_fields=True, field=None, headers=get_sharepoint_access_headers_through_client_id(), PatchId=None):
 
 
     url = f"{site_url}/_api/web/lists/getByTitle('{list_name}')/fields"
@@ -81,6 +82,10 @@ def request_fields(site_url, list_name, get_fields=True, field=None, headers=get
             if "EnforceUniqueValues" in field.keys(): data["EnforceUniqueValues"] = field["EnforceUniqueValues"]
             #if "DefaultValue" in field.keys(): data["DefaultValue"] = field["DefaultValue"]
             if "Description" in field.keys(): data["Description"] = field["Description"]
+        if PatchId:
+            response = requests.post(url+f"({PatchId})", json=data, headers=headers)
+            return response
+                
         response = requests.post(url, json=data, headers=headers)
     return response
 
@@ -120,7 +125,7 @@ def copy_list(target_site, destination_site, target_list,destination_list=None,h
     change_list_visibility(destination_site,destination_list, headers)
     
     # Gets fields from the old list and creates all fields in the new one and sets them to visible
-    fields = json.loads(request_fields(target_site, target_list, headers=headers).text)['d']['results']
+    fields = request_fields(target_site, target_list, headers=headers).json()['d']['results']
     fields_list = []
     with open(os.path.join(os.path.dirname(__file__),'fields_to_remain_hidden.txt'), 'r') as f: rmlist = f.read().split('\n')
     for field in fields:
@@ -167,14 +172,14 @@ def add_all_items(source_site,destination_site,source_list,headers=get_sharepoin
     fields_source = requests.get(f"{source_site}/_api/web/lists/getByTitle('{source_list}')/Fields",headers=headers).json()['d']['results']
     fields_destination = requests.get(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')/Fields",headers=headers).json()['d']['results']
     #with open(os.path.join(os.path.dirname(__file__),'items.json'), 'w') as f: json.dump(source_items,f,indent=3)
-    
+    entitytype=rq(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')")['d']["ListItemEntityTypeFullName"]
     for item in source_items:
         newitem = {}
-        newitem['__metadata'] = {'type':item['__metadata']['type']}
+        newitem['__metadata'] = {'type':entitytype}
         for sfield in [item for item in fields_source if item["EntityPropertyName"] not in rmlist]:
             for dfield in fields_destination:
                 if dfield['Title'] == sfield['Title'] or ('Rubrik' in dfield['Title'] and 'Title' in sfield['Title']) or ('Rubrik' in sfield['Title'] and 'Title' in dfield['Title']):
-                    if "link" in sfield['InternalName'].lower() or "link" in sfield['StaticName'].lower() or "link" in dfield['InternalName'].lower() or "link" in dfield['StaticName'].lower() or "Title0" in [dfield['EntityPropertyName'],sfield['EntityPropertyName']]: continue
+                    #if "link" in sfield['InternalName'].lower() or "link" in sfield['StaticName'].lower() or "link" in dfield['InternalName'].lower() or "link" in dfield['StaticName'].lower() or "Title0" in [dfield['EntityPropertyName'],sfield['EntityPropertyName']]: continue
                     newitem[dfield['EntityPropertyName']] = item[sfield['EntityPropertyName']]
         newitem = {key:value for key,value in newitem.items() if value and key}
         rs = requests.post(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')/Items",json=newitem,headers=headers)
@@ -205,24 +210,28 @@ def add_attachments(source_site,source_list,destination_site,item=None,item_id=N
 def copy_list_and_all_items(source_site, source_list, destination_site,destination_list=None):
     if not destination_list:destination_list=source_list
     headers = get_sharepoint_access_headers_through_client_id()
+    test_if_list_exists = requests.get(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')")
+    if test_if_list_exists.status_code != 403:
+        return {"Error": "List already exists"},500
+    
+    
     rs = copy_list(source_site,destination_site,source_list,destination_list,headers=headers)
     ps = add_all_items(source_site,destination_site,source_list,destination_list=destination_list,headers=headers)
     if rs < 300 and ps <300:
         return 201
     else: return 500
     
-def add_field(site_url,list_name, field = {
+def add_BooleanField(site_url,list_name, field = {
     "__metadata": {
           "type": "SP.Field"
       },
-    "Description": "Mydescription",
-    "Title": "MyTitle",
-    "FieldTypeKind": 6,
-    "Choices": ["Choice 1", "Choice 2", "Choice 3"],
-    "Required": True,
+    "Description": "Kantskärning hårdgjorda ytor",
+    "Title": "Kantskärning hårdgjorda ytor",
+    "FieldTypeKind": 8,
+    "Required": False,
     "Hidden": False,
     "DefaultValue": "",
-    "EnforceUniqueValues": True
+    "EnforceUniqueValues": False
 },
     headers=get_sharepoint_access_headers_through_client_id()):
     url = f"{site_url}/_api/web/lists/getByTitle('{list_name}')/fields"
@@ -245,16 +254,100 @@ def get_fieldtypes(destination_site):
                 continue
     return typelist
     
+def Lägg_till_moment(destination_site,destination_list, headers=get_sharepoint_access_headers_through_client_id(), Title = "Min nya kontrollpunkt"):
+    url = f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')"
+    i = requests.get(url+"/fields", headers = headers)
+    Kontrollmoment = [field for field in i.json()['d']['results'] if field['StaticName']=='Kontrollmoment'][0]
+    print(json.dumps(Kontrollmoment,indent=4))
+    Kontrollmoment['Choices']['results'].append(Title)
+    Id = Kontrollmoment["Id"]
+    with open(os.path.join(os.path.dirname(__file__),'Kontrollmoment.json'), 'w', encoding='utf-8') as fp:
+        json.dump(Kontrollmoment,fp, indent=4)
+    headers["X-HTTP-Method"] = "MERGE"
+    headers["If-Match"] = "*"
+    
+    kontrollmoment = Kontrollmoment['__metadata']
+    kontrollmoment['Choices'] = Kontrollmoment['Choices']
+    kontrollmoment["SchemaXml"] = Kontrollmoment["SchemaXml"].replace("<CHOICES>",f"<CHOICES><CHOICE>{Title}</CHOICE>")
+    rs = requests.patch(url+f'''/Fields('{Id}')''', data=kontrollmoment,headers=headers)
+    ks = requests.get(url+f'''/Fields('{Id}')''', headers=headers)
+    print(ks)
+    print(ks.json()['d'].keys())
+    if Title in ks.json()['d']['Choices']['results']: print("Title is in Kontrollmoment!")
+    
+    return rs
+    
+
 if __name__ == '__main__':
     source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerVellingebostder"
     destination_site = "https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikationer"
     
-    source_list = "MKB Egenkontroll Augustenborg Periodiska 2023"
-    destination_list = source_list
+    source_list = "VEBOA Egenkontroll periodiska 2023"
+    
+    destination_list = "Veaboa"
     #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
-    headers=get_sharepoint_access_headers_through_client_id()
-    rs = copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+    rs = Lägg_till_moment(destination_site,destination_list)
     print(rs)
+   # print(rq(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')")['d']["ListItemEntityTypeFullName"])
+    #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+   
+    #print(json.dumps(i.json()))
+    #print(i.json())
+if False:
+    Jordprov = [field for field in i.json()['d']['results'] if field['StaticName'] == 'Jordprov'][0]
+    Jordprov['Title']='Nytt Kontrollmoment'
+    Jordprov['Description'] = "None"
+    #print(Jordprov['Title'])
+    Kontrollmoment = [field for field in i.json()['d']['results'] if field['StaticName']=='Kontrollmoment'][0]
+    Id = Kontrollmoment['Id']
+    Kontrollmoment['Choices']['results'].append(Jordprov['Title'])
+    Kontrollmoment['Choices']['results'].append("HELLO")
+    js = json.loads(Kontrollmoment["CustomFormatter"])
+    
+    Title = "Hello"
+    
+    operands = {"class":{
+        "operator":":",
+        "operands":
+        [{'operator': '==', 'operands': ['[$__INTERNAL__]', Title]},"sp-css-backgroundColor-blueBackground37",js["children"][0]['attributes']["class"]]
+    }}
+    js["children"][0]["attributes"] = operands
+
+    Kontrollmoment["CustomFormatter"]=json.dumps(js, indent=4)
+    ##print(Kontrollmoment.keys())
+    Kontrollmoment["SchemaXml"].replace(
+    "<CHOICES>",f"<CHOICES><CHOICE>{Title}</CHOICE>")
+    
+    #print(Kontrollmoment["SchemaXml"])
+    requests.post(url+'/fields'+f"({Kontrollmoment['Id']})")
+    
+#.replace(
+  #  "CustomFormatter=''",
+   # f"CustomFormatter='{''.join(hexe) for _ in range(len(hexe))}
+    #)
+    #hexe = random.choice(string.hexdigits[:-6])
+    #print()
+    #ls = requests.delete(url+f"/fields/getByInternalNameOrTitle('Kontrollmoment')", headers=headers)
+    #rs = request_fields(destination_site,source_list,field=Jordprov,get_fields=False,headers=headers)
+    #ks = request_fields(destination_site,source_list,field=Kontrollmoment,get_fields=False,headers=headers)
+    #print(ls,ls.text)
+    #print(rs)
+    #print(ks)
+    #url = f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')"
+    #rs = rq(url,headers=headers)
+    
+if False:
+        
+    with open(os.path.join(os.path.dirname(__file__),'file.json'),'w') as f:
+        json.dump(rs, f, indent=2)
+    for item in rs['d']['results']:
+        if "Title" in item["EntityPropertyName"]:
+            print(item["EntityPropertyName"])
+    
+            
+    #rs = copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+   # print(rs)
 # Make the API call
     
    # r = [item for item in r if item["FieldTypeKind"]]
+   

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request,make_response, jsonify
-from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_items, get_fieldtypes, add_field
+from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_items, get_fieldtypes, request_fields
+from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
 from functions.authentication import require_api_key
 
 
@@ -39,10 +40,13 @@ def add_sp_field():
     field = js["Field"]
     
     try: 
-        rs = add_field(site,list_name,field)
+        headers=get_sharepoint_access_headers_through_client_id()
+        rs = request_fields(site,list_name,get_fields=False,field=field,headers=headers)
         response = make_response("Success")
         response.status_code = rs.status_code
     except Exception as e:
-        response = make_response(str(e)) 
+        response = make_response(str(e))
         response.status_code = 500
     return response
+
+

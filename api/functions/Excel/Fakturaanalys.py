@@ -115,9 +115,27 @@ def change_column_size_before_saving(df):
     file.seek(0)
     return file
 
+
+
+def set_main_columns(excel):
+    excel = pd.read_excel(base64.b64decode(excel))
+    excel = excel[["Styckpris","Artikelnr","Beskrivning","Kvantitet","Styckpris_prislista"]]
+    excel["Prisskillnad"] = excel["Styckpris_prislista"] -  excel["Styckpris"].apply(lambda x:float(x.replace(',','.').replace(' ', '')))
+    excel["Kvantitet"] =  excel["Kvantitet"].apply(lambda x:float(x.replace(',','.').replace(' ', '')))
+    excel["Summa Prisskillnad"] = excel["Prisskillnad"].mul(excel["Kvantitet"])# * excel["Kvantitet"]
+    excel.loc[excel.index[-1] + 1, 'Summa Prisskillnad'] = excel["Summa Prisskillnad"].sum()
+    excel.at[excel.index[-1], 'Beskrivning'] = " SUMMA"
+    exio = io.BytesIO()
+    excel.to_excel(exio)
+    exio.seek(0)
+    
+    return base64.b64encode(exio.getvalue())
+
+
 if __name__ == '__main__':
-    with open(os.path.join(os.path.dirname(__file__),'request.json'), 'r', encoding='utf-8') as f:
-        js = json.load(f)['body']
-    file = process_request(js)
-    with open(os.path.join(os.path.dirname(__file__),'test2.xlsx'), 'wb') as f:
-        f.write(base64.b64decode(file["content"]))
+    with open(os.path.join(os.path.dirname(__file__),'Ahlsell.xlsx'), 'rb') as f:
+        b64string = base64.b64encode(f.read())
+    df = set_main_columns(b64string)
+    df = pd.read_excel(base64.b64decode(df))
+    print(df)
+

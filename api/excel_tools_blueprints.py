@@ -2,11 +2,15 @@ from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
 from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge
+from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
 from tools_get_files import save_file_on_error
 from functions.Excel.Fakturaanalys import process_request
 excel_dagbok = Blueprint('dagbok_trädexperterna', __name__)
 fakturaextraktion = Blueprint('fakturaextraktion', __name__)
+
+
+
 @excel_dagbok.route("/api/excel_dagbok", methods=["POST"])
 @require_api_key
 def upload(): ## Working
@@ -27,6 +31,14 @@ def upload(): ## Working
     excel_file,filename=convert_file_to_workbook(filebytes)
     file_content_base64 = base64.b64encode(excel_file.read()).decode('utf-8')
     return jsonify({"content":file_content_base64,"filename":filename})
+
+@fakturaextraktion.route("/api/fakturaanalys_fix_columns", methods=['POST'])
+@require_api_key
+def column():
+    js = request.json()
+    excel = set_main_columns(js["excel"])
+    
+    return jsonify({"excel": excel})
 
 @fakturaextraktion.route("/api/fakturaanalys", methods=["POST"])
 @require_api_key
