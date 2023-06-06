@@ -130,7 +130,7 @@ def set_main_columns(excel):
     excel.to_excel(exio)
     exio.seek(0)
     
-    return base64.b64encode(exio.getvalue())
+    return base64.b64encode(exio.getvalue()).decode('utf-8')
 
 
 if __name__ == '__main__':
