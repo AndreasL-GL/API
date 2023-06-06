@@ -121,7 +121,7 @@ def set_main_columns(excel):
     excel = pd.read_excel(base64.b64decode(excel))
     if "Kvantitet" not in excel.columns: excel["Kvantitet"] = 1
     excel = excel[["Styckpris","Artikelnr","Beskrivning","Kvantitet","Styckpris_prislista"]]
-    excel["Prisskillnad"] = excel["Styckpris_prislista"] -  excel["Styckpris"].apply(lambda x:float(x.replace(',','.').replace(' ', '')))
+    excel["Prisskillnad"] = excel["Styckpris_prislista"] -  excel["Styckpris"].apply(lambda x:float(str(x).replace(',','.').replace(' ', '')))
     excel["Kvantitet"] =  excel["Kvantitet"].apply(lambda x:float(x.replace(',','.').replace(' ', '')))
     excel["Summa Prisskillnad"] = excel["Prisskillnad"].mul(excel["Kvantitet"])# * excel["Kvantitet"]
     excel.loc[excel.index[-1] + 1, 'Summa Prisskillnad'] = excel["Summa Prisskillnad"].sum()
