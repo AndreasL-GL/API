@@ -499,7 +499,8 @@ def add_anmärkningar(doc, js):
         if 'Utrustning' not in utrustning.keys():
             utrustning['Utrustning'] =  {'Value':utrustning['Utegymredskap']['Value']}
         print(utrustning['Utrustning'].keys())
-        if "Value" in utrustning['Utrustning']['Value'].keys(): value = utrustning['Utrustning']['Value']['Value']
+        if type(utrustning['Utrustning']['Value']) == dict:
+            if "Value" in utrustning['Utrustning']['Value'].keys(): value = utrustning['Utrustning']['Value']['Value']
         else: value = utrustning['Utrustning']['Value']
         h = doc.add_heading('Produkt ' + str(i+1) + ', '+ value, 0)
         h.style = 'subheading'
