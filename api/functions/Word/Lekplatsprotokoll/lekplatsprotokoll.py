@@ -570,6 +570,8 @@ def add_anmärkningar(doc, js):
             p1.style = 'small'
             
             # LÄGG TILL MONTERING OVAN OCH UNDER MARK
+            if js['Items']['value'][0]['Typavbesiktning']['Value']=='Installationsbesiktning':
+                p1.paragraph_format.keep_with_next = True
         if True:
             if 'Montering_ovan_mark' not in utrustning.keys(): utrustning['Montering_ovan_mark'] = '-'
             if 'Montering_under_mark' not in utrustning.keys(): utrustning['Montering_under_mark'] = '-'
@@ -577,6 +579,7 @@ def add_anmärkningar(doc, js):
                 utrustning['Montering_ovan_bed'] = {'Value':'-'}
             if 'Montering_under_bed' not in utrustning.keys():
                 utrustning['Montering_under_bed']={'Value':'-'}
+            print(js['Items']['value'][0]['Typavbesiktning']['Value'])
             if js['Items']['value'][0]['Typavbesiktning']['Value']=='Installationsbesiktning':
                 ph = doc.add_paragraph()
                 ph.text = "Montering ovan mark"
@@ -621,7 +624,7 @@ def add_anmärkningar(doc, js):
                 p = doc.add_paragraph()
                 p.text = "Enligt SS EN 1176-1:6.2.2"
                 p.style = 'small'
-                
+                p.paragraph_format.keep_with_next = False
                 
                 
                 
@@ -749,7 +752,7 @@ def __add_anmärkningar_deprecated(doc, js):
         # smallhead = doc.styles.add_style('Underovanmark', doc.styles)
         # smallhead.font.size = Pt(14)
         # smallhead.font.color.rgb = RGBColor(100,200,100)
-        if True:#any(utrustningslista):
+        if any(utrustningslista):
             ph = doc.add_paragraph()
             ph.text = "Montering ovan mark"
             ph.style = 'subheading2'
