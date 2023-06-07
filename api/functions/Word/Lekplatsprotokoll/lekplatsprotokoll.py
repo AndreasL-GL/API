@@ -2,6 +2,7 @@ import json
 import os
 import requests
 from functions.downloader.sharepoint import get_sharepoint_access_headers_through_client_id,get_item_based_on_id, get_all_items, get_by_url, Download_icon
+
 import datetime
 import io
 import mailmerge
@@ -497,8 +498,11 @@ def add_anmärkningar(doc, js):
         
         if 'Utrustning' not in utrustning.keys():
             utrustning['Utrustning'] =  {'Value':utrustning['Utegymredskap']['Value']}
-        h = doc.add_heading('Produkt '+str(i+1)+', '+ utrustning['Utrustning']['Value'], 0)
-        h.style= 'subheading'
+        print(utrustning['Utrustning'].keys())
+        if "Value" in utrustning['Utrustning']['Value'].keys(): value = utrustning['Utrustning']['Value']['Value']
+        else: value = utrustning['Utrustning']['Value']
+        h = doc.add_heading('Produkt ' + str(i+1) + ', '+ value, 0)
+        h.style = 'subheading'
         h.paragraph_format.keep_with_next = True
         h.runs[0].bold=True
         
