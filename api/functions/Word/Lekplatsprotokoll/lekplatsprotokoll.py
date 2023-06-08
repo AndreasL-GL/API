@@ -334,47 +334,7 @@ def add_utrustning(doc,js):
             else: 
                 Produkt = 'saknas'
                 item['Items']['Utrustning'] = {'Value':'saknas'}
-                
             
-
-            # table = doc.add_table(rows=1, cols=5)
-            # table.style = 'Grid Table 1 Light'
-            # row = table.rows[0].cells
-            # row[0].text = 'Nr'
-            # row[0].width = Inches(0.2)
-            # row[1].text = "Produkt"
-            # row[2].text = "Tillverkare/artnr"
-            # row[3].text = "Årtal"
-            # row[4].text = "Bild nr"
-    # while index1 < len(js['Utrustning']):
-    #     index = 0
-    #     while index < len(js['Utrustning'][index1]['Image']):
-    #         row = table.add_row().cells
-    #         for i in range(0,3):
-    #             if index1 == len(js['Utrustning']):break
-    #             if index == len(js['Utrustning'][index1]['Image']): continue
-    #             p= row[i].add_paragraph()
-    #             p.text = 'Bild: '+str(index1+1)
-    #             file = io.BytesIO(base64.b64decode(item['Image'][index]['content']))
-    #             file.seek(0)
-    #             file = resize_and_autoorient(file,120,120)
-    #             row[i].add_paragraph().add_run().add_picture(file)
-    #             index+=1
-    #             index1+=1
-            
-    # index = 0
-    # table = doc.add_table(rows=1, cols=3)
-    # while index < len(images):
-    #     row = table.add_row().cells
-    #     for i in range(0,3):
-            
-    #         file = io.BytesIO(base64.b64decode(js['Utrustning'][index]['Image'][0]['content']))
-    #         file.seek(0)
-    #         file = resize_and_autoorient(file,120,120)
-    #         row[i].add_paragraph().text = "Bild: "+str(index+1)
-    #         row[i].add_paragraph().add_run().add_picture(file)
-    #         index +=1
-    #         if index == len(images):break
     return None
 
 def add_underlag(doc,js):
@@ -443,40 +403,6 @@ def add_underlag(doc,js):
     
 
     
-    # for i, item in enumerate(js['Underlag']):
-    #     p = doc.add_paragraph()
-    #     if 'Utrustning' not in item.keys():
-    #         if 'Kommentar' in item.keys():
-    #             item['Utrustning'] = item['Kommentar']
-    #         else:
-    #             item['Utrustning'] = 'Utrustning'
-    #             item['Kommentar'] = ['-']
-    #     if not any([i+1 for i, utr in enumerate(js['Utrustning']) if utr['Items']['ID'] == item['UtrustningsID']]):
-    #         continue
-    #     count+=1
-        
-        
-    #     p.text = 'Produkt '+str([i+1 for i, utr in enumerate(js['Utrustning']) if utr['Items']['ID'] == item['UtrustningsID']][0])+':' + item['Utrustning']
-    #     p.style = 'bold'
-    #     p.paragraph_format.keep_with_next = True
-    #     table = doc.add_table(rows=1, cols=2)
-    #     table.style = 'Grid Table Light'
-    #     table.style.paragraph_format.keep_with_next = True
-    #     row = table.rows[0].cells
-    #     row[0].text = item['Kommentar']
-    #     row[0].paragraphs[0].paragraph_format.keep_with_next=True
-    #     row[0].style = 'vsmall'
-    #     row[1].text = item['Bed_x00f6_mning']['Value']
-    #     row[1].paragraphs[0].paragraph_format.keep_with_next=True
-    #     p = doc.add_paragraph()
-    #     p.text = "Enligt SS-EN 1176-1:4.2.8.5"
-    #     p.style = 'small'
-    #     for cell in table.columns[0].cells:
-    #         cell.width = Inches(6)
-    #     for cell in table.columns[1].cells:
-    #         cell.width = Inches(0.4)
-    # return None
-    
 def add_anmärkningar(doc, js):
     doc.add_page_break()
     hh = doc.add_heading('Anmärkningar:', 0)
@@ -506,13 +432,7 @@ def add_anmärkningar(doc, js):
         h.paragraph_format.keep_with_next = True
         h.runs[0].bold=True
         
-                    # LOOP FÖR ATT LÄGGA TILL BILDER
-        # print(any(anmärkningar))
-        # if any(anmärkningar):
-        #     ph = doc.add_paragraph()
-        #     ph.text = "Anmärkningar"
-        #     ph.style = 'subheading2'
-        #     ph.style.paragraph_format.keep_with_next=True
+
         for anmärkning in anmärkningar:
             if anmärkning['Items']['{HasAttachments}']:
                 table=doc.add_table(rows=0, cols=4)
@@ -627,63 +547,7 @@ def add_anmärkningar(doc, js):
                 p.paragraph_format.keep_with_next = False
                 
                 
-                
-    # for anmärkning in extra_Anmärkning:
-    #     print("Hello")
-    #     if anmärkning['Items']['{HasAttachments}']:
-    #         table=doc.add_table(rows=0, cols=4)
-    #         index = 0
-    #         table.style.paragraph_format.keep_together = True
-    #         while index < len(anmärkning['Image']):
-    #             row0 = table.add_row()
-    #             row =row0.cells
-    #             for i in range(0,4):
-    #                 if index == len(anmärkning['Image']): continue
-    #                 row[i]
-    #                 file = io.BytesIO(base64.b64decode(anmärkning['Image'][index]['content']))
-    #                 file.seek(0)
-    #                 file = resize_and_autoorient(file,100,100)
-    #                 p=row[i].paragraphs[0]
-    #                 p.style= 'imgp'
-    #                 p.paragraph_format.keep_with_next=True
-    #                 run = p.add_run()
-    #                 picture = run.add_picture(file)
-    #                 index +=1
-                    
-    #                 #  LÄGG TILL ANMÄRKNINGAR
-    #     table = doc.add_table(rows=1, cols=2)
-    #     table.style = 'Grid Table Light'
-    #     table.style.paragraph_format.keep_with_next = True
-    #     row = table.rows[0].cells
-    #     row[0].text = anmärkning['Items']['Kommentar']
-    #     row[0].paragraphs[0].paragraph_format.keep_with_next=True
-    #     row[1].text = anmärkning['Items']['Bed_x00f6_mning']['Value']
-    #     row[1].paragraphs[0].paragraph_format.keep_with_next=True
-    #     for cell in table.columns[0].cells:
-    #         cell.width = Inches(6)
-    #     for cell in table.columns[1].cells:
-    #         cell.width = Inches(0.4)
-    #         # Standard under tabell
-    #     p1 = doc.add_paragraph()
-    #     p1.text = anmärkning['Items']['Utrustningstyp']['Value']
-    #     p1.style = 'small'
-    # if not any(anmärkningar):
-    #     table = doc.add_table(rows=1, cols=2)
-    #     table.style = 'Grid Table Light'
-    #     table.style.paragraph_format.keep_with_next = True
-    #     row = table.rows[0].cells
-    #     row[0].text = "Inga anmärkningar funna vid besiktningstillfället"
-    #     row[0].paragraphs[0].paragraph_format.keep_with_next=True
-    #     row[1].text = "-"
-    #     row[1].paragraphs[0].paragraph_format.keep_with_next=True
-    #     for cell in table.columns[0].cells:
-    #         cell.width = Inches(6)
-    #     for cell in table.columns[1].cells:
-    #         cell.width = Inches(0.4)
-    #         # Standard under tabell
-    #     p1 = doc.add_paragraph()
-    #     p1.text = "Saknas"
-    #     p1.style = 'small'
+
         
     
 def __add_anmärkningar_deprecated(doc, js):
@@ -749,9 +613,7 @@ def __add_anmärkningar_deprecated(doc, js):
         p1.text = item['Items']['Utrustningstyp']['Value']
         p1.style = 'small'
         
-        # smallhead = doc.styles.add_style('Underovanmark', doc.styles)
-        # smallhead.font.size = Pt(14)
-        # smallhead.font.color.rgb = RGBColor(100,200,100)
+
         if any(utrustningslista):
             ph = doc.add_paragraph()
             ph.text = "Montering ovan mark"
@@ -792,31 +654,6 @@ def __add_anmärkningar_deprecated(doc, js):
             p.text = "Enligt SS EN 1176-1:6.2.2"
             p.style = 'small'
 
-            
-            
-        # row0 = table.rows[0].cells
-        # h = doc.add_heading('Produkt '+str(i+1)+', '+ [item['Items']['Utrustningstyp0'] if 'Utrustningstyp0' in item['Items'].keys() else 'Gymredskap'][0], 0)
-        # h.style= 'subheading'
-        # if item['Items']['{HasAttachments}']:
-        #     if item['Image'][0]['content']:
-        #         img = item['Image'][0]['content']
-        #         file = io.BytesIO(base64.b64decode(img))
-        #         file.seek(0)
-        #         img = resize_and_autoorient(file, 80,80)
-        #         p = doc.add_paragraph()
-        #         p.add_run().add_picture(img)
-        # table = doc.add_table(rows=1, cols=2)
-        # table.style = 'Grid Table Light'
-        # row = table.rows[0].cells
-        # row[0].text = item['Items']['Kommentar']
-        # row[1].text = item['Items']['Bed_x00f6_mning']['Value']
-        # for cell in table.columns[0].cells:
-        #     cell.width = Inches(6)
-        # for cell in table.columns[1].cells:
-        #     cell.width = Inches(0.4)
-        # p1 = doc.add_paragraph()
-        # p1.text = item['Items']['Utrustningstyp']['Value']
-        # p1.style = 'small'
 
     return None
 
@@ -845,17 +682,6 @@ def add_grindar(doc, js):
 
                     index +=1
                     
-
-                
-            # if item['Images'][0]['content']:
-            #     img = item['Images'][0]['content']
-            #     file = io.BytesIO(base64.b64decode(img))
-            #     file.seek(0)
-            #     img = resize_and_autoorient(file, 80,80)
-            #     p = doc.add_paragraph()
-            #     p.paragraph_format.keep_with_next = True
-            #     p.add_run().add_picture(img)
-                
                 
         table = doc.add_table(rows=1, cols=2)
         table.style = 'Grid Table Light'
@@ -1006,5 +832,3 @@ if __name__ == '__main__':
             doc,filename = run_functions(js)
             doc.save(os.path.join(os.path.dirname(__file__),filename+'.docx'))
         
-
-    ### TODO:
