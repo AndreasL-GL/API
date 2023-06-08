@@ -48,10 +48,7 @@ def faktura_mot_prislista(js, jointype):
     excel=base64.b64decode(js['Excel'])
 
     df = join_pdf_records_and_excel(js['Items'],excel, jointype)
-    if len(df) == 0: 
-        rs = make_response('')
-        rs.status_code = 204
-        return rs
+    if df.empty: return {"Excel":"None"}
     file = io.BytesIO()
     df.to_excel(file)
     file.seek(0)
