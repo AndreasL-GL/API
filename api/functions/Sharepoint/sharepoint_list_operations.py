@@ -241,6 +241,7 @@ def add_BooleanField(site_url,list_name, field = {
     
     
 def get_fieldtypes(destination_site):
+    headers=get_sharepoint_access_headers_through_client_id()
     response = requests.get(f"{destination_site}/_api/web/AvailableFields?$select=FieldTypeKind&$select=TypeAsString&$filter=FieldTypeKind ne null&$orderby=FieldTypeKind&$top=1000&$apply=groupby(FieldTypeKind))", headers=headers)
     r = response.json()['d']['results']
     setlist = list(set(field_type["FieldTypeKind"] for field_type in r))
@@ -263,20 +264,55 @@ def Lägg_till_moment(destination_site,destination_list, headers=get_sharepoint_
     Id = Kontrollmoment["Id"]
     with open(os.path.join(os.path.dirname(__file__),'Kontrollmoment.json'), 'w', encoding='utf-8') as fp:
         json.dump(Kontrollmoment,fp, indent=4)
+
+    headers["Accept"] = "application/json;odata=verbose"
+    headers["Content-Type"]= "application/json;odata=verbose"
     headers["X-HTTP-Method"] = "MERGE"
-    headers["If-Match"] = "*"
-    
-    kontrollmoment = Kontrollmoment['__metadata']
-    kontrollmoment['Choices'] = Kontrollmoment['Choices']
-    kontrollmoment["SchemaXml"] = Kontrollmoment["SchemaXml"].replace("<CHOICES>",f"<CHOICES><CHOICE>{Title}</CHOICE>")
-    rs = requests.patch(url+f'''/Fields('{Id}')''', data=kontrollmoment,headers=headers)
+
+    Kontrollmoment["SchemaXml"] = add_to_SchemaXml(Kontrollmoment["SchemaXml"], Title)
+    Kontrollmoment["CustomFormatter"] = set_customFormatter(Kontrollmoment["CustomFormatter"], Title)
+    rs = request_fields(destination_site,destination_list,field=Kontrollmoment, headers=headers)
     ks = requests.get(url+f'''/Fields('{Id}')''', headers=headers)
-    print(ks)
-    print(ks.json()['d'].keys())
+    print(rs.text, rs)
     if Title in ks.json()['d']['Choices']['results']: print("Title is in Kontrollmoment!")
     
     return rs
-    
+
+
+
+def add_kontrollmoment(site="https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikatione", list_name="Veaboa", title = "Mitt Nyare Moment"):
+    url = f"{site}/_api/web/lists/getByTitle('{list_name}')"
+    headers=get_sharepoint_access_headers_through_client_id()
+    i = requests.get(url+"/fields", headers = headers)
+    Kontrollmoment = [field for field in i.json()['d']['results'] if field['StaticName']=='Kontrollmoment'][0]
+    Id = Kontrollmoment["Id"]
+    headers["Accept"] = "application/json;odata=verbose"
+    headers["Content-Type"]= "application/json;odata=verbose"
+    headers["X-HTTP-Method"] = "MERGE"
+
+    if title not in Kontrollmoment["Choices"]["results"]:
+    #Kontrollmoment["SchemaXml"] = add_to_SchemaXml(Kontrollmoment["SchemaXml"], Title)
+        payload = {"__metadata":{"type":"SP.FieldMultiChoice"},"Choices":{"results":Kontrollmoment["Choices"]["results"]+[title]} }
+        rs = requests.post(url+f"""/fields('{Id}')""", json=payload, headers=headers)
+        return rs
+    return 500
+
+
+def add_to_SchemaXml(SchemaXml, title):
+    return SchemaXml.replace("<CHOICES>", f"<CHOICES><CHOICE>{title}</CHOICE>")
+
+
+def set_customFormatter(js, title):
+    js = json.loads(js.encode('utf-8'))
+    print(js["children"][0]['attributes']["class"]["operands"])
+    operands = {"class":{
+        "operator":":",
+        "operands":
+        [{'operator': '==', 'operands': ['[$__INTERNAL__]', title]},"sp-css-backgroundColor-blueBackground37",js["children"][0]['attributes']["class"]]
+    }}
+    js["children"][0]["attributes"] = operands
+    return js
+
 
 if __name__ == '__main__':
     source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerVellingebostder"
@@ -284,10 +320,9 @@ if __name__ == '__main__':
     
     source_list = "VEBOA Egenkontroll periodiska 2023"
     
-    destination_list = "Veaboa"
-    #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
-    rs = Lägg_till_moment(destination_site,destination_list)
-    print(rs)
+    destination_list = "Miniboa"
+    copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
+    rs = add_kontrollmoment(destination_site,destination_list, "Bästa momentet")
    # print(rq(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')")['d']["ListItemEntityTypeFullName"])
     #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
    

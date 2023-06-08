@@ -312,7 +312,6 @@ def add_utrustning(doc,js):
 
         pt.style = 'Small heading'
 
-        pt.style.paragraph_format.keep_with_next=True
         pt.text = 'Bild: ' + str(index)
         file = io.BytesIO(base64.b64decode(img))
         file.seek(0)
@@ -423,9 +422,9 @@ def add_underlag(doc,js):
         table.style = 'Grid Table Light'
         table.style.paragraph_format.keep_with_next = True
         for i, underlag in enumerate(underlag_):
-            
-            
-            row = table.rows[i].cells
+            if i==0:
+                row = table.rows[i].cells
+            else: row = table.add_row().cells
             if "Kommentar" not in underlag.keys():underlag['Kommentar'] = '-'
             
             row[0].text = underlag['Kommentar']

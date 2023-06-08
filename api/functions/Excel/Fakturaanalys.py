@@ -118,6 +118,7 @@ def change_column_size_before_saving(df):
 
 
 def set_main_columns(excel):
+    if len(excel) < 14: return "ERROR: No content in excel file."
     excel = pd.read_excel(base64.b64decode(excel))
     if "Kvantitet" not in excel.columns: excel["Kvantitet"] = 1
     excel = excel[["Styckpris","Artikelnr","Beskrivning","Kvantitet","Styckpris_prislista"]]
@@ -129,8 +130,8 @@ def set_main_columns(excel):
     exio = io.BytesIO()
     excel.to_excel(exio)
     exio.seek(0)
-    
     return base64.b64encode(exio.getvalue()).decode('utf-8')
+
 
 
 if __name__ == '__main__':
