@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request,make_response, jsonify
 from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_items, get_fieldtypes, request_fields
 from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
 from functions.authentication import require_api_key
+from functions.Sharepoint.Sharepoint_Site import filter_sites
 
 
 sharepoint = Blueprint('sharepoint', __name__)
@@ -49,4 +50,7 @@ def add_sp_field():
         response.status_code = 500
     return response
 
-
+@sharepoint.route("/api/sharepoint/get_sites", methods=["POST"])
+@require_api_key
+def add_sp_field():
+    return jsonify(filter_sites(request.get_json()))
