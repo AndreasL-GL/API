@@ -49,12 +49,42 @@ def faktura_mot_prislista(js, jointype):
 
     df = join_pdf_records_and_excel(js['Items'],excel, jointype)
     if df.empty: return {"Excel":"None"}
-    file = io.BytesIO()
+    file= io.BytesIO()
     df.to_excel(file)
     file.seek(0)
+    
+    file = change_column_size_before_saving(df)
     filename = js["Handlare"]+"_"+js["Fakturanr"]+".xlsx"
     return {"Excel":base64.b64encode(file.getvalue()).decode('utf-8'), "Filename":filename}
 
+def change_column_size_before_saving(df):
+    file = io.BytesIO()
+    writer = pd.ExcelWriter(file, engine='xlsxwriter')
+    df.to_excel(writer, index=False, sheet_name='Sheet1')
+
+    workbook = writer.book
+    worksheet = workbook.get_worksheet_by_name('Sheet1')
+    for i, column in enumerate(df.columns):
+        column_width = len(str(column)) * 1.2
+        worksheet.set_column(i, i, column_width)
+    writer.close()
+    file.seek(0)
+    return file
+def set_main_columns(excel):
+    if len(excel) < 14: return "ERROR: No content in excel file."
+    excel = pd.read_excel(base64.b64decode(excel))
+    if "Kvantitet" not in excel.columns: excel["Kvantitet"] = 1
+    excel = excel[["Styckpris","Artikelnr","Beskrivning","Kvantitet","Styckpris_prislista"]]
+    excel["Prisskillnad"] = excel["Styckpris_prislista"] -  excel["Styckpris"].apply(lambda x:float(str(x).replace(',','.').replace(' ', '')))
+    excel["Kvantitet"] =  excel["Kvantitet"].apply(lambda x:float(str(x).replace(',','.').replace(' ', '')))
+    excel["Summa Prisskillnad"] = excel["Prisskillnad"].mul(excel["Kvantitet"])# * excel["Kvantitet"]
+    excel.loc[excel.index[-1] + 1, 'Summa Prisskillnad'] = excel["Summa Prisskillnad"].sum()
+    excel.at[excel.index[-1], 'Beskrivning'] = " SUMMA"
+    exio = io.BytesIO()
+    excel.to_excel(exio)
+    exio.seek(0)
+    exio = change_column_size_before_saving(excel)
+    return base64.b64encode(exio.getvalue()).decode('utf-8')
 
 def fuzzy_merge(df1,df2, column1='Beskrivning',column2='CLASS8DESCR/PARTDESCR1'):
     df1 = pd.read_excel(io.BytesIO(base64.b64decode(df1)))
@@ -80,5 +110,6 @@ if __name__ == '__main__':
     with open(os.path.join(os.path.dirname(__file__),'xlsx.json'), 'r', encoding='utf-8') as f:
         js = json.load(f)['body']
     file = faktura_mot_prislista(js, 'inner')
-    
+    with open(os.path.join(os.path.dirname(__file__),"001.xlsx"), 'wb') as f:
+        f.write(base64.b64decode(file["Excel"]))
     

@@ -130,6 +130,7 @@ def set_main_columns(excel):
     exio = io.BytesIO()
     excel.to_excel(exio)
     exio.seek(0)
+    exio = change_column_size_before_saving(excel)
     return base64.b64encode(exio.getvalue()).decode('utf-8')
 
 

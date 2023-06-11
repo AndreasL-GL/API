@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
-from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge
-from functions.Excel.Fakturaanalys import set_main_columns
+from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge, set_main_columns
+# from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
 from tools_get_files import save_file_on_error
 from functions.Excel.Fakturaanalys import process_request
@@ -48,7 +48,6 @@ def upload():
 
 def upload():
     # Get the file from the request
-    print("Hello")
     file = request.files['file']
     wb = openpyxl.load_workbook(file)
     wb.save(os.path.join(os.path.dirname(__file__),'temp.xlsx'))

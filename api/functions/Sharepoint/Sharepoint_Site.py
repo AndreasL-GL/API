@@ -9,7 +9,6 @@ def filter_sites(js):
             match spobject['Key']:
                 case 'OriginalPath': sitedict['Site'] = spobject['Value']
                 case 'Title': sitedict['Title'] = spobject['Value']
-                case 'contentclass': sitedict['ContentClass'] = spobject['Value']
         if "personal" not in sitedict['Site'] and "(/portal)" not in sitedict['Site']:
             sitelist.append(sitedict)
     return sitelist
