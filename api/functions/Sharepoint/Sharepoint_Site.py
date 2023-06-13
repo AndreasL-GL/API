@@ -27,14 +27,14 @@ def filter_sites(js):
 def filter_lists(js):
     url = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerMalmstad"
     js = requests.get(url + '/_api/web/lists', headers=get_sharepoint_access_headers_through_client_id()).json()
-    listlist = []
+    listlist = ""
     for item in js['d']['results']:
         #print(item.keys())
        # print(json.dumps(item, indent=4))
         
         if item["BaseTemplate"] == 100 and item['Title'] != "TaxonomyHiddenList":
-            listlist.append(item['Title'])
-    return listlist
+            listlist = listlist+item['Title']+","
+    return listlist[:-1]
             
 
         
