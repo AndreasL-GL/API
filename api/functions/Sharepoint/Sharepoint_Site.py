@@ -15,16 +15,18 @@ def filter_sites(js):
         if "personal" not in sitedict['Site'] and "(/portal)" not in sitedict['Site'] and sitedict['Title'] not in bad_sites:
             try:
                 listlist = filter_lists(sitedict['Site'])
-                sitedict['Lists'] = listlist
-                sitelist.append(sitedict)
+                
             except:
-                pass
+                listlist = []
+            sitedict['Lists'] = listlist
+            sitelist.append(sitedict)
             
     return sitelist
 
 
 
 def filter_lists(url):
+    
     js = requests.get(url + '/_api/web/lists', headers=get_sharepoint_access_headers_through_client_id()).json()
     listlist = ""
     for item in js['d']['results']:
@@ -45,4 +47,3 @@ if __name__ == '__main__':
         json.dump(sitelist, f, indent=4)
     for item in sitelist:
         print(item['Title'])
-    filter_lists(js)
