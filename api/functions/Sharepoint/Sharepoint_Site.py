@@ -24,8 +24,7 @@ def filter_sites(js):
 
 
 
-def filter_lists(js):
-    url = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerMalmstad"
+def filter_lists(url):
     js = requests.get(url + '/_api/web/lists', headers=get_sharepoint_access_headers_through_client_id()).json()
     listlist = ""
     for item in js['d']['results']:
