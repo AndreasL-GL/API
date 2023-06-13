@@ -70,6 +70,7 @@ def change_column_size_before_saving(df):
     writer.close()
     file.seek(0)
     return file
+
 def set_main_columns(excel):
     if len(excel) < 14: return "ERROR: No content in excel file."
     excel = pd.read_excel(base64.b64decode(excel))
@@ -77,7 +78,7 @@ def set_main_columns(excel):
     excel = excel[["Styckpris","Artikelnr","Beskrivning","Kvantitet","Styckpris_prislista"]]
     excel["Prisskillnad"] = excel["Styckpris_prislista"] -  excel["Styckpris"].apply(lambda x:float(str(x).replace(',','.').replace(' ', '')))
     excel["Kvantitet"] =  excel["Kvantitet"].apply(lambda x:float(str(x).replace(',','.').replace(' ', '')))
-    excel["Summa Prisskillnad"] = excel["Prisskillnad"].mul(excel["Kvantitet"])# * excel["Kvantitet"]
+    excel["Summa Prisskillnad"] = excel["Prisskillnad"].mul(excel["Kvantitet"])    
     excel.loc[excel.index[-1] + 1, 'Summa Prisskillnad'] = excel["Summa Prisskillnad"].sum()
     excel.at[excel.index[-1], 'Beskrivning'] = " SUMMA"
     exio = io.BytesIO()

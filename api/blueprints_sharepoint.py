@@ -52,5 +52,5 @@ def add_sp_field():
 
 @sharepoint.route("/api/sharepoint/get_sites", methods=["POST"])
 @require_api_key
-def get_fields():
+def get_sites():
     return jsonify(filter_sites(request.get_json()))
