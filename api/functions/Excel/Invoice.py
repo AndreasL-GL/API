@@ -65,7 +65,7 @@ def change_column_size_before_saving(df):
     workbook = writer.book
     worksheet = workbook.get_worksheet_by_name('Sheet1')
     for i, column in enumerate(df.columns):
-        column_width = len(str(column)) * 1.2
+        column_width = len(str(column)) * 1.1
         worksheet.set_column(i, i, column_width)
     writer.close()
     file.seek(0)
