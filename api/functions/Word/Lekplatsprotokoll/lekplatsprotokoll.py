@@ -363,12 +363,19 @@ def add_underlag(doc,js):
         return None
     count=0
     ## TODO Sortera efter Utrustning istället för underlag.
+    utrustningsidlista = []
+    print(js["Underlag"])
     for i,item in enumerate(js['Utrustning']):
 
        # if not any([i+1 for i, und in enumerate(js['Underlag']) if und['ID'] == [item['Items']['ID']]]):
        #     continue
         p = doc.add_paragraph()
-        underlag_ = [ijtem for ijtem in js["Underlag"] if ijtem["UtrustningsID"] == item['Items']["ID"]]
+        print(js["Underlag"][0].keys())
+
+        if "UtrustningsID" in js["Underlag"][0].keys():
+            underlag_ = [ijtem for ijtem in js["Underlag"] if ijtem["UtrustningsID"] == item['Items']["ID"] and not utrustningsidlista.append(ijtem["ID"])]
+        else: underlag_ = []
+            #underlag_ = [ijtem for ijtem in js["Underlag"] if ijtem["UtrustningsID"] == item['Items']["ID"]]
         #print(item['Items'].keys())
 
         if not any(underlag_):
@@ -396,6 +403,32 @@ def add_underlag(doc,js):
             p = doc.add_paragraph()
             p.text = "Enligt SS-EN 1176-1:4.2.8.5"
             p.style = 'small'
+            for cell in table.columns[0].cells:
+                cell.width = Inches(6)
+            for cell in table.columns[1].cells:
+                cell.width = Inches(0.4)
+    if any([item for item in js["Underlag"] if item["ID"] not in utrustningsidlista]):
+        
+        for i, underlag in enumerate([item for item in js["Underlag"] if item["ID"] not in utrustningsidlista]):
+            p.text = 'Produkt ' + "Ej definierad"
+            p.style = 'bold'
+            p.paragraph_format.keep_with_next = True
+            table = doc.add_table(rows=1, cols=2)
+            table.style = 'Grid Table Light'
+            table.style.paragraph_format.keep_with_next = True
+            row = table.rows[0].cells
+            if "Kommentar" not in underlag.keys():underlag['Kommentar'] = '-'
+            
+            row[0].text = underlag['Kommentar']
+            row[0].paragraphs[0].paragraph_format.keep_with_next=True
+            row[0].style = 'vsmall'
+
+            row[1].text = underlag['Bed_x00f6_mning']['Value']
+            row[1].paragraphs[0].paragraph_format.keep_with_next=True
+            p = doc.add_paragraph()
+            p.text = "Enligt SS-EN 1176-1:4.2.8.5"
+            p.style = 'small'
+            print(p)
             for cell in table.columns[0].cells:
                 cell.width = Inches(6)
             for cell in table.columns[1].cells:
@@ -830,6 +863,7 @@ if __name__ == '__main__':
         with open(os.path.join(os.path.dirname(__file__), 'tt.json'), encoding='utf-8') as f:
             js = json.load(f)
             doc,filename = run_functions(js)
-            doc.save(os.path.join(os.path.dirname(__file__),filename+'.docx'))
+            print(filepath:=os.path.join(os.path.dirname(__file__),filename+'.docx'))
+            doc.save(filepath)
             
             
