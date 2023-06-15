@@ -61,7 +61,6 @@ def change_column_size_before_saving(df):
     file = io.BytesIO()
     writer = pd.ExcelWriter(file, engine='xlsxwriter')
     df.to_excel(writer, index=False, sheet_name='Sheet1')
-
     workbook = writer.book
     worksheet = workbook.get_worksheet_by_name('Sheet1')
     for i, column in enumerate(df.columns):

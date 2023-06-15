@@ -35,9 +35,26 @@ def kontrollmoment_junction(site,_list,choices, items=None, headers=get_sharepoi
     print(json.dumps(junction))
     return junction
 
+import random
+import string
+import base64
 
+def generate_api_key(length):
+    # Generate a random string of specified length
+    random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+    # Encode the random string to base64
+    base64_string = base64.b64encode(random_string.encode()).decode()
+
+    return base64_string
 
 if __name__ == '__main__':
+    source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/Digitaliseringsportal"
+    rq = requests.get(source_site+"/_api/web/Navigation/TopNavigationBar", headers=get_sharepoint_access_headers_through_client_id())
+    print(json.dumps(rq.json(),indent=4))#[item for item in rq.json()['d']['results'] if "okument" in item["Title"]], indent=4))
+    print(generate_api_key(32))
+
+if False:
     source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerVellingebostder"
     
     source_list = "VEBOA Egenkontroll periodiska 2023"

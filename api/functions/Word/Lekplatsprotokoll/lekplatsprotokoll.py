@@ -194,7 +194,7 @@ def populate_template(js1, certifikatjs, js, trigger):
     doc.add_page_break()
 
     add_översiktsbild(doc,js)
-    add_utrustning(doc,js)
+    add_utrustning(doc,js, js['Trigger']['Sida2'])
 
     #if len(js['Utrustning']) >7 and len(js['Utrustning']) <= 12: doc.add_page_break()
     add_anmärkningar(doc,js)
@@ -228,7 +228,8 @@ def add_översiktsbild(doc,js):
     return None
 
 
-def add_utrustning(doc,js):
+def add_utrustning(doc,js, pb=False):
+    
     # Add the table for the Utrustnings items:
     h = doc.add_heading('Produktbeskrivning')
     h.style = 'Big heading'
@@ -364,19 +365,16 @@ def add_underlag(doc,js):
     count=0
     ## TODO Sortera efter Utrustning istället för underlag.
     utrustningsidlista = []
-    print(js["Underlag"])
     for i,item in enumerate(js['Utrustning']):
-
+        print(item["Items"]["ID"],int(js["Underlag"][1]["UtrustningsID"]))
        # if not any([i+1 for i, und in enumerate(js['Underlag']) if und['ID'] == [item['Items']['ID']]]):
        #     continue
         p = doc.add_paragraph()
-        print(js["Underlag"][0].keys())
-
-        if "UtrustningsID" in js["Underlag"][0].keys():
-            underlag_ = [ijtem for ijtem in js["Underlag"] if ijtem["UtrustningsID"] == item['Items']["ID"] and not utrustningsidlista.append(ijtem["ID"])]
-        else: underlag_ = []
-            #underlag_ = [ijtem for ijtem in js["Underlag"] if ijtem["UtrustningsID"] == item['Items']["ID"]]
-        #print(item['Items'].keys())
+        UtanID = []
+        removeIDS = []
+        [(UtanID.append(js["Underlag"][i]),removeIDS.append(i)) for i in range(len(js["Underlag"])) if "UtrustningsID" not in js["Underlag"][i].keys()]
+        [js["Underlag"].pop(i) for i in removeIDS]
+        underlag_ = [ijtem for ijtem in js["Underlag"] if int(ijtem["UtrustningsID"]) == item['Items']["ID"] and not utrustningsidlista.append(ijtem["ID"])]
 
         if not any(underlag_):
             continue
@@ -407,32 +405,31 @@ def add_underlag(doc,js):
                 cell.width = Inches(6)
             for cell in table.columns[1].cells:
                 cell.width = Inches(0.4)
-    if any([item for item in js["Underlag"] if item["ID"] not in utrustningsidlista]):
+                
+    for underlag in UtanID:
+        p.text = 'Produkt ' + "Ej definierad"
+        p.style = 'bold'
+        p.paragraph_format.keep_with_next = True
+        table = doc.add_table(rows=1, cols=2)
+        table.style = 'Grid Table Light'
+        table.style.paragraph_format.keep_with_next = True
+        row = table.rows[0].cells
+        if "Kommentar" not in underlag.keys():underlag['Kommentar'] = '-'
         
-        for i, underlag in enumerate([item for item in js["Underlag"] if item["ID"] not in utrustningsidlista]):
-            p.text = 'Produkt ' + "Ej definierad"
-            p.style = 'bold'
-            p.paragraph_format.keep_with_next = True
-            table = doc.add_table(rows=1, cols=2)
-            table.style = 'Grid Table Light'
-            table.style.paragraph_format.keep_with_next = True
-            row = table.rows[0].cells
-            if "Kommentar" not in underlag.keys():underlag['Kommentar'] = '-'
-            
-            row[0].text = underlag['Kommentar']
-            row[0].paragraphs[0].paragraph_format.keep_with_next=True
-            row[0].style = 'vsmall'
+        row[0].text = underlag['Kommentar']
+        row[0].paragraphs[0].paragraph_format.keep_with_next=True
+        row[0].style = 'vsmall'
 
-            row[1].text = underlag['Bed_x00f6_mning']['Value']
-            row[1].paragraphs[0].paragraph_format.keep_with_next=True
-            p = doc.add_paragraph()
-            p.text = "Enligt SS-EN 1176-1:4.2.8.5"
-            p.style = 'small'
-            print(p)
-            for cell in table.columns[0].cells:
-                cell.width = Inches(6)
-            for cell in table.columns[1].cells:
-                cell.width = Inches(0.4)
+        row[1].text = underlag['Bed_x00f6_mning']['Value']
+        row[1].paragraphs[0].paragraph_format.keep_with_next=True
+        p = doc.add_paragraph()
+        p.text = "Enligt SS-EN 1176-1:4.2.8.5"
+        p.style = 'small'
+        print(p)
+        for cell in table.columns[0].cells:
+            cell.width = Inches(6)
+        for cell in table.columns[1].cells:
+            cell.width = Inches(0.4)
     
 
     
@@ -581,114 +578,6 @@ def add_anmärkningar(doc, js):
                 
                 
 
-        
-    
-def __add_anmärkningar_deprecated(doc, js):
-    doc.add_paragraph()
-    hh = doc.add_heading('Anmärkningar:', 0)
-    hh.style = 'Big heading'
-    hh.style.paragraph_format.keep_with_next = True
-    #images = [img['Image'][0] for img in js['Anmärkningar']]
-
-    for i, item in enumerate(js['Anmärkningar']):
-
-        utrustningslista = [(utrustning['Items']['Montering_under_mark'], utrustning['Items']['Montering_ovan_mark']) for utrustning in js['Utrustning'] if utrustning['Items']['ID'] == item['Items']['UtrustningsID'] and 'Montering_ovan_mark' in utrustning['Items'].keys()]
-        if any(utrustningslista): #(utrustningslista):
-            montering_under_mark, montering_ovan_mark = utrustningslista[0]
-            item['montering_under_mark'] = montering_under_mark
-            item['montering_ovan_mark'] = montering_ovan_mark
-            
-        if 'Utrustningstyp0' or 'Utrustningstyp' in item['Items'].keys(): 
-            utrustning = [items['Items']['Utrustning']['Value'] for items in js['Utrustning'] if items['Items']['ID'] == item['Items']['UtrustningsID']][0]
-            h = doc.add_heading('Produkt '+str(i+1)+', '+ utrustning, 0)
-            h.style= 'subheading'
-            h.paragraph_format.keep_with_next = True
-        else: 
-            h = doc.add_heading('Produkt '+str(i+1)+', '+'Gymutrustning')
-            h.style= 'subheading'
-            h.paragraph_format.keep_with_next = True
-        
-        if item['Items']['{HasAttachments}']:
-            table=doc.add_table(rows=0, cols=4)
-            index = 0
-            table.style.paragraph_format.keep_together = True
-            while index < len(item['Image']):
-                row0 = table.add_row()
-                row =row0.cells
-                for i in range(0,4):
-                    if index == len(item['Image']): continue
-                    row[i]
-                    file = io.BytesIO(base64.b64decode(item['Image'][index]['content']))
-                    file.seek(0)
-                    file = resize_and_autoorient(file,100,100)
-                    p=row[i].add_paragraph()
-                    p.style= 'imgp'
-                    # p.style.paragraph_format.keep_with_next=True
-                    run = p.add_run()
-                    picture = run.add_picture(file)
-                    index +=1
-                    
-                    
-        
-        table = doc.add_table(rows=1, cols=2)
-        table.style = 'Grid Table Light'
-        table.style.paragraph_format.keep_with_next = True
-        row = table.rows[0].cells
-        if "Kommentar" not in item['Items'].keys():item['Items']['Kommentar'] = '-'
-        row[0].text = item['Items']['Kommentar']
-        row[1].text = item['Items']['Bed_x00f6_mning']['Value']
-        for cell in table.columns[0].cells:
-            cell.width = Inches(6)
-        for cell in table.columns[1].cells:
-            cell.width = Inches(0.4)
-        
-        p1 = doc.add_paragraph()
-        p1.text = item['Items']['Utrustningstyp']['Value']
-        p1.style = 'small'
-        
-
-        if any(utrustningslista):
-            ph = doc.add_paragraph()
-            ph.text = "Montering ovan mark"
-            ph.style = 'subheading2'
-            ph.style.paragraph_format.keep_with_next=True
-            
-            table = doc.add_table(rows=1, cols=2)
-            table.style = 'Grid Table Light'
-            table.style.paragraph_format.keep_with_next = True
-            row = table.rows[0].cells
-            row[0].text = montering_ovan_mark
-            row[1].text = '-'
-            for cell in table.columns[0].cells:
-                cell.width = Inches(6)
-            for cell in table.columns[1].cells:
-                cell.width = Inches(0.4)
-            p = doc.add_paragraph()
-            p.text = "Enligt SS EN 1176-1:6.2.2"
-            p.style = 'small'
-                
-                
-            ph = doc.add_paragraph()
-            ph.text = "Montering under mark"
-            ph.style = 'subheading2'
-            ph.style.paragraph_format.keep_with_next=True
-            
-            table = doc.add_table(rows=1, cols=2)
-            table.style = 'Grid Table Light'
-            table.style.paragraph_format.keep_with_next = True
-            row = table.rows[0].cells
-            row[0].text = montering_under_mark
-            row[1].text = '-'
-            for cell in table.columns[0].cells:
-                cell.width = Inches(6)
-            for cell in table.columns[1].cells:
-                cell.width = Inches(0.4)
-            p = doc.add_paragraph()
-            p.text = "Enligt SS EN 1176-1:6.2.2"
-            p.style = 'small'
-
-
-    return None
 
 def add_grindar(doc, js):
     doc.add_paragraph()
