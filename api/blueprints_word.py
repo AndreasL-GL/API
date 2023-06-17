@@ -47,7 +47,7 @@ def mergefields():
     if "Json2Word" in js.keys():
         item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])['$content']))
         item.seek(0)
-        item = json2word(js['Json2Word'],item)
+        item = create_word_document(js['Json2Word'],item)
         return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
     else:
         return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
