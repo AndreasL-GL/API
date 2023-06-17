@@ -30,12 +30,26 @@ def compose():
     bio = compose_document(js)
     return jsonify({"content":base64.b64encode(bio.getvalue()).decode('utf-8')})
 
+@word_path.route("/api/word/json2word", methods=["POST"])
+@require_api_key
+def json2word():
+    js = request.get_json()
+    bytesio = compose_document(js)
+    return jsonify({"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(bytesio.getvalue()).decode('utf-8')})
+
+
 @word_path.route('/api/word/merge_document',methods=['post'])
 @require_api_key
 def mergefields():
     js = request.get_json()
-    print(js['Document'].keys())
-    return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
+    
+    if "Fields" in js.keys():
+        item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])['$content']))
+        item.seek(0)
+        item = compose_document(item)
+        
+    else:
+        return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
 
 
 
