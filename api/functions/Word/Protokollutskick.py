@@ -116,7 +116,7 @@ def mailmerge_fun(doc,js):
     if type(doc)==str: doc = MailMerge(base64.b64decode(doc))
     elif type(doc)==dict: 
         print(doc.keys())
-        doc=MailMerge(base64.b64decode(doc["$content"]))
+        doc=MailMerge(io.BytesIO(base64.b64decode(doc["$content"])))
     
     elif isinstance(doc,io.BytesIO):
         doc.seek(0) 
