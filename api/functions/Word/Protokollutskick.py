@@ -128,7 +128,7 @@ def mailmerge_fun(doc,js):
     doc.write(file)
     file.seek(0)
     return {"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "$content":base64.b64encode(file.getvalue())}
+  "$content":base64.b64encode(file.getvalue()).decode('utf-8')}
 
 def download_template_file():
     """Downloads the word template for this program."""
