@@ -44,16 +44,19 @@ def json2word():
 def mergefields():
     js = request.get_json()
     
-    if "Json2Word" in js.keys():
+    if "Json2Word" in js.keys() and "Document" in js.keys() and "Items" in js.keys():
         item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])['$content']))
         item.seek(0)
         item = create_word_document(js['Json2Word'],item)
         return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
-    else:
-        return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
+    elif "Json2Word" in js.keys() and "Document" not in js.keys():
+        item = create_word_document(js['Json2Word'],item)
+        return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
     
-
-
+    elif "Document" in js.keys() and "Items" in js.keys() and "Json2Word" not in js.keys():
+        return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
+    else: return {"Error":"Incorrect format"}
+    
 
 def compose_document(js):
     doc = compose_doc(js)
