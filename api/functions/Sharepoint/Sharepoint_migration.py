@@ -48,11 +48,18 @@ def generate_api_key(length):
 
     return base64_string
 
+def from_sharepoint(sitename,listname="MKB Örtagård Skötsel 2023",headers=get_sharepoint_access_headers_through_client_id()):
+        rq = requests.get(source_site+"/_api/web/Lists/GetByTitle('MKB Örtagård Skötsel 2023')/Items", headers=get_sharepoint_access_headers_through_client_id())
+        df = pd.DataFrame(rq.json()['d']['results'])
+        return df
+
 if __name__ == '__main__':
-    source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/Digitaliseringsportal"
-    rq = requests.get(source_site+"/_api/web/Navigation/TopNavigationBar", headers=get_sharepoint_access_headers_through_client_id())
-    print(json.dumps(rq.json(),indent=4))#[item for item in rq.json()['d']['results'] if "okument" in item["Title"]], indent=4))
-    print(generate_api_key(32))
+    source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/EgenkontrollMalm"
+    rq = requests.get(source_site+"/_api/web/Lists/GetByTitle('MKB Örtagård Skötsel 2023')", headers=get_sharepoint_access_headers_through_client_id())
+    #print(json.dumps(rq.json(),indent=4))#[item for item in rq.json()['d']['results'] if "okument" in item["Title"]], indent=4))
+    pd.from_sharepoint = from_sharepoint
+    df = pd.from_sharepoint(source_site)
+    print(df.columns)
 
 if False:
     source_site = "https://greenlandscapingmalmo.sharepoint.com/sites/GLMalmAB-EgenkontrollerVellingebostder"

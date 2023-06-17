@@ -5,7 +5,7 @@ from PIL import Image
 import base64
 import io
 import json
-
+from mailmerge import MailMerge
 
 if __name__ == '__main__':
     import get_template
@@ -110,6 +110,20 @@ def run_functions(js):
     file_content.seek(0)
     file_content=base64.b64encode(file_content.getvalue()).decode('utf-8')
     return {"content":file_content, "filename": title+" Vecka "+js["Vecka"]}
+
+def mailmerge_fun(doc,js):
+    if type(doc)==str: doc = MailMerge(base64.b64decode(doc))
+    elif type(doc)==dict: doc=MailMerge(base64.b64decode(doc["$content"]))
+    elif isinstance(doc,io.BytesIO):
+        doc.seek(0) 
+        doc=MailMerge(doc)
+    
+    doc.merge(**js)
+    file = io.BytesIO()
+    doc.write(file)
+    file.seek(0)
+    return {"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "$content":base64.b64encode(file.getvalue())}
 
 def download_template_file():
     """Downloads the word template for this program."""

@@ -30,6 +30,14 @@ def compose():
     bio = compose_document(js)
     return jsonify({"content":base64.b64encode(bio.getvalue()).decode('utf-8')})
 
+@word_path.route('/api/word/merge_document',methods=['post'])
+@require_api_key
+def compose():
+    js = request.get_json()
+    return Protokollutskick.mailmerge_fun(js["Document"],js["Items"]["d"]["results"])
+
+
+
 def compose_document(js):
     doc = compose_doc(js)
     bio = io.BytesIO()
