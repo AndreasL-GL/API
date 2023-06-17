@@ -3,6 +3,7 @@ from functions.authentication import require_api_key
 from functions.Word import Protokollutskick
 from functions.Word.Lekplatsprotokoll import lekplatsprotokoll
 from Json2Word.compose import compose_doc
+from functions.Word.json2word import create_word_document
 import io,base64
 import docx
 
@@ -38,18 +39,19 @@ def json2word():
     return jsonify({"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(bytesio.getvalue()).decode('utf-8')})
 
 
-@word_path.route('/api/word/merge_document',methods=['post'])
+@word_path.route('/api/word/merge_document',methods=['POST'])
 @require_api_key
 def mergefields():
     js = request.get_json()
     
-    if "Fields" in js.keys():
+    if "Json2Word" in js.keys():
         item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])['$content']))
         item.seek(0)
-        item = compose_document(item)
-        
+        item = json2word(js['Json2Word'],item)
+        return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
     else:
         return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
+    
 
 
 
