@@ -112,6 +112,7 @@ def run_functions(js):
     return {"content":file_content, "filename": title+" Vecka "+js["Vecka"]}
 
 def mailmerge_fun(doc,js):
+    print(type(doc))
     if type(doc)==str: doc = MailMerge(base64.b64decode(doc))
     elif type(doc)==dict: doc=MailMerge(base64.b64decode(doc["$content"]))
     elif isinstance(doc,io.BytesIO):
