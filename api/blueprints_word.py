@@ -23,7 +23,7 @@ def protokoll():
     json_content = request.get_json()
     json_content = lekplatsprotokoll.run_functions(json_content)
     return jsonify(json_content)
-
+    
 @word_path.route("/api/word/compose_document", methods=["POST"])
 @require_api_key
 def compose():
@@ -49,6 +49,7 @@ def mergefields():
         item.seek(0)
         item = create_word_document(js['Json2Word'],item)
         return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
+
     elif "Json2Word" in js.keys() and "Document" not in js.keys():
         item = create_word_document(js['Json2Word'],item)
         return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
