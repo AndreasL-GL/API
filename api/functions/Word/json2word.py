@@ -38,7 +38,8 @@ def create_word_document(js, doc=None):
     file = io.BytesIO()
     doc.save(file)
     file.seek(0) 
-    return base64.b64encode(file.getvalue()).decode('utf-8')
+    return {"$content":base64.b64encode(file.getvalue()).decode('utf-8'),"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
+
 
 def add_paragraph(doc, js=[{'text':"Hello",
                             'params':{
