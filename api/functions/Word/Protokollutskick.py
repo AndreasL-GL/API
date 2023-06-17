@@ -4,7 +4,7 @@ import docx
 from PIL import Image
 import base64
 import io
-import json
+import json, os
 from mailmerge import MailMerge
 
 if __name__ == '__main__':
@@ -113,7 +113,7 @@ def run_functions(js):
 
 def mailmerge_fun(doc,js):
     print(type(doc))
-    if type(doc)==str: doc = MailMerge(base64.b64decode(doc))
+    if type(doc)==str: doc = MailMerge(io.BytesIO(base64.b64decode(doc)))
     elif type(doc)==dict: 
         print(doc.keys())
         doc=MailMerge(io.BytesIO(base64.b64decode(doc["$content"])))
@@ -137,6 +137,11 @@ def download_template_file():
     return file_content
 if __name__ == '__main__':
     
-    with open('items.json', 'r', encoding="utf-8") as f:
-        js = json.load(f, )
-    run_functions(js)
+    #with open('items.json', 'r', encoding="utf-8") as f:
+    #    js = json.load(f, )
+   # run_functions(js)
+    with open(os.path.join(os.path.dirname(__file__),'mailmergetest.json'), encoding='utf-8') as f:
+        js = json.load(f)['body']
+    doc = mailmerge_fun(js['Document']['$content'],js['Items'])
+    with open(os.path.join(os.path.dirname(__file__),'mailmergetest.docx'),mode='wb') as f:
+        f.write(base64.b64decode(doc["$content"]))
