@@ -35,7 +35,7 @@ def compose():
 def mergefields():
     js = request.get_json()
     print(js['Document'].keys())
-    return Protokollutskick.mailmerge_fun(js["Document"],js["Items"]["value"])
+    return Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])
 
 
 
