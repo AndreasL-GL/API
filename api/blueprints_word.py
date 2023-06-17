@@ -32,7 +32,7 @@ def compose():
 
 @word_path.route('/api/word/merge_document',methods=['post'])
 @require_api_key
-def compose():
+def mergefields():
     js = request.get_json()
     return Protokollutskick.mailmerge_fun(js["Document"],js["Items"]["d"]["results"])
 
