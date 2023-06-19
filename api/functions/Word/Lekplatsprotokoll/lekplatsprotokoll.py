@@ -45,7 +45,7 @@ def create_protocol(site, lista, js):
     if "Fitnessbesiktning" in js1.keys():
         if js1["Fitnessbesiktning"]:
             certifikatjs = [item for item in js['Certifikatinfo']['value'] if item['Utegym']][0]
-            print(certifikatjs['Certnr'])
+
         else: 
             certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
     
@@ -114,6 +114,7 @@ def populate_template(js1, certifikatjs, js, trigger):
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Lekplatsbesiktning mall cert.docx'))
     elif js1["Certnr"].lower() == 'saknas' and not js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Lekplatsbesiktning mall ej cert.docx'))
+    
 
  
 
@@ -366,7 +367,6 @@ def add_underlag(doc,js):
     ## TODO Sortera efter Utrustning istället för underlag.
     utrustningsidlista = []
     for i,item in enumerate(js['Utrustning']):
-        print(item["Items"]["ID"],int(js["Underlag"][1]["UtrustningsID"]))
        # if not any([i+1 for i, und in enumerate(js['Underlag']) if und['ID'] == [item['Items']['ID']]]):
        #     continue
         p = doc.add_paragraph()
@@ -378,8 +378,7 @@ def add_underlag(doc,js):
 
         if not any(underlag_):
             continue
-        #print(js['Underlag'].keys())
-        #print(underlag)
+
         p.text = 'Produkt '+str(i+1) +" " + item['Items']['Utrustning']['Value']
         p.style = 'bold'
         p.paragraph_format.keep_with_next = True
@@ -425,7 +424,7 @@ def add_underlag(doc,js):
         p = doc.add_paragraph()
         p.text = "Enligt SS-EN 1176-1:4.2.8.5"
         p.style = 'small'
-        print(p)
+
         for cell in table.columns[0].cells:
             cell.width = Inches(6)
         for cell in table.columns[1].cells:
@@ -453,7 +452,7 @@ def add_anmärkningar(doc, js):
         
         if 'Utrustning' not in utrustning.keys():
             utrustning['Utrustning'] =  {'Value':utrustning['Utegymredskap']['Value']}
-        print(utrustning['Utrustning'].keys())
+
         if type(utrustning['Utrustning']['Value']) == dict:
             if "Value" in utrustning['Utrustning']['Value'].keys(): value = utrustning['Utrustning']['Value']['Value']
         else: value = utrustning['Utrustning']['Value']
@@ -529,7 +528,7 @@ def add_anmärkningar(doc, js):
                 utrustning['Montering_ovan_bed'] = {'Value':'-'}
             if 'Montering_under_bed' not in utrustning.keys():
                 utrustning['Montering_under_bed']={'Value':'-'}
-            print(js['Items']['value'][0]['Typavbesiktning']['Value'])
+
             if js['Items']['value'][0]['Typavbesiktning']['Value']=='Installationsbesiktning':
                 ph = doc.add_paragraph()
                 ph.text = "Montering ovan mark"
@@ -752,7 +751,7 @@ if __name__ == '__main__':
         with open(os.path.join(os.path.dirname(__file__), 'tt.json'), encoding='utf-8') as f:
             js = json.load(f)
             doc,filename = run_functions(js)
-            print(filepath:=os.path.join(os.path.dirname(__file__),filename+'.docx'))
+
             doc.save(filepath)
             
             

@@ -424,8 +424,6 @@ if __name__ == '__main__':
     import json
     with open(os.path.join(os.path.join(os.path.dirname(__file__),'docs'),'sample.json'), 'r', encoding='utf-8') as f :
         js = json.load(f)
-    doc = compose_doc(js)
-    
     
     
     #doc = compose_doc(js)
