@@ -30,7 +30,7 @@ def post_file2():
     if not height: height=None
     file_content=base64.b64decode(file_content)
     file_content=io.BytesIO(file_content)
-    img_file=resize_and_autoorient(file_content,width,height)
+    img_file=resize_and_autoorient(file_content,width=width,height=height)
     file_content=base64.b64encode(img_file.read()).decode('utf-8')
     return jsonify({
         "$content-type": "image/jpeg",
