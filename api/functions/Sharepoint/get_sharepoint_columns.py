@@ -67,9 +67,15 @@ def get_sites():
     l = requests.get(url, headers=headers)
     js = json.loads(l.text)
     return js
-
+def get_filenames_from_sharepoint():
+        url = "https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikationer"+"/_api/web/lists/getbytitle('Geodata fordon')/items"
+        
+        js = requests.get(url,headers=get_sharepoint_access_headers_through_client_id())
+        print(json.dumps(js.json()['d']['results'], indent=4, ensure_ascii=False))
+        return None
 if __name__ == '__main__':
    # site = "GLMalmAB-EgenkontrollerVellingebostder"
     #list_ = "MKB Egenkontroll Oxie Periodiska 2023"
     #print(get_fields(site,list_))
-    print(json.dumps(get_sites(), indent=3))
+    #print(json.dumps(get_sites(), indent=3))
+    get_filenames_from_sharepoint()
