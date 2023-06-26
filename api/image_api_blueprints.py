@@ -26,8 +26,8 @@ def post_file():
 def post_file2():
     file_content = request.json.get('File Content')["$content"]
     width = int(request.json.get('width'))
-    height = int(request.json.get('height'))
-    if height==0:height=None
+    height = request.json.get('height')
+    if not height: height=None
     file_content=base64.b64decode(file_content)
     file_content=io.BytesIO(file_content)
     img_file=resize_and_autoorient(file_content,width,height)
