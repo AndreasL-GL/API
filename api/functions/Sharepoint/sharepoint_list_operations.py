@@ -323,11 +323,7 @@ if __name__ == '__main__':
     destination_list = "Miniboa"
     copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
     rs = add_kontrollmoment(destination_site,destination_list, "Bästa momentet")
-   # print(rq(f"{destination_site}/_api/web/lists/getByTitle('{destination_list}')")['d']["ListItemEntityTypeFullName"])
-    #copy_list_and_all_items(source_site,source_list,destination_site,destination_list)
-   
-    #print(json.dumps(i.json()))
-    #print(i.json())
+
 if False:
     Jordprov = [field for field in i.json()['d']['results'] if field['StaticName'] == 'Jordprov'][0]
     Jordprov['Title']='Nytt Kontrollmoment'

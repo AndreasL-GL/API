@@ -5,7 +5,7 @@ from flask import request
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)),'config'),"config.ini"))
 if __name__ == '__main__':
-    from ..tools_get_files import save_file_on_error
+    from tools_get_files import save_file_on_error
 else:
     from tools_get_files import save_file_on_error
 
@@ -119,22 +119,36 @@ def autoorient4(image):
     print(type(img_file))
     print("_-------------------------------------------------------------------------")
     return file
-@save_file_on_error
-def resize_and_autoorient(file, height,width):
-    """Accepts a file bytes object and returns a file bytes object
-    Resizes an image based on specifications in the config."""
-    f = Image.open(file)
-    f = autoorient(f)
-    f=f.resize((int(height),int(width)))
-    # Create a bytes object to send in response
-    img_file = io.BytesIO()
-    f.save(img_file, format='PNG')
-    img_file.seek(0)
-    return img_file
+# @save_file_on_error
+# def resize_and_autoorient(file,width,height=None):
+#     """Accepts a file bytes object and returns a file bytes object
+#     Resizes an image based on specifications in the config."""
+#     f = Image.open(file)
+#     f = autoorient(f)
+#     f=f.resize((int(height),int(width)))
+#     # Create a bytes object to send in response
+#     img_file = io.BytesIO()
+#     f.save(img_file, format='PNG')
+#     img_file.seek(0)
+#     return img_file
 def autoorient_2(file):
     image = Image.open(file)
     f = autoorient(image)
     img_file = io.BytesIO()
     f.save(img_file,format='PNG')
+    img_file.seek(0)
+    return img_file
+def resize_and_autoorient(file, width,height=None):
+    """Accepts a file bytes object and returns a file bytes object
+    Resizes an image based on specifications in the config."""
+    f = Image.open(file)
+    f = autoorient(f)
+    if not height:
+        w,height = f.size
+        height = width/(w/height)
+    f=f.resize((int(height),int(width)), resample=Image.LANCZOS)
+    # Create a bytes object to send in response
+    img_file = io.BytesIO()
+    f.save(img_file, format='PNG')
     img_file.seek(0)
     return img_file

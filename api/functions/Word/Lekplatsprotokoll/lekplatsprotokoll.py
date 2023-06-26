@@ -10,7 +10,7 @@ from PIL import Image
 import docx
 from docx.shared import Pt, Inches, RGBColor
 from Office_helper_functions.Word.form_field import set_checkbox_value
-from functions.Image_api import  autoorient_2
+from functions.Image_api import  autoorient_2, resize_and_autoorient
 from functions.Word.add_image_to_zipfile import add_icon_to_word_file
 import base64
 from docx.enum.text import WD_BREAK, WD_PARAGRAPH_ALIGNMENT, WD_UNDERLINE
@@ -222,11 +222,12 @@ def add_översiktsbild(doc,js):
         image.seek(0)
         h=doc.add_heading('Översiktsbild av lekplatsen', 0)
         h.style = 'Big heading'
-        img = autoorient_2(image)
-
+        #img = autoorient_2(image)
+        print(type(resize_and_autoorient))
+        img = resize_and_autoorient(image,width=400)
         table = doc.add_table(rows=1,cols=1)
         row = table.add_row().cells
-        row[0].paragraphs[0].add_run().add_picture(img, width=Inches(6))
+        row[0].paragraphs[0].add_run().add_picture(img)
         doc.add_page_break()
     return None
 
@@ -317,12 +318,12 @@ def add_utrustning(doc,js, pb=False):
         pt.style = 'Small heading'
 
         pt.text = 'Bild: ' + str(index)
-        file = autoorient_2(io.BytesIO(base64.b64decode(img)))
+        file = resize_and_autoorient(io.BytesIO(base64.b64decode(img)),120)
         
         file.seek(0)
         #file = resize_and_autoorient(file,120,120)
         p = row[index0].add_paragraph()
-        p.add_run().add_picture(file,width=Inches(2))
+        p.add_run().add_picture(file)#,width=Inches(2))
         index0 +=1
         if index0 ==3:
             row = table.add_row().cells
@@ -478,12 +479,12 @@ def add_anmärkningar(doc, js):
                         row[i]
                         file = io.BytesIO(base64.b64decode(anmärkning['Image'][index]['content']))
                         file.seek(0)
-                        file = autoorient_2(file)
+                        file = resize_and_autoorient(file,120)
                         p=row[i].paragraphs[0]
                         p.style= 'imgp'
                         p.paragraph_format.keep_with_next=True
                         run = p.add_run()
-                        picture = run.add_picture(file,width=Inches(2))
+                        picture = run.add_picture(file)#,width=Inches(2))
                         index +=1
                         
                         #  LÄGG TILL ANMÄRKNINGAR
@@ -599,7 +600,7 @@ def add_grindar(doc, js):
                     row[i]
                     file = io.BytesIO(base64.b64decode(item['Images'][index]['content']))
                     file.seek(0)
-                    file = autoorient_2
+                    file = resize_and_autoorient(file,120)#autoorient_2
                     p=row[i].add_paragraph()
                     picture = p.add_run()
                     picture.add_picture(file,width=Inches(2))
@@ -641,7 +642,7 @@ def add_brunnar(doc,js):
                     row[i]
                     file = io.BytesIO(base64.b64decode(item['Image'][index]['content']))
                     file.seek(0)
-                    file = autoorient_2(file)
+                    file = resize_and_autoorient(file,120)#autoorient_2(file)
                     p=row[i].paragraphs[0]
                     row[i].paragraphs[0].paragraph_format.keep_with_next=True
                     picture = p.add_run()
