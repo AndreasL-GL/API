@@ -144,7 +144,7 @@ def resize_and_autoorient(file, width,height=None):
     f = Image.open(file)
     f = autoorient(f)
     if not height:
-        height,w = f.size
+        w,height = f.size
         height = width/(w/height)
     f=f.resize((int(height),int(width)), resample=Image.LANCZOS)
     # Create a bytes object to send in response

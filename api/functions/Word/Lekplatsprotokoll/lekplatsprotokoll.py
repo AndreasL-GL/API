@@ -224,7 +224,7 @@ def add_översiktsbild(doc,js):
         h.style = 'Big heading'
         #img = autoorient_2(image)
         print(type(resize_and_autoorient))
-        img = resize_and_autoorient(image,width=400)
+        img = resize_and_autoorient(image,width=600)
         table = doc.add_table(rows=1,cols=1)
         row = table.add_row().cells
         row[0].paragraphs[0].add_run().add_picture(img)
