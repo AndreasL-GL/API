@@ -33,6 +33,6 @@ def post_file2():
     img_file=resize_and_autoorient(file_content,width=width,height=height)
     file_content=base64.b64encode(img_file.read()).decode('utf-8')
     return jsonify({
-        "$content-type": "image/jpeg",
+        "$content-type": "image/png",
         "$content": file_content
     })
