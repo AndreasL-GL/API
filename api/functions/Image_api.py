@@ -138,7 +138,7 @@ def autoorient_2(file):
     f.save(img_file,format='PNG')
     img_file.seek(0)
     return img_file
-def resize_and_autoorient(file, width,height=None):
+def resize_and_autoorient(file, width=None,height=None):
     """Accepts a file bytes object and returns a file bytes object
     Resizes an image based on specifications in the config."""
     f = Image.open(file)
@@ -146,7 +146,11 @@ def resize_and_autoorient(file, width,height=None):
     if not height:
         w,height = f.size
         height = width/(w/height)
-    f=f.resize((int(height),int(width)), resample=Image.LANCZOS)
+    if not width:
+        width,h=f.size
+        width = height*width/h
+    f=f.resize((int(width),int(height)), resample=Image.LANCZOS)
+    print(f.size)
     # Create a bytes object to send in response
     img_file = io.BytesIO()
     f.save(img_file, format='PNG')
