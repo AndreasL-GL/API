@@ -62,11 +62,11 @@ def create_protocol(site, lista, js):
         if 'Adress' not in item.keys():
             item['Adress'] = ' '
     trigger = js['Trigger']
-    if "Hemsida" not in js1.keys(): js1["Hemsida"] = "-"
-    if "Anv_x00e4_ndarinformation" not in js1.keys(): js1["Anv_x00e4_ndarinformation"] = "-"
-    if "Email" not in js1.keys(): js1["Email"] = "-"
-    if "Dagensdatum" not in js1.keys(): js1["Dagensdatum"] = "-"
-    if "Bolag" not in js1.keys():js1["Bolag"] = "-"
+    if "Hemsida" not in certifikatjs.keys(): certifikatjs["Hemsida"] = "-"
+    if "Anv_x00e4_ndarinformation" not in certifikatjs.keys(): js1["Anv_x00e4_ndarinformation"] = "-"
+    if "Email" not in certifikatjs.keys(): certifikatjs["Email"] = "-"
+    if "Dagensdatum" not in certifikatjs.keys(): certifikatjs["Dagensdatum"] = "-"
+    if "Bolag" not in certifikatjs.keys():certifikatjs["Bolag"] = "-"
     if not certifikatjs: js1['Certnr'] = 'saknas'
     js1['Informationsskylt'] = ['Finns' if js1['Informationsskylt'] else 'Saknas på ett eller flera redskap'][0]
     js1['Anv_x00e4_ndarinformation'] = ['Finns' if js1['Anv_x00e4_ndarinformation'] else 'Saknas på ett eller flera redskap'][0]
