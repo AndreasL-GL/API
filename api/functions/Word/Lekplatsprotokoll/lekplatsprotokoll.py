@@ -68,6 +68,8 @@ def create_protocol(site, lista, js):
     if "Dagensdatum" not in certifikatjs.keys(): certifikatjs["Dagensdatum"] = "-"
     if "Bolag" not in certifikatjs.keys():certifikatjs["Bolag"] = "-"
     if "Telefonnummer" not in certifikatjs.keys():certifikatjs["Telefonnummer"] = "-"
+    
+    if "Adresstillprotokoll" not in certifikatjs.keys():certifikatjs["Adresstillprotokoll"] = "-"
     if not certifikatjs: js1['Certnr'] = 'saknas'
     js1['Informationsskylt'] = ['Finns' if js1['Informationsskylt'] else 'Saknas på ett eller flera redskap'][0]
     js1['Anv_x00e4_ndarinformation'] = ['Finns' if js1['Anv_x00e4_ndarinformation'] else 'Saknas på ett eller flera redskap'][0]
