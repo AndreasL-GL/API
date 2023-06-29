@@ -43,7 +43,7 @@ def create_protocol(site, lista, js):
     js1 = js["Items"]['value'][0]
     certifikatjs=[]
     if type(js["Certifikatinfo"]) == list:
-        certifikatjs = js["Certifikatinfo"]
+        certifikatjs = js["Certifikatinfo"][0]
     else:
         if "Fitnessbesiktning" in js1.keys():
             if js1["Fitnessbesiktning"]:
