@@ -62,7 +62,11 @@ def create_protocol(site, lista, js):
         if 'Adress' not in item.keys():
             item['Adress'] = ' '
     trigger = js['Trigger']
-    
+    if "Hemsida" not in js1.keys(): js1["Hemsida"] = "-"
+    if "Anv_x00e4_ndarinformation" not in js1.keys(): js1["Anv_x00e4_ndarinformation"] = "-"
+    if "Email" not in js1.keys(): js1["Email"] = "-"
+    if "Dagensdatum" not in js1.keys(): js1["Dagensdatum"] = "-"
+    if "Bolag" not in js1.keys():js1["Bolag"] = "-"
     if not certifikatjs: js1['Certnr'] = 'saknas'
     js1['Informationsskylt'] = ['Finns' if js1['Informationsskylt'] else 'Saknas på ett eller flera redskap'][0]
     js1['Anv_x00e4_ndarinformation'] = ['Finns' if js1['Anv_x00e4_ndarinformation'] else 'Saknas på ett eller flera redskap'][0]
@@ -111,6 +115,7 @@ def populate_template(js1, certifikatjs, js, trigger):
         if not 'Certnr' in certifikatjs.keys(): certifikatjs['Certnr'] = 'saknas'
     js1['Certnr'] = certifikatjs['Certnr'] if certifikatjs else ""
     if "Datum" in js1.keys():   js1["Besiktningsdatum"] = js1['Datum']
+    
     if js1["Certnr"].lower() == 'saknas' and js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Fitness mall ej cert.docx'))
     elif js1["Certnr"].lower() != 'saknas' and js1['Fitnessbesiktning']:
