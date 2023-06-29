@@ -44,21 +44,21 @@ def create_protocol(site, lista, js):
     certifikatjs=[]
     if "Fitnessbesiktning" in js1.keys():
         if js1["Fitnessbesiktning"]:
-            certifikatjs = [item for item in js['Certifikatinfo']['value'] if item['Utegym']][0]
+            certifikatjs = [item if item['Utegym'] else None for item in js['Certifikatinfo']['value']][0]
 
         else: 
-            certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
+            certifikatjs = [item if not item['Utegym'] else None for item in js['Certifikatinfo']['value']][0]
     
     else: 
-        certifikatjs = [item for item in js['Certifikatinfo']['value'] if not item['Utegym']][0]
-        
+        certifikatjs = [item if not item['Utegym'] else None for item in js['Certifikatinfo']['value']][0]
+    print(js["Certifikatinfo"]["value"])
     
     for item in js['Items']['value']:
         if 'Adress' not in item.keys():
             item['Adress'] = ' '
     trigger = js['Trigger']
     
-    if not any(certifikatjs): js1['Certnr'] = 'saknas'
+    if not certifikatjs: js1['Certnr'] = 'saknas'
     js1['Informationsskylt'] = ['Finns' if js1['Informationsskylt'] else 'Saknas på ett eller flera redskap'][0]
     js1['Anv_x00e4_ndarinformation'] = ['Finns' if js1['Anv_x00e4_ndarinformation'] else 'Saknas på ett eller flera redskap'][0]
     js1['M_x00e4_rkningavredskap_x002f_ty'] = ['Finns' if js1['M_x00e4_rkningavredskap_x002f_ty'] else 'Saknas på ett eller flera redskap'][0]
@@ -67,10 +67,10 @@ def create_protocol(site, lista, js):
     js1['M_bed'] = ['-' if js1['M_x00e4_rkningavredskap_x002f_ty']=='Finns' else 'C'][0]
     if "Telefonnummer" not in js1.keys(): js1["Telefonnummer"] = ''
 
-    js1['Hemsida'] = certifikatjs['Hemsida']
-    js1['Email'] = js1['Author']['Email']
+    js1['Hemsida'] = certifikatjs['Hemsida'] if certifikatjs else ""
+    js1['Email'] = js1['Author']['Email'] if certifikatjs else ""
     js1['Dagensdatum'] = datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d")
-    js1['Bolag'] = certifikatjs['Bolag']['Value']
+    js1['Bolag'] = certifikatjs['Bolag']['Value'] if certifikatjs else ""
     js1["Certifieringstext2"] = """Klagomål
 
 I det fall Ni har synpunkter på utförd säkerhetsbesiktning kan Ni Kontakta: 
@@ -99,12 +99,12 @@ def populate_template(js1, certifikatjs, js, trigger):
     if 'Digital signatur' in js1.keys() and 'Digital signatur 2' in js1.keys():
         js1['digsign'] = js1['Digital signatur']
         js1['digsign2'] = js1['Digital signatur 2']
-    if "Telefonnummer" not in certifikatjs.keys(): abort(400, message="Inget telefonnummer för besiktningsman.")
-    js1["Besmantelefonnummer"] = certifikatjs["Telefonnummer"]
-    js1["Adresstillprotokoll"] = certifikatjs['Adresstillprotokoll']
+    js1["Besmantelefonnummer"] = certifikatjs["Telefonnummer"] if certifikatjs else ""
+    js1["Adresstillprotokoll"] = certifikatjs['Adresstillprotokoll'] if certifikatjs else ""
     js1['Created'] = js1['Created'].split('T')[0]
-    if not 'Certnr' in certifikatjs.keys(): certifikatjs['Certnr'] = 'saknas'
-    js1['Certnr'] = certifikatjs['Certnr']
+    if certifikatjs: 
+        if not 'Certnr' in certifikatjs.keys(): certifikatjs['Certnr'] = 'saknas'
+    js1['Certnr'] = certifikatjs['Certnr'] if certifikatjs else ""
     if "Datum" in js1.keys():   js1["Besiktningsdatum"] = js1['Datum']
     if js1["Certnr"].lower() == 'saknas' and js1['Fitnessbesiktning']:
         doc = mailmerge.MailMerge(os.path.join(os.path.dirname(__file__), 'Fitness mall ej cert.docx'))
@@ -751,7 +751,7 @@ def run_functions(js):
 
 if __name__ == '__main__':
 
-    test_one=False
+    test_one=True
     if not test_one:
         jsonpath = os.path.join(os.path.dirname(__file__),'Lekplatsprotokoll_json_filer')
         destpath = os.path.join(os.path.dirname(__file__), 'Testing_word_filer')
