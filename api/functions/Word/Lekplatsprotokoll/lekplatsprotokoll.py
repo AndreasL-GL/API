@@ -10,11 +10,9 @@ from PIL import Image
 import docx
 from docx.shared import Pt, Inches, RGBColor
 from Office_helper_functions.Word.form_field import set_checkbox_value
-from functions.Image_api import  autoorient_2, resize_and_autoorient
+from functions.Image_api import  resize_and_autoorient
 from functions.Word.add_image_to_zipfile import add_icon_to_word_file
 import base64
-from docx.enum.text import WD_BREAK, WD_PARAGRAPH_ALIGNMENT, WD_UNDERLINE
-from flask import abort
 
 icons = {
          "Green Landscaping AB":"https://greenlandscapingmalmo.sharepoint.com/sites/Funktionskontrolllekplatsdemo/_api/web/GetFileByServerRelativeUrl('/sites/Funktionskontrolllekplatsdemo/Delade Dokument/Protokoll lekplats besiktning demo/Template/Loggor/GLAB_png.png')/$value",
@@ -404,8 +402,10 @@ def add_underlag(doc,js):
 
         if not any(underlag_):
             continue
-
-        p.text = 'Produkt '+str(i+1) +" " + item['Items']['Utrustning']['Value']
+        print(item["Items"]["Utrustning"])
+        if "Value" in item["Items"]["Utrustning"]["Value"]: 
+            p.text = 'Produkt '+str(i+1) +" " + item['Items']['Utrustning']['Value']["Value"]
+        else: p.text = 'Produkt '+str(i+1) +" " + item['Items']['Utrustning']['Value']
         p.style = 'bold'
         p.paragraph_format.keep_with_next = True
         table = doc.add_table(rows=1, cols=2)
