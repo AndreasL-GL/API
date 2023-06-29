@@ -56,7 +56,7 @@ def create_protocol(site, lista, js):
             certifikatjs = [item if not item['Utegym'] else None for item in js['Certifikatinfo']['value']][0]
             
     
-    print(js["Certifikatinfo"]["value"])
+
     
     for item in js['Items']['value']:
         if 'Adress' not in item.keys():
