@@ -65,12 +65,12 @@ def create_protocol(site, lista, js):
     js1['I_bed'] = ['-' if js1['Informationsskylt']=='Finns' else 'C'][0]
     js1['A_bed'] = ['-' if js1['Anv_x00e4_ndarinformation']=='Finns' else 'C'][0]
     js1['M_bed'] = ['-' if js1['M_x00e4_rkningavredskap_x002f_ty']=='Finns' else 'C'][0]
-    if "Telefonnummer" not in js1.keys(): js1["Telefonnummer"] = ''
+    if "Telefonnummer" not in js1.keys(): js1["Telefonnummer"] = '-'
 
-    js1['Hemsida'] = certifikatjs['Hemsida'] if certifikatjs else ""
-    js1['Email'] = js1['Author']['Email'] if certifikatjs else ""
+    js1['Hemsida'] = certifikatjs['Hemsida'] if certifikatjs else "-"
+    js1['Email'] = js1['Author']['Email'] if certifikatjs else "-"
     js1['Dagensdatum'] = datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d")
-    js1['Bolag'] = certifikatjs['Bolag']['Value'] if certifikatjs else ""
+    js1['Bolag'] = certifikatjs['Bolag']['Value'] if certifikatjs else "-"
     js1["Certifieringstext2"] = """Klagomål
 
 I det fall Ni har synpunkter på utförd säkerhetsbesiktning kan Ni Kontakta: 
