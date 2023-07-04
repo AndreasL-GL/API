@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
 from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge, set_main_columns
+from functions.Faktura.table_settings import convert_excel_table_to_json, join_json_records
 # from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
 from tools_get_files import save_file_on_error
@@ -46,6 +47,30 @@ def upload():
     data = request.json
     return jsonify(process_request(data))
 
+@fakturaextraktion.route("/api/Excel/Excel2Json", methods=["POST"])
+@require_api_key
+def excel2json(): 
+    """Converts a Excel base64 item from request to json format, using $content to work with power automate.
+
+    Returns:
+        dict: Json records of the table content of the excel file.
+    """
+    if request.method == 'POST':
+        data = request.json
+        
+        return jsonify(convert_excel_table_to_json(data))
+
+@fakturaextraktion.route("/api/Excel/join_json")
+@require_api_key
+def join_json():
+    """Joins 2 json records together on one or more columns with a defined method.
+    {'json1':[{}],'json2':[{}],'left_on':'pris', 'right_on':'pris', 'how'='inner'}
+    """
+    data = request.json
+    js = join_json_records(**data)
+    return jsonify(js)
+    
+    
 def upload():
     # Get the file from the request
     file = request.files['file']

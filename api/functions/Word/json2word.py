@@ -195,7 +195,6 @@ def create_word_table_from_json(doc, js):
     if "params" in js.keys(): params = js['params']
     js = js['items']
     if not any(js): return doc
-    
     ## Handling of input parameters
     header_row = None
     image_columns=[]

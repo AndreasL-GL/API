@@ -59,6 +59,7 @@ def mergefields():
     else: return {"Error":"Incorrect format"}
     
 
+
 def compose_document(js):
     doc = compose_doc(js)
     bio = io.BytesIO()
