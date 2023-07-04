@@ -5,10 +5,19 @@ services:
     build: ./api
     command: gunicorn --bind 0.0.0.0:5000 --timeout 400 --log-level debug app:app 
     volumes: 
-    - ./api:/usr/src/app/
-    
+    - ./api:/home/app
+    - ./logs:app/logs
     ports:
     - 5000:5000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        compress: "true"
+        labels: "app=flask-app"
+
+
   # nginx:
   #   build: ./services/nginx
   #   environment:
