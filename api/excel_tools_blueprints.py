@@ -5,7 +5,6 @@ from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge, set_main
 from functions.Faktura.table_settings import convert_excel_table_to_json, join_json_records
 # from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
-from tools_get_files import save_file_on_error
 from functions.Excel.Fakturaanalys import process_request
 excel_dagbok = Blueprint('dagbok_trädexperterna', __name__)
 fakturaextraktion = Blueprint('fakturaextraktion', __name__)
@@ -14,9 +13,8 @@ fakturaextraktion = Blueprint('fakturaextraktion', __name__)
 
 @excel_dagbok.route("/api/excel_dagbok", methods=["POST"])
 @require_api_key
-def upload(): ## Working
-    # Get the file from the request
-    print(dict(request.headers))
+def upload(): 
+    
     file_data = request.files
     file_data = request.get_data()
     file_name = os.path.join(os.path.join(os.path.join(os.path.join(os.path.dirname(__file__), 'functions'),'Excel'),'temp'),'received_file.xlsx')
@@ -122,3 +120,4 @@ def upload():
     # ...
 
     return jsonify({"content": "Hello"}) 
+
