@@ -24,6 +24,7 @@ def create_word_document(js, doc=None):
         doc = docx.Document(io.BytesIO(base64.b64decode(doc)))
     
     for item in js:
+
         if "Paragraphs" in item.keys():
             for para in item['Paragraphs']:
                 add_paragraph(doc,para['runs'])
@@ -37,7 +38,7 @@ def create_word_document(js, doc=None):
             doc.add_page_break()
     file = io.BytesIO()
     doc.save(file)
-    file.seek(0) 
+    file.seek(0)
     return {"$content":base64.b64encode(file.getvalue()).decode('utf-8'),"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}
 
 
@@ -255,14 +256,14 @@ def create_word_table_from_json(doc, js):
                     item[new] = item[old]
                 columns = params["rename_columns"][1]
     if image_columns:
-        print([item[image_column] for image_column in image_columns for item in js])
+        #print([item[image_column] for image_column in image_columns for item in js])
         if not any([item[image_column] for image_column in image_columns for item in js]): return doc
     table = doc.add_table(rows=1, cols = len(columns))
     if table_style:
         table.style=table_style
         
     for i, item in enumerate(js):
-
+        if not any(item):continue
         ## Sätt rubriker till tabellen
         if "header_row" in params.keys() and i==0:
             header_row = params["header_row"]
@@ -306,7 +307,7 @@ def create_word_table_from_json(doc, js):
                 images = item[column]
                 
                 if not any(images):break
-                print(item['Images'])
+                #print(item['Images'])
                 if any(images):
                     for image in images: 
                         if image.startswith('http'):
@@ -422,10 +423,11 @@ def add_hyperlink(paragraph, run, url):
 
 if __name__ == '__main__':
     import json
-    with open(os.path.join(os.path.join(os.path.dirname(__file__),'docs'),'sample.json'), 'r', encoding='utf-8') as f :
+    with open(os.path.join(os.path.dirname(__file__),'sample.json'), 'r', encoding='utf-8') as f :
         js = json.load(f)
     
+    js = json.loads(js['body'])
+    doc = create_word_document(js)
     
-    #doc = compose_doc(js)
-    
-    doc.save(os.path.join(os.path.join(os.path.dirname(__file__),'docs'),'compose.docx'))
+    with open(os.path.join(os.path.dirname(__file__),'sample.docx'), 'wb') as f :
+        f.write(base64.b64decode(doc['$content']))
