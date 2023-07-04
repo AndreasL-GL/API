@@ -6,6 +6,7 @@ from functions.Json_records.json_functions import convert_excel_table_to_json, j
 # from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
 from functions.Excel.Fakturaanalys import process_request
+import logging
 excel_dagbok = Blueprint('dagbok_trädexperterna', __name__)
 fakturaextraktion = Blueprint('fakturaextraktion', __name__)
 
@@ -56,7 +57,10 @@ def excel2json():
     if request.method == 'POST':
         data = request.json
         
-        return jsonify(convert_excel_table_to_json(data))
+        try: return jsonify(convert_excel_table_to_json(data))
+        except Exception as e: 
+            logging.ERROR(str(e))
+            return {"Error": str(e)}
 
 @fakturaextraktion.route("/api/Excel/join_json")
 @require_api_key
