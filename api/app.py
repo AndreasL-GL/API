@@ -15,7 +15,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask
 
 # Configure logging
-log_filename = os.path.join(os.path.dirname(__file__),'flask_app.log')
+log_filename = 'flask_app.log'
 log_handler = RotatingFileHandler(log_filename, maxBytes=100000, backupCount=1)
 log_handler.setLevel(logging.INFO)
 
