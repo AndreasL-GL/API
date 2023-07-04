@@ -6,7 +6,7 @@ services:
     command: gunicorn --bind 0.0.0.0:5000 --timeout 400 --log-level debug app:app 
     volumes: 
     - ./api:/home/app
-    - ./logs:app/logs
+    - ./logs:/home/app/logs
     ports:
     - 5000:5000
     logging:
