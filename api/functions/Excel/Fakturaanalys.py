@@ -136,13 +136,10 @@ def set_main_columns(excel):
 
 
 if __name__ == '__main__':
-    import sys
-    sys.stdout = open(os.path.join(os.path.dirname(__file__),"stdout.txt"), 'a', encoding='utf-8')
+    
     with open(os.path.join(os.path.dirname(__file__),'Ahlsell.xlsx'), 'rb') as f:
         b64string = base64.b64encode(f.read())
     df = set_main_columns(b64string)
     df = pd.read_excel(base64.b64decode(df))
     print(df)
 
-
-print("Hello")

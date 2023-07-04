@@ -13,11 +13,13 @@ from blueprints_sharepoint import sharepoint
 import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask
-
 # Configure logging
-log_filename = 'flask_app.log'
+log_filename = os.path.join(os.path.dirname(__file__),'flask_app.log')
 log_handler = RotatingFileHandler(log_filename, maxBytes=100000, backupCount=1)
 log_handler.setLevel(logging.INFO)
+log_filename = os.path.join(os.path.dirname(__file__),'error.log')
+log_handlers = RotatingFileHandler(log_filename, maxBytes=100000, backupCount=1)
+log_handlers.setLevel(logging.ERROR)
 
 
 config = configparser.ConfigParser()
@@ -35,6 +37,7 @@ app.register_blueprint(fakturaextraktion)
 app.register_blueprint(html_pages)
 app.register_blueprint(sharepoint)
 app.logger.addHandler(log_handler)
+
 @app.route("/", methods=['GET', 'POST'])
 def Home():
     sql = Sql()
