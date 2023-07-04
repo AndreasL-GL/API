@@ -10,6 +10,16 @@ from excel_tools_blueprints import excel_dagbok, fakturaextraktion
 from blueprints_word import word_path
 from html_pages_blueprints import html_pages
 from blueprints_sharepoint import sharepoint
+import logging
+from logging.handlers import RotatingFileHandler
+from flask import Flask
+
+# Configure logging
+log_filename = os.path.join(os.path.dirname(__file__),'flask_app.log')
+log_handler = RotatingFileHandler(log_filename, maxBytes=100000, backupCount=1)
+log_handler.setLevel(logging.INFO)
+
+
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(__file__),'config'),"config.ini"))
 
@@ -24,7 +34,7 @@ app.register_blueprint(excel_dagbok)
 app.register_blueprint(fakturaextraktion)
 app.register_blueprint(html_pages)
 app.register_blueprint(sharepoint)
-
+app.logger.addHandler(log_handler)
 @app.route("/", methods=['GET', 'POST'])
 def Home():
     sql = Sql()

@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
 from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge, set_main_columns
-from functions.Faktura.table_settings import convert_excel_table_to_json, join_json_records
+from functions.Json_records.json_functions import convert_excel_table_to_json, join_json_records
 # from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
 from functions.Excel.Fakturaanalys import process_request
