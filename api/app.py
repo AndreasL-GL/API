@@ -87,15 +87,23 @@ def limit_remote_addr():
         'Args':dict(request.args),
         'Headers':dict(request.headers),
         'Endpoint':request.endpoint,
-        'Content-type':type(request.data)
-}, logfile = "connections.json"):
-        if not os.path.exists(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'connections.json')):
-            with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'connections.json'), 'w', encoding='utf-8') as f: json.dump([],f, ensure_ascii=False)
-        with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'connections.json'), 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'connections.json'), 'w', encoding='utf-8') as f:
+        'Content-type':str(type(request.data))}, logfile = "connections.json"):
+        data = " "
+        if not os.path.exists(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),logfile)):
+            with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),logfile), 'w', encoding='utf-8') as f: 
+                json.dump([],f, ensure_ascii=False)
+                data = []
+                f.close()
+        if type(data)==str:
+            with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),logfile), 'r', encoding='utf-8') as f:
+                #print(f.read())
+                data = json.load(f)
+                f.close()
+        with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),logfile), 'w', encoding='utf-8') as f:
             data.append(js)
+            print(data)
             json.dump(data, f, indent=4, ensure_ascii=False)
+            f.close()
             
     client_list = [x for x in config["ACCEPT_CONNECTIONS_FROM"]]
 
