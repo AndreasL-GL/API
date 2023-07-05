@@ -25,7 +25,7 @@ def require_api_key(func):
         try: 
             return func(*args, **kwargs)
         except Exception as e:
-            error_logger.error(str(e))
+            error_logger.error(f"Error in function: {str(func)}, "+str(e))
             abort(500, description=str(e))
         try: 
             
