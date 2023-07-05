@@ -121,7 +121,6 @@ def convert_excel_table_to_json(file):
     except Exception as e: 
         log.info("Creating DataFrame Failed: "+str(e))
         raise e
-    log.info(df.to_string())
     return df.to_json(orient="records", force_ascii=False)
 
 
