@@ -54,13 +54,14 @@ def excel2json():
     Returns:
         dict: Json records of the table content of the excel file.
     """
-    if request.method == 'POST':
-        data = request.json
-        
-        try: return jsonify(convert_excel_table_to_json(data))
-        except Exception as e: 
-            logging.ERROR(str(e))
-            return {"Error": str(e)}
+    logging.INFO("Request method: "+request.method)
+    data = request.json
+    
+    try: return jsonify(convert_excel_table_to_json(data))
+    except Exception as e: 
+        logging.ERROR(str(e))
+        return {"Error": str(e)}
+
 
 @fakturaextraktion.route("/api/Excel/join_json")
 @require_api_key
