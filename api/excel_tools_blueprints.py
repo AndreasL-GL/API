@@ -10,7 +10,7 @@ import logging
 excel_dagbok = Blueprint('dagbok_trädexperterna', __name__)
 fakturaextraktion = Blueprint('fakturaextraktion', __name__)
 
-
+info_logger = logging.getLogger('info_logger')
 
 @excel_dagbok.route("/api/excel_dagbok", methods=["POST"])
 @require_api_key
@@ -54,9 +54,9 @@ def excel2json():
     Returns:
         dict: Json records of the table content of the excel file.
     """
-    logging.log(logging.INFO,"Request method: "+request.method)
-    data = request.json
     
+    data = request.json
+    info_logger.info(request.json)
     try: return jsonify(convert_excel_table_to_json(data))
     except Exception as e: 
         logging.ERROR(str(e))
