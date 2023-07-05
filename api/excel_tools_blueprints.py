@@ -46,7 +46,7 @@ def upload():
     data = request.json
     return jsonify(process_request(data))
 
-@fakturaextraktion.route("/api/Excel/Excel2Json", methods=["POST"])
+@fakturaextraktion.route("/api/Excel/Excel2Json", methods=["GET","POST"])
 @require_api_key
 def excel2json(): 
     """Converts a Excel base64 item from request to json format, using $content to work with power automate.
@@ -57,10 +57,7 @@ def excel2json():
     info_logger.info(str(request.json.keys()))
     data = request.json
     info_logger.info(str(data))
-    try: return jsonify(convert_excel_table_to_json(data))
-    except Exception as e: 
-        logging.ERROR(str(e))
-        return {"Error": str(e)}
+    return jsonify(convert_excel_table_to_json(data))
 
 
 @fakturaextraktion.route("/api/Excel/join_json")
