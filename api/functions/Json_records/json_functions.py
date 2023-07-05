@@ -2,6 +2,8 @@ import pandas as pd
 from fuzzywuzzy import fuzz
 import base64, io, json, os
 import docx
+import logging
+log = logging.getLogger('info_logger')
 
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
     excel = pd.read_excel(excel)
@@ -106,6 +108,7 @@ def fuzzy_merge(df1,df2, column1='Beskrivning',column2='CLASS8DESCR/PARTDESCR1')
     return joined_df
 
 def convert_excel_table_to_json(file):
+    log.info(str(file.keys()))
     file = base64.b64decode(file["$content"])
     file = io.BytesIO(file)
     file.seek(0)
