@@ -57,7 +57,7 @@ def excel2json():
     info_logger.info("Got into the function")
     #info_logger.info(str(request.get_json()))
     data = request.get_json()
-    info_logger.info("Passed value into data variable: "+", ".join(list(data.keys())))
+    info_logger.info("Passed value into data variable: "+str(type(data["$content"]))
     return jsonify(convert_excel_table_to_json(data))
 
 
