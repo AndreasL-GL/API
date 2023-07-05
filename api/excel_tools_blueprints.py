@@ -58,7 +58,9 @@ def excel2json():
     #info_logger.info(str(request.get_json()))
     data = request.get_json()
     info_logger.info("Passed value into data variable: "+str(type(data["$content"])))
-    return jsonify(convert_excel_table_to_json(data))
+    js = convert_excel_table_to_json(data)
+    info_logger.info(str(type(js)))
+    return jsonify(js)
 
 
 @fakturaextraktion.route("/api/Excel/join_json")
