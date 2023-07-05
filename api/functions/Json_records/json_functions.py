@@ -113,14 +113,8 @@ def convert_excel_table_to_json(file):
     file = base64.b64decode(file["$content"])
     file = io.BytesIO(file)
     file.seek(0)
-    try: 
-        log.info("Try block")
-        df = pd.read_excel(file)
-        log.info("After df")
-        log.info(json.dumps(list(df.columns)))
-    except Exception as e: 
-        log.info("Creating DataFrame Failed: "+str(e))
-        raise e
+    df = pd.read_excel(file)
+
     return json.loads(df.to_json(orient="records", force_ascii=False))
 
 
