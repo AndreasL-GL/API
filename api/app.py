@@ -73,7 +73,7 @@ app.register_blueprint(sharepoint)
 def Home():
     sql = Sql()
     sql.initialize_db()
-    #return render_template('home.html')
+    return render_template('home.html')
 
 
 @app.before_request

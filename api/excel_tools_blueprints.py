@@ -54,9 +54,10 @@ def excel2json():
     Returns:
         dict: Json records of the table content of the excel file.
     """
-    info_logger.info(str(request.json.keys()))
+    info_logger.info("Got into the function")
+    info_logger.info(str(request.get_json()))
     data = request.json
-    info_logger.info(str(data))
+    
     return jsonify(convert_excel_table_to_json(data))
 
 
