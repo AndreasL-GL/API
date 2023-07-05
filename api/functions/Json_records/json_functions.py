@@ -121,7 +121,7 @@ def convert_excel_table_to_json(file):
     except Exception as e: 
         log.info("Creating DataFrame Failed: "+str(e))
         raise e
-    return df.to_json(orient="records", force_ascii=False)
+    return json.loads(df.to_json(orient="records", force_ascii=False))
 
 
 def join_json_records(prislista1,prislista2, left_on=["pris"], right_on=["pris"], how = 'inner'):
