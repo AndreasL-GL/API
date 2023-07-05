@@ -104,3 +104,14 @@ if __name__=='__main__':
     sql.add_API_KEY("andreas.lofkvist@greenlandscaping.se")
     print(sql.get_all_API_KEYS())
     print(sql.API_KEY_match('40cc355a3efb4c98a27cbs68daa6841c8'))
+    import logging
+    from logging import log
+    from logging.handlers import RotatingFileHandler
+    log_filename = os.path.join(os.path.dirname(__file__),'flask_app.log')
+    log_handler = RotatingFileHandler(log_filename, maxBytes=100000, backupCount=1)
+    log_handler.setLevel(logging.INFO)
+    log_filename = os.path.join(os.path.dirname(__file__),'error.log')
+    log_handlers = RotatingFileHandler(log_filename, maxBytes=100000, backupCount=1)
+    log_handlers.setLevel(logging.ERROR)
+    log(logging.ERROR,"Error message")
+    log(logging.INFO,"Info Message")

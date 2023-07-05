@@ -7,18 +7,26 @@ import configparser, os
 import urllib.parse
 import requests
 import json
-
-
+import logging
+info_logger = logging.getLogger("info_logger")
+error_logger = logging.getLogger('error_logger')
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)),'config'),"config.ini"))
 tenant = config["SHAREPOINT"]["tenant"]
 def require_api_key(func):
     @wraps(func)
     def decorated_function(*args, **kwargs):
-        api_key = request.args.get("API_KEY")
+
+        api_key = request.args.get("API_KEY") if request.args.get("API_KEY") else " "
         if api_key not in config["DEFAULTS"]['API_KEYS']:
+            error_logger.error("Invalid API Key: "+api_key)
             abort(401, description="Invalid API key")
-        return func(*args, **kwargs)
+            
+        try: 
+            return func(*args, **kwargs)
+        except Exception as e:
+            error_logger.error(str(e))
+            abort(500, description=str(e))
         try: 
             
             return func(*args,**kwargs)
