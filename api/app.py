@@ -99,7 +99,7 @@ def limit_remote_addr():
             
     client_list = [x for x in config["ACCEPT_CONNECTIONS_FROM"]]
 
-    #json_logger()
+    json_logger()
 
     if any(client_list):
         if any(client_list) and request.remote_addr not in client_list:

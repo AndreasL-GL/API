@@ -56,6 +56,7 @@ def excel2json():
     """
     
     data = request.json
+    info_logger.info(str(data))
     try: return jsonify(convert_excel_table_to_json(data))
     except Exception as e: 
         logging.ERROR(str(e))
