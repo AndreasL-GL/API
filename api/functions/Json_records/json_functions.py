@@ -109,6 +109,7 @@ def fuzzy_merge(df1,df2, column1='Beskrivning',column2='CLASS8DESCR/PARTDESCR1')
 
 def convert_excel_table_to_json(file):
     log.info(file['$content'][:200])
+    log.info("Filetype: "+str(type(file["$content"])))
     file = base64.b64decode(file["$content"])
     file = io.BytesIO(file)
     file.seek(0)
