@@ -104,7 +104,6 @@ def limit_remote_addr():
             print(data)
             json.dump(data, f, indent=4, ensure_ascii=False)
             f.close()
-    info_logger.info(request.data.decode())
             
     client_list = [x for x in config["ACCEPT_CONNECTIONS_FROM"]]
 
