@@ -85,7 +85,8 @@ def limit_remote_addr():
         'Method':request.method,
         'URL': request.base_url,
         'Args':dict(request.args),
-        'Headers':dict(request.headers)
+        'Headers':dict(request.headers),
+        'Endpoint':request.endpoint
 }, logfile = "connections.json"):
         if not os.path.exists(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'connections.json')):
             with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'connections.json'), 'w', encoding='utf-8') as f: json.dump([],f, ensure_ascii=False)
