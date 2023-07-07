@@ -110,7 +110,7 @@ def fuzzy_merge():
     rs = fuzzy_merge(data['Left'],data['Right'],data['Right_Column'],data['Left_Column'])
     return jsonify(rs)
 
-@fakturaextraktion.route("/api/Fakturaanalys/Analysera_faktura_mot_prislistor", methods="POST")
+@fakturaextraktion.route("/api/Fakturaanalys/Analysera_faktura_mot_prislistor", methods=["POST"])
 @require_api_key
 def fakturaanalys_v2_route():
     js = request.get_json()
