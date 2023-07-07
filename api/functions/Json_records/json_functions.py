@@ -108,8 +108,6 @@ def fuzzy_merge(df1,df2, column1='Beskrivning',column2='CLASS8DESCR/PARTDESCR1')
     return joined_df
 
 def convert_excel_table_to_json(file):
-    log.info(file['$content'][:200])
-    log.info("Filetype: "+str(type(file["$content"])))
     file = base64.b64decode(file["$content"])
     file = io.BytesIO(file)
     file.seek(0)
@@ -130,17 +128,40 @@ def join_json_records(prislista1,prislista2, left_on=["pris"], right_on=["pris"]
     
     return json.loads(P3.to_json(orient="records", force_ascii=False))
     
-if __name__ == '__main__':
-    # with open(os.path.join(os.path.dirname(__file__),'xlsx.json'), 'r', encoding='utf-8') as f:
-    #     js = json.load(f)['body']
-    # file = faktura_mot_prislista(js, 'inner')
-    # with open(os.path.join(os.path.dirname(__file__),"001.xlsx"), 'wb') as f:
-    #     f.write(base64.b64decode(file["Excel"]))
-    with open(os.path.join(os.path.dirname(__file__),'table.xlsx'),'rb') as f:
-        fb = base64.b64encode(f.read())
-    js = convert_excel_table_to_json({"$content":fb})
+def transform_text_to_float(num):
+    num = str(num).replace(',','.').replace(' ', '').replace('$','')
+    num = ''.join(['' if char.isalpha() else char for char  in num])
+    return float(num) if int(float(num)) != float(num) else int(float(num))
     
-    with open(os.path.join(os.path.dirname(__file__),'table.json'),'w', encoding='utf-8') as f:
-        json.dump(js,f, ensure_ascii=False)
-    js2 = join_json_records(js,js,right_on=["Unnamed: 1"], left_on=["Unnamed: 1"], how="inner")
-    #print(js2)
+def fakturaanalys_v2(js, how = "left", left_on="Artikelnr",right_on="Artikelnr"):
+        excel = js["Excel"]
+        faktura = js["Faktura"]
+        items = pd.DataFrame([
+            {
+                "Artikelnr": transform_text_to_float(item["fields"]["productCode"]["valueText"]),
+                "Styckpris":transform_text_to_float(item["fields"]["unitPrice"]["valueText"]),
+                "Beskrivning":item["fields"]["description"]["valueText"],
+                "Kvantitet": transform_text_to_float(item["fields"]["quantity"]["valueText"])
+                
+             } 
+            for item in faktura["Items"]
+            ])
+        print(items)
+        print(items.columns)
+        for i,item in enumerate(excel):
+            name = item["Name"]
+            df = pd.DataFrame(json.loads(item["File"]))
+            print(df)
+            items = pd.merge(items, df, how=how, left_on=left_on, right_on=right_on, suffixes = [f" (Faktura)" if i==0 else f" ({excel[i-1]['Name']})",f" ({item['Name']})"])
+            print("_-----------------------------------", items.empty)
+        return items
+        
+if __name__ == '__main__':
+    from functions.return_power_automate_file import detect_and_create_file
+    with open(os.path.join(os.path.dirname(__file__),"fakturaanalysv2.json"), 'r', encoding='utf-8') as f:
+        js = json.load(f)
+    df = fakturaanalys_v2(js['body']) if 'body' in js.keys() else fakturaanalys_v2(js)
+    file = detect_and_create_file(df,content_type='.xlsx')
+    print(file)
+    #print(df)
+    #print(df.columns)

@@ -2,7 +2,8 @@ from flask import Blueprint, render_template, request, send_file,jsonify, abort
 from functions.authentication import require_api_key
 from functions.Excel.Get_Excel_data_to_json import  convert_file_to_workbook
 from functions.Excel.Invoice import faktura_mot_prislista, fuzzy_merge, set_main_columns
-from functions.Json_records.json_functions import convert_excel_table_to_json, join_json_records
+from functions.Json_records.json_functions import convert_excel_table_to_json, join_json_records, fakturaanalys_v2
+from functions.return_power_automate_file import detect_and_create_file
 # from functions.Excel.Fakturaanalys import set_main_columns
 import os,io,base64, openpyxl
 from functions.Excel.Fakturaanalys import process_request
@@ -54,13 +55,7 @@ def excel2json():
     Returns:
         dict: Json records of the table content of the excel file.
     """
-    info_logger.info("Got into the function")
-    #info_logger.info(str(request.get_json()))
-    data = request.get_json()
-    info_logger.info("Passed value into data variable: "+str(type(data["$content"])))
-    js = convert_excel_table_to_json(data)
-    info_logger.info("About to send response")
-    return js
+    return convert_excel_table_to_json(request.get_json())
 
 
 @fakturaextraktion.route("/api/Excel/join_json")
@@ -114,6 +109,13 @@ def fuzzy_merge():
     
     rs = fuzzy_merge(data['Left'],data['Right'],data['Right_Column'],data['Left_Column'])
     return jsonify(rs)
+
+@fakturaextraktion.route("/api/Fakturaanalys/Analysera_faktura_mot_prislistor", methods="POST")
+@require_api_key
+def fakturaanalys_v2_route():
+    js = request.get_json()
+    file = detect_and_create_file(fakturaanalys_v2(js),content_type=".xlsx")
+    return file
 
 def upload():
     # Get the file from the request
