@@ -152,16 +152,21 @@ def fakturaanalys_v2(js, how = "left", left_on="Artikelnr",right_on="Artikelnr")
             name = item["Name"]
             df = pd.DataFrame(json.loads(item["File"]))
             print(df)
+            #print(items["Artikelnr"].dtype, str(df["Artikelnr"].dtype))
+            items['Artikelnr'] = items['Artikelnr'].astype('str')
+            df['Artikelnr'] = df['Artikelnr'].astype('str')
+            print(items["Artikelnr"].dtype, df["Artikelnr"].dtype)
             items = pd.merge(items, df, how=how, left_on=left_on, right_on=right_on, suffixes = [f" (Faktura)" if i==0 else f" ({excel[i-1]['Name']})",f" ({item['Name']})"])
             print("_-----------------------------------", items.empty)
-        return items
+        print(js['Faktura'].keys())
+        print(items)
+        return {"File Content":detect_and_create_file(items,'.xlsx'), "Filename": str(js['Faktura']["Handlare"])+"_"+str(js['Faktura']["Fakturanr"])+".xlsx"}
         
 if __name__ == '__main__':
     from functions.return_power_automate_file import detect_and_create_file
     with open(os.path.join(os.path.dirname(__file__),"fakturaanalysv2.json"), 'r', encoding='utf-8') as f:
         js = json.load(f)
     df = fakturaanalys_v2(js['body']) if 'body' in js.keys() else fakturaanalys_v2(js)
-    file = detect_and_create_file(df,content_type='.xlsx')
-    print(file)
+    #file = detect_and_create_file(df,content_type='.xlsx')
     #print(df)
     #print(df.columns)
