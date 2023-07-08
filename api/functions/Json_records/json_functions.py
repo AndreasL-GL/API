@@ -3,6 +3,7 @@ from fuzzywuzzy import fuzz
 import base64, io, json, os
 import docx
 import logging
+from functions.return_power_automate_file import detect_and_create_file
 log = logging.getLogger('info_logger')
 
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
@@ -147,8 +148,6 @@ def fakturaanalys_v2(js, how = "left", left_on="Artikelnr",right_on="Artikelnr")
              } 
             for item in faktura["Items"] if "productCode" in item['fields'].keys()
             ])
-        print(items)
-        print(items.columns)
         for i,item in enumerate(excel):
             name = item["Name"]
             df = pd.DataFrame(json.loads(item["File"]))
@@ -168,6 +167,8 @@ if __name__ == '__main__':
     with open(os.path.join(os.path.dirname(__file__),"fakturaanalysv2.json"), 'r', encoding='utf-8') as f:
         js = json.load(f)
     df = fakturaanalys_v2(js['body']) if 'body' in js.keys() else fakturaanalys_v2(js)
+    
     #file = detect_and_create_file(df,content_type='.xlsx')
     #print(df)
     #print(df.columns)
+    
