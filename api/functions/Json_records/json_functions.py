@@ -136,6 +136,7 @@ def transform_text_to_float(num):
 def fakturaanalys_v2(js, how = "left", left_on="Artikelnr",right_on="Artikelnr"):
         excel = js["Excel"]
         faktura = js["Faktura"]
+        
         items = pd.DataFrame([
             {
                 "Artikelnr": transform_text_to_float(item["fields"]["productCode"]["valueText"]),
@@ -144,7 +145,7 @@ def fakturaanalys_v2(js, how = "left", left_on="Artikelnr",right_on="Artikelnr")
                 "Kvantitet": transform_text_to_float(item["fields"]["quantity"]["valueText"])
                 
              } 
-            for item in faktura["Items"]
+            for item in faktura["Items"] if "productCode" in item['fields'].keys()
             ])
         print(items)
         print(items.columns)
