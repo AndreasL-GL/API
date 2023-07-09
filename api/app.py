@@ -23,24 +23,28 @@ config.read(os.path.join(os.path.join(os.path.dirname(__file__),'config'),"confi
 # Create loggers
 error_logger = logging.getLogger('error_logger')
 info_logger = logging.getLogger('info_logger')
+request_logger = logging.getLogger("request_logger")
 
 # Set log levels
 error_logger.setLevel(logging.ERROR)
 info_logger.setLevel(logging.INFO)
+request_logger.setLevel(logging.INFO)
 
 # Create file handlers for each log file
 error_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'error.log'))
 info_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'info.log'))
+request_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'responses.log'))
 # Create formatters for the log messages
 
 
 error_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
 info_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
 conn_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
+request_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
 # Set formatters for the handlers
 error_handler.setFormatter(error_formatter)
 info_handler.setFormatter(info_formatter)
-
+request_logger.setFormatter(request_formatter)
 
 
 
@@ -50,6 +54,7 @@ info_handler.setFormatter(info_formatter)
 # Add handlers to the loggers
 error_logger.addHandler(error_handler)
 info_logger.addHandler(info_handler)
+request_logger.addHandler(request_handler)
 
 
 
@@ -113,7 +118,9 @@ def limit_remote_addr():
         if any(client_list) and request.remote_addr not in client_list:
             abort(403)  # Forbidden
         
-        
+@app.after_request
+def log_finished_request():
+    request_logger.info("Response: ", request.user_agent, request.endpoint)
 @app.route("/api/Json2Word")
 def api():
     return render_template("Json2Word.html")

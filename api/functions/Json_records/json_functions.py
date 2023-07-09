@@ -4,6 +4,7 @@ import base64, io, json, os
 import docx
 import logging
 from functions.return_power_automate_file import detect_and_create_file
+from functions.download_file import run_file
 log = logging.getLogger('info_logger')
 
 def join_pdf_records_and_excel(pdf,excel, type_of_join="inner"):
@@ -166,7 +167,8 @@ if __name__ == '__main__':
     from functions.return_power_automate_file import detect_and_create_file
     with open(os.path.join(os.path.dirname(__file__),"fakturaanalysv2.json"), 'r', encoding='utf-8') as f:
         js = json.load(f)
-    df = fakturaanalys_v2(js['body']) if 'body' in js.keys() else fakturaanalys_v2(js)
+    d = fakturaanalys_v2(js['body']) if 'body' in js.keys() else fakturaanalys_v2(js)
+    run_file(base64.b64decode(d['File Content']['$content']))
     
     #file = detect_and_create_file(df,content_type='.xlsx')
     #print(df)
