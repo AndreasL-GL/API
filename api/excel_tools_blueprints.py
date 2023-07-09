@@ -111,10 +111,14 @@ def fuzzy_merge():
     return jsonify(rs)
 
 @fakturaextraktion.route("/api/Fakturaanalys/Analysera_faktura_mot_prislistor", methods=["POST"])
-@require_api_key
+#@require_api_key
 def fakturaanalys_v2_route():
     js = request.get_json()
+    print(js.keys())
+    if 'body' in js.keys(): js = js['body']
+    print(js.keys())
     file = detect_and_create_file(fakturaanalys_v2(js),content_type=".xlsx")
+    
     return file
 
 def upload():

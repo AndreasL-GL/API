@@ -5,6 +5,9 @@ import base64
 
 def detect_and_create_file(file, content_type = None):
     if type(file)==dict:
+        if "File Content" in file.keys():
+            return file
+
         return {
             "$content-type":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" if content_type == '.xlsx' else "Application/json",
             "$content":base64.b64encode(io.BytesIO(pd.DataFrame(file).to_excel(excel_writer="openpyxl")).getvalue()).decode('utf-8') if content_type =='.xlsx' else file

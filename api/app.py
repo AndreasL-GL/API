@@ -106,7 +106,6 @@ def limit_remote_addr():
                 f.close()
         with open(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),logfile), 'w', encoding='utf-8') as f:
             data.append(js)
-            print(data)
             json.dump(data, f, indent=4, ensure_ascii=False)
             f.close()
             
@@ -121,7 +120,8 @@ def limit_remote_addr():
 @app.after_request
 def log_finished_request(response):
     
-    request_logger.info("Response: ", request.user_agent, request.endpoint, str(response))
+    request_logger.info("Response: "+ str(request.user_agent)+ " Endpoint: " + str(request.endpoint)+" Status Code: " + str(response.status_code))
+    return response
     
 @app.route("/api/Json2Word")
 def api():
