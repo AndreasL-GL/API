@@ -121,7 +121,7 @@ def limit_remote_addr():
 @app.after_request
 def log_finished_request(response):
     
-    request_logger.info("Response: ", request.user_agent, request.endpoint, response)
+    request_logger.info("Response: ", request.user_agent, request.endpoint, str(response))
     
 @app.route("/api/Json2Word")
 def api():
