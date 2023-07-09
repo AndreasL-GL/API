@@ -10,6 +10,7 @@ import json
 import logging
 info_logger = logging.getLogger("info_logger")
 error_logger = logging.getLogger('error_logger')
+rs = logging.getLogger("request_logger")
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)),'config'),"config.ini"))
 tenant = config["SHAREPOINT"]["tenant"]
@@ -24,9 +25,11 @@ def require_api_key(func):
             
         try: 
             return func(*args, **kwargs)
+            rs.info("200")
         except Exception as e:
             error_logger.error(f"Error in function: {str(func)}, "+str(e))
             abort(500, description=str(e))
+            rs.info("500")
         try: 
             
             return func(*args,**kwargs)
