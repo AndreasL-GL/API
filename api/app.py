@@ -44,7 +44,7 @@ request_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s
 # Set formatters for the handlers
 error_handler.setFormatter(error_formatter)
 info_handler.setFormatter(info_formatter)
-request_logger.setFormatter(request_formatter)
+request_handler.setFormatter(request_formatter)
 
 
 
@@ -121,6 +121,7 @@ def limit_remote_addr():
 @app.after_request
 def log_finished_request():
     request_logger.info("Response: ", request.user_agent, request.endpoint)
+    
 @app.route("/api/Json2Word")
 def api():
     return render_template("Json2Word.html")
