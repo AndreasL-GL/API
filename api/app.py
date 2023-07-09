@@ -119,8 +119,9 @@ def limit_remote_addr():
             abort(403)  # Forbidden
         
 @app.after_request
-def log_finished_request():
-    request_logger.info("Response: ", request.user_agent, request.endpoint)
+def log_finished_request(response):
+    
+    request_logger.info("Response: ", request.user_agent, request.endpoint, response)
     
 @app.route("/api/Json2Word")
 def api():
