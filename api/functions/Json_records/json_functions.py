@@ -159,6 +159,7 @@ def fakturaanalys_v2(js, how = "left", left_on="Artikelnr",right_on="Artikelnr")
 
         items = pd.merge(items, df, how=how, left_on=left_on, right_on=right_on, suffixes = [f" (Faktura)" if i==0 else f" ({excel[i-1]['Name']})",f" ({item['Name']})"])
     print(type(items))
+    items = items.dropna(axis=1, how='all')
     if any(excel):
         return {"File Content":detect_and_create_file(items,'.xlsx'), "Filename": str(js['Faktura']["Handlare"])+"_"+str(js['Faktura']["Fakturanr"])+".xlsx"}
     
