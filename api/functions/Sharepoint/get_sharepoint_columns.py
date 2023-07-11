@@ -46,13 +46,17 @@ def get_sharepoint_access_headers_through_client_id():
     return headers
 
 def get_fields(site, list_):
-    headers=get_sharepoint_access_headers_through_client_id()
-    tenant = "greenlandscapingmalmo"
-    url = site + f"/_api/web/lists/getbytitle('{list_}')/fields"
-    l = requests.get(url, headers=headers)
-    js= json.loads(l.text)
-    js = get_body_from_sharepoint_api(js)
-    return js
+    try:
+        headers=get_sharepoint_access_headers_through_client_id()
+        tenant = "greenlandscapingmalmo"
+        url = site + f"/_api/web/lists/getbytitle('{list_}')/fields"
+        l = requests.get(url, headers=headers)
+        js= json.loads(l.text)
+        js = get_body_from_sharepoint_api(js)
+        return js
+    except:
+        with open(os.path.join(os.path.dirname(__file__),'file.txt'),'w') as f:
+            f.write("site: "+site+" list: "+list_)
 
 def get_by_url(url):
     headers = get_sharepoint_access_headers_through_client_id()
