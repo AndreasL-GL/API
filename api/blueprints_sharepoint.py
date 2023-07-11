@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request,make_response, jsonify
 from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_items, get_fieldtypes, request_fields
-from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
+from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id, get_fields_v2
 from functions.authentication import require_api_key
 from functions.Sharepoint.Sharepoint_Site import filter_sites
 
@@ -54,3 +54,14 @@ def add_sp_field():
 @require_api_key
 def get_sites():
     return jsonify(filter_sites(request.get_json()))
+
+
+@sharepoint.route("/api/sharepoint/get_fields_v2", methods=["POST"])
+@require_api_key
+def get_fields_v2():
+    js = request.get_json()
+    site = js["Site"]
+    list_name = js["List"]
+    ID = js["ID"]
+    
+    return get_fields_v2(site,list_name,ID)

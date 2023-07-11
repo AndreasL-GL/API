@@ -424,8 +424,10 @@ if __name__ == '__main__':
     import json
     with open(os.path.join(os.path.dirname(__file__),'sample.json'), 'r', encoding='utf-8') as f :
         js = json.load(f)
-    
-    js = json.loads(js['body'])
+    print(type(js['body']))
+    js = js['body']
+    print(js.keys())
+    #js = json.loads(js['body'])
     doc = create_word_document(js)
     
     with open(os.path.join(os.path.dirname(__file__),'sample.docx'), 'wb') as f :

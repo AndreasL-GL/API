@@ -72,15 +72,29 @@ def get_sites():
     l = requests.get(url, headers=headers)
     js = json.loads(l.text)
     return js
+
 def get_filenames_from_sharepoint():
         url = "https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikationer"+"/_api/web/lists/getbytitle('Geodata fordon')/items"
         
         js = requests.get(url,headers=get_sharepoint_access_headers_through_client_id())
         print(json.dumps(js.json()['d']['results'], indent=4, ensure_ascii=False))
         return None
+def get_fields_v2(site, list_, ID):
+
+    headers=get_sharepoint_access_headers_through_client_id()
+    tenant = "greenlandscapingmalmo"
+    url = site + f"/_api/web/lists/getbytitle('{list_}')/fields"
+    l = requests.get(url, headers=headers)
+    js= json.loads(l.text)
+    js = get_body_from_sharepoint_api(js)
+    item = requests.get(site+f"/_api/web/lists/getbytitle('{list_}')/items({ID})",headers=headers).json()['d']
+    kontrollmoment = item["Kontrollmoment"]['results']
+    text = '\n'.join([object['Moment']+": "+"Kontrollmoment klart" if item[object['link']] else object['Moment']+": Ej kontrollerat" for object in js if object['Moment'] in kontrollmoment and object['Moment']])
+    print(text)
+    return {'text':text}
+
 if __name__ == '__main__':
-   # site = "GLMalmAB-EgenkontrollerVellingebostder"
-    #list_ = "MKB Egenkontroll Oxie Periodiska 2023"
-    #print(get_fields(site,list_))
-    #print(json.dumps(get_sites(), indent=3))
-    print(get_fields("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska"))
+    
+    
+    get_fields_v2("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska", 72)
+    
