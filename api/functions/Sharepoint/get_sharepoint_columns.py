@@ -79,7 +79,7 @@ def get_filenames_from_sharepoint():
         js = requests.get(url,headers=get_sharepoint_access_headers_through_client_id())
         print(json.dumps(js.json()['d']['results'], indent=4, ensure_ascii=False))
         return None
-def get_fields_v2(site, list_, ID):
+def get_fields__2(site, list_, ID):
 
     headers=get_sharepoint_access_headers_through_client_id()
     tenant = "greenlandscapingmalmo"
