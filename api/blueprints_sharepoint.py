@@ -58,7 +58,7 @@ def get_sites():
 
 @sharepoint.route("/api/sharepoint/get_fields_v2", methods=["POST"])
 @require_api_key
-def get_fields_v2():
+def get_fields_v22():
     js = request.get_json()
     site = js["Site"]
     list_name = js["List"]
