@@ -94,7 +94,11 @@ def get_fields_v2(site, list_, ID):
     return {'text':text}
 
 if __name__ == '__main__':
-    
+    f ={
+  "Site": "https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter",
+  "List": "Stena Kortedala skötsel - periodiska",
+  "ID": 72
+}
     
     get_fields_v2("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska", 72)
     
