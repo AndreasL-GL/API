@@ -1,6 +1,7 @@
 import json, os
 import requests
 import configparser
+from flask import url_for
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))),'config'),"config.ini"))
 
@@ -11,8 +12,6 @@ with open(os.path.join(os.path.join(os.path.dirname(os.path.dirname(os.path.dirn
 def get_body_from_sharepoint_api(js):
     resultlist = []
     if 'body' in js.keys(): js = js['body']
-    print(js.keys())
-    print(js['error'])
     for item in js['d']['results']:
         if item['EntityPropertyName'] not in sharepoint_columns_remove_list:
             resultlist.append({"Moment":item['Title'], "link":item['EntityPropertyName']})
@@ -80,4 +79,4 @@ if __name__ == '__main__':
     #list_ = "MKB Egenkontroll Oxie Periodiska 2023"
     #print(get_fields(site,list_))
     #print(json.dumps(get_sites(), indent=3))
-    get_fields("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska")
+    print(get_fields("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska"))
