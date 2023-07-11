@@ -89,9 +89,14 @@ def get_fields__2(site, list_, ID):
     js = get_body_from_sharepoint_api(js)
     item = requests.get(site+f"/_api/web/lists/getbytitle('{list_}')/items({ID})",headers=headers).json()['d']
     kontrollmoment = item["Kontrollmoment"]['results']
-    text = '\n'.join([object['Moment']+": "+"Kontrollmoment klart" if item[object['link']] else object['Moment']+": Ej kontrollerat" for object in js if object['Moment'] in kontrollmoment and object['Moment']])
-    print(text)
-    return {'text':text}
+    boollista = []
+    text = '\n'.join(["- "+object['Moment']+": "+"Kontrollmoment klart" if item[object['link']] else "- " +object['Moment']+": Ej kontrollerat" for object in js if object['Moment'] in kontrollmoment and object['Moment']])
+    [boollista.append(item[object['link']]) if object["Moment"] in kontrollmoment else None for object in js]
+                     
+    print({'text':text, "Alla klara": "Ja" if all(boollista) else "Nej"})
+    print(boollista)
+    return {'text':text, "Alla klara": "Ja" if all(boollista) else "Nej"}
+
 
 if __name__ == '__main__':
     f ={
@@ -100,5 +105,8 @@ if __name__ == '__main__':
   "ID": 72
 }
     
-    get_fields_v2("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska", 72)
-    
+    get_fields__2("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska", 72)
+    headers=get_sharepoint_access_headers_through_client_id()
+    tenant = "greenlandscapingmalmo"
+    url = f["Site"] + f"""/_api/web/lists/getbytitle('{f['List']}')/fields"""
+    [print(item["EntityPropertyName"]) for item in requests.get(url,headers=headers).json()['d']['results'] if "mment" in item["Title"]]
