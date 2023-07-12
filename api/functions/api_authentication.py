@@ -141,6 +141,11 @@ class Files:
         drive = asyncio.run(self.get_sharepoint_drive(site_id,document_library))
         file = asyncio.run(self.download_file(drive,filepath, "pdf"))
         return file
+def download_pdf(Sitename,Filepath,Library):
+    files = Files(["Graph"])
+    file = files.download_file_as_pdf(Sitename,Filepath,Library)
+    return file
+
 def get_sharepoint_headers():
     Az = Azure_Identity()
     x = asyncio.run(Az.get_headers("sharepoint"))
