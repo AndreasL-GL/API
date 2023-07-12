@@ -16,7 +16,7 @@ import datetime
 import sys
 # Configure logging
 
-logging.basicConfig(filename=os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'flask_app.log'),level=logging.INFO)
+#logging.basicConfig(filename=os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'flask_app.log'),level=logging.INFO)
 #logging.basicConfig(filename=os.path.join(os.path.dirname(__file__),'error.log'),level=logging.ERROR)
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(__file__),'config'),"config.ini"))

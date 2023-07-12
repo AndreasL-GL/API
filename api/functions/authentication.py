@@ -169,9 +169,4 @@ if __name__=='__main__':
         content = response.content
         return content
 
-    print(get_access_token())
-    # Call the function to get the Word document content
     document_content = get_word_document_content()
-
-    # Use the retrieved document content as needed
-    print(document_content)
