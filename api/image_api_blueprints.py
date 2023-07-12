@@ -37,8 +37,13 @@ def post_file2():
     # height = request.json.get('height')
     # if not height: height=None
     # file_content=base64.b64decode(file_content)
-    print(request.get_json().keys())
-    img_file=resizer(request.get_json())
+    js = request.get_json()
+    if "body/File Content" in js.keys():
+        jss = {"File Content":js["body/File Content"]}
+        if "body/width" in js.keys(): jss["width"] = js["body/width"]
+        if "body/height" in js.keys(): jss["height"] = js["body/height"]
+        js = jss
+    img_file=resizer(js)
     file_content=base64.b64encode(img_file.getvalue()).decode('utf-8')
     return jsonify({
         "$content-type": "image/png",
