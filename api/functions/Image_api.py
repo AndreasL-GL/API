@@ -145,14 +145,15 @@ def resize_and_autoorient(file, width=None,height=None):
     Resizes an image based on specifications in the config."""
     f = Image.open(file)
     f = autoorient(f)
-    width,height = int(width) if width else width, int(height) if height else height
-    if not height:
-        w,height = f.size
-        height = width/(w/height)
-    if not width:
-        width,h=f.size
-        width = height*width/h
-    f=f.resize((int(width),int(height)), resample=Image.LANCZOS)
+    if height or width:
+        width,height = int(width) if width else width, int(height) if height else height
+        if not height:
+            w,height = f.size
+            height = width/(w/height)
+        if not width:
+            width,h=f.size
+            width = height*width/h
+        f=f.resize((int(width),int(height)), resample=Image.LANCZOS)
 
     # Create a bytes object to send in response
     img_file = io.BytesIO()
