@@ -4,24 +4,24 @@ from functions.Word import Protokollutskick
 from functions.Word.Lekplatsprotokoll import lekplatsprotokoll
 from Json2Word.compose import compose_doc
 from functions.Word.json2word import create_word_document
-from functions.api_authentication import download_pdf
+#from functions.api_authentication import download_pdf
 import io,base64
 import docx
 
 word_path = Blueprint('skapa word-protokoll', __name__)
 
-@word_path.route("/api/file_to_pdf", methods=["POST"])
-@require_api_key
-def file_to_pdf():
-    if not request.is_json:
-        js = {
-            "Sitename":"Digitaliseringsportal",
-            "Filepath":'/Prislistor Excel/Terås  Årsavtal år 2022.xlsx', 
-            "Library":"Fakturaanalys"
-        }
-        abort(500,jsonify({"error":"Missing json content in body"}))
-    else:
-        return download_pdf(**request.get_json())
+# @word_path.route("/api/file_to_pdf", methods=["POST"])
+# @require_api_key
+# def file_to_pdf():
+#     if not request.is_json:
+#         js = {
+#             "Sitename":"Digitaliseringsportal",
+#             "Filepath":'/Prislistor Excel/Terås  Årsavtal år 2022.xlsx', 
+#             "Library":"Fakturaanalys"
+#         }
+#         abort(500,jsonify({"error":"Missing json content in body"}))
+#     else:
+#         return download_pdf(**request.get_json())
 
 @word_path.route("/api/word_dokument_for_protokoll", methods=["POST"])
 @require_api_key
