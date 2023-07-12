@@ -3,6 +3,7 @@ from functions.Sharepoint.sharepoint_list_operations import copy_list_and_all_it
 from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id, get_fields__2
 from functions.authentication import require_api_key
 from functions.Sharepoint.Sharepoint_Site import filter_sites
+from functions.Graph import download_pdf
 
 
 sharepoint = Blueprint('sharepoint', __name__)
@@ -25,6 +26,12 @@ def copy_list():
         response = make_response("Failed to create list or copy items.")
         response.status_code=500
     return response
+@sharepoint.route("/api/download_pdf", methods=["POST"])
+def get_pdf():
+    {"Sitename":"",
+     "Filepath":"",
+     "Library":""}
+    return download_pdf(**request.get_json())
 
 @sharepoint.route("/api/sharepoint/FieldTypes", methods=["GET"])
 @require_api_key

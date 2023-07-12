@@ -131,8 +131,7 @@ def require_api_key(func):
 #         print(url)
 #     print(response.text)
 if __name__=='__main__':
-    
-# Microsoft Graph API endpoint for obtaining an access token
+    """
     token_url = 'https://login.microsoftonline.com/a096cfba-db7b-4c9c-9506-d8e91da824ee/oauth2/v2.0/token'
     tenant_id = "a096cfba-db7b-4c9c-9506-d8e91da824ee"
     # Replace {tenant_id} with your Azure AD tenant ID
@@ -170,3 +169,17 @@ if __name__=='__main__':
         return content
 
     document_content = get_word_document_content()
+"""
+if __name__=='__main__':
+    
+    """
+    config = configparser.ConfigParser()
+    config.read([os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)),'config'),'config.ini'), os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)),'config'),'config.dev.cfg')])
+    azure_settings = config['azure']
+    settings = azure_settings
+    client_id = settings['clientId']
+    tenant_id = settings['tenantId']
+    client_secret = settings['clientSecret']
+    d = get_app_only_token(tenant_id,client_id,client_secret, scope="https://greenlandscapingmalmo.sharepoint.com/.default")
+    rs = requests.get("https://greenlandscapingmalmo.sharepoint.com/sites/Digitaliseringsportal/_api/web/lists", headers=d)
+    print(rs.content)"""

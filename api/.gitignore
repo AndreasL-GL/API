@@ -11,7 +11,11 @@ instance/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *$py.class
-
+venvapi
+./venvapi
+/venvapi
+venvapi/*
+venvapi/
 # C extensions
 *.so
 venv
@@ -275,3 +279,10 @@ Web_projects/__pycache__/
 
 api/functions/Excel/test2.xlsx
 *test2.xlsx
+venvapi
+./venvapi
+/venvapi
+venvapi/*
+venvapi/
+.venvapi
+./api/venvapi

@@ -7,14 +7,10 @@ import io
 import json, os
 from mailmerge import MailMerge
 
-if __name__ == '__main__':
-    import get_template
-    from add_image_to_zipfile import add_icon_to_word_file, autoorient
-    import create_json
-else:
-    import functions.Word.get_template as get_template
-    import functions.Word.create_json as create_json
-    from functions.Word.add_image_to_zipfile import add_icon_to_word_file, autoorient
+
+import functions.Word.get_template as get_template
+import functions.Word.create_json as create_json
+from functions.Word.add_image_to_zipfile import add_icon_to_word_file, autoorient
 
 
 def add_template_data(file, tbl):
