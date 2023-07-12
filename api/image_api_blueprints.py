@@ -2,7 +2,7 @@
 from flask import Blueprint, request, jsonify
 from functions.Image_api import resize_and_autoorient
 from functions.authentication import require_api_key
-import base64, io, openpyxl, os
+import base64, io, openpyxl, os, json
 
 image_resize = Blueprint('image_resize', __name__)
 
