@@ -61,11 +61,11 @@ def mergefields():
         item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])['$content']))
         item.seek(0)
         item = create_word_document(js['Json2Word'],item)
-        return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
+        return jsonify(item)
 
     elif "Json2Word" in js.keys() and "Document" not in js.keys():
         item = create_word_document(js['Json2Word'],item)
-        return jsonify({"$content-type":"application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(item.getvalue()).decode('utf-8')})
+        return jsonify(item)
     
     elif "Document" in js.keys() and "Items" in js.keys() and "Json2Word" not in js.keys():
         return jsonify(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"]))
@@ -82,4 +82,17 @@ def compose_document(js):
     return bio
 
 if __name__ == '__main__':
-    "Hello"
+    import os, json
+    with open(os.path.join(os.path.dirname(__file__),'merge.json'), 'r') as f:
+        js = json.load(f)
+    js = js['body']
+    #print(js['body'].keys())
+    print("Json2Word" in js.keys() and "Document" in js.keys() and "Items" in js.keys())
+    [print("Json2Word" in js.keys()), print("Document" in js.keys()),print("Items" in js.keys())]
+    if "Json2Word" in js.keys() and "Document" in js.keys() and "Items" in js.keys():
+        print("Hello")
+        item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"])['$content']))
+        item.seek(0)
+        item = create_word_document(js['Json2Word'],item)
+        print(item.keys())
+        print(item)
