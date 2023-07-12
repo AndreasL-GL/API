@@ -38,7 +38,7 @@ def post_file2():
     # if not height: height=None
     # file_content=base64.b64decode(file_content)
     print(request.get_json().keys())
-    with open(os.path.join(os.path.join(os.path.dirname(__file__),'functions'),'image.json'),'r') as f:
+    with open(os.path.join(os.path.join(os.path.dirname(__file__),'functions'),'image.json'),'w') as f:
         json.dump(request.get_json(),indent=4, ensure_ascii=False)
     # file_content=io.BytesIO(file_content)
     img_file=resizer(request.get_json())
