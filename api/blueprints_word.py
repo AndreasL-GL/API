@@ -58,7 +58,7 @@ def mergefields():
     js = request.get_json()
     
     if "Json2Word" in js.keys() and "Document" in js.keys() and "Items" in js.keys():
-        item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"]["value"])['$content']))
+        item = io.BytesIO(base64.b64decode(Protokollutskick.mailmerge_fun(js["Document"]['$content'],js["Items"])['$content']))
         item.seek(0)
         item = create_word_document(js['Json2Word'],item)
         return jsonify(item)
