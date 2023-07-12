@@ -130,7 +130,7 @@ def fill_paragraph(doc, paragraph, paragraph_content):
             width=1.5
             if "size" in run["image"].keys():
                 width,height = run["image"]["size"]
-            run0.add_picture(img, width=Inches(width), height=Inches(height))
+            run0.add_picture(img, width=Inches(width))#, height=Inches(height))
         elif "checkbox" in run.keys():
             checked = False
             size = 20
