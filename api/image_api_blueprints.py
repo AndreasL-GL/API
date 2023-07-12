@@ -38,6 +38,8 @@ def post_file2():
     # if not height: height=None
     # file_content=base64.b64decode(file_content)
     print(request.get_json().keys())
+    with open(os.path.join(os.path.join(os.path.dirname(__file__),'functions'),'image.json'),'r') as f:
+        json.dump(request.get_json(),indent=4, ensure_ascii=False)
     # file_content=io.BytesIO(file_content)
     img_file=resizer(request.get_json())
     file_content=base64.b64encode(img_file.getvalue()).decode('utf-8')
@@ -48,7 +50,6 @@ def post_file2():
     
 def resizer(js):
     bb = js['File Content']
-    print("Width:",js["width"])
     img = resize_and_autoorient(io.BytesIO(base64.b64decode(bb["$content"])), width=js['width'] if "width" in js.keys() else None,height=js['height'] if 'height' in js.keys() else None)
     return img
 if __name__=='__main__':
