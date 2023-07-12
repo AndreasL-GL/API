@@ -31,6 +31,13 @@ def compose():
     bio = compose_document(js)
     return jsonify({"content":base64.b64encode(bio.getvalue()).decode('utf-8')})
 
+@word_path.route("/api/word/compose_document_v2", methods=["POST"])
+@require_api_key
+def compose_v2():
+    js = request.get_json()
+    bio = create_word_document(js)
+    return jsonify({"$content":base64.b64encode(bio.getvalue()).decode('utf-8'), "$Content-Type":""})
+
 @word_path.route("/api/word/json2word", methods=["POST"])
 @require_api_key
 def json2word():
@@ -38,6 +45,12 @@ def json2word():
     bytesio = compose_document(js)
     return jsonify({"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(bytesio.getvalue()).decode('utf-8')})
 
+@word_path.route("/api/word/json2wordv2", methods=["POST"])
+@require_api_key
+def json2wordv2():
+    js = request.get_json()
+    bytesio = create_word_document(js)
+    return jsonify({"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document","$content":base64.b64encode(bytesio.getvalue()).decode('utf-8')})
 
 @word_path.route('/api/word/merge_document',methods=['POST'])
 @require_api_key

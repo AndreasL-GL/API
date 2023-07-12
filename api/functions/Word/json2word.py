@@ -14,6 +14,7 @@ import requests
 import io
 from PIL import Image
 import numpy as np
+from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
 
 def create_word_document(js, doc=None):
     
@@ -115,10 +116,14 @@ def fill_paragraph(doc, paragraph, paragraph_content):
                 headers = {}
                 if 'headers' in run['image'].keys(): 
                     headers=run['image']['headers']
+                elif "sharepoint" in run["image"]["content"]:
+                    headers = get_sharepoint_access_headers_through_client_id()
                 rs = requests.get(run["image"]["content"],headers=headers)
                 img = base64.b64encode(rs.content).decode('utf-8')
                 run['image']['content'] = img
-            img = io.BytesIO(base64.b64decode(run["image"]['content']))
+            if "content" in run["image"].keys():
+                img = io.BytesIO(base64.b64decode(run["image"]['content']))
+            else: img = io.BytesIO(base64.b64decode(run["image"]['$content']))
             img.seek(0)
             height=0.5
             width=1.5
@@ -243,6 +248,8 @@ def create_word_table_from_json(doc, js):
                     font.italic = fontjs['italic']
                 if "underline" in fontjs.keys():
                     font.underline = fontjs['underline']
+                if "name" in fontjs.keys():
+                    font.name=fontjs["name"]
             if "color" in paragraph.keys():
                 R, G , B = paragraph['color']
                 font.color.rgb = RGBColor(R, G, B)
@@ -426,7 +433,6 @@ if __name__ == '__main__':
         js = json.load(f)
     print(type(js['body']))
     js = js['body']
-    print(js.keys())
     #js = json.loads(js['body'])
     doc = create_word_document(js)
     

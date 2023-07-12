@@ -130,3 +130,48 @@ def require_api_key(func):
 #         response = requests.post(url, data=payload,headers=headers)
 #         print(url)
 #     print(response.text)
+if __name__=='__main__':
+    
+# Microsoft Graph API endpoint for obtaining an access token
+    token_url = 'https://login.microsoftonline.com/a096cfba-db7b-4c9c-9506-d8e91da824ee/oauth2/v2.0/token'
+    tenant_id = "a096cfba-db7b-4c9c-9506-d8e91da824ee"
+    # Replace {tenant_id} with your Azure AD tenant ID
+    token_url = f"https://accounts.accesscontrol.windows.net/{tenant_id}/tokens/OAuth/2"
+
+    # Microsoft Graph API endpoint for accessing Word document content
+    document_url = 'https://graph.microsoft.com/v1.0/me/drive/root:/Documents/MyDocument.docx:/content'
+
+    # Azure AD app registration details
+    client_id = '2f7ad521-aec9-4fb4-9b1f-01e2b07d1f26'
+    client_secret = '876df122-f497-4759-baef-26b2e1e13df0'
+    # Replace with your Azure AD app registration details
+
+    # Request an access token
+    def get_access_token():
+        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        data = {
+            'grant_type': 'client_credentials',
+            'client_id': client_id,
+            'client_secret': client_secret,
+            'scope': 'https://graph.microsoft.com/.default'
+        }
+        response = requests.post(token_url, headers=headers, data=data)
+        response.raise_for_status()
+        access_token = response.json()['access_token']
+        return response
+
+    # Make a request to retrieve Word document content
+    def get_word_document_content():
+        access_token = get_access_token()
+        headers = {'Authorization': 'Bearer ' + access_token}
+        response = requests.get(document_url, headers=headers)
+        response.raise_for_status()
+        content = response.content
+        return content
+
+    print(get_access_token())
+    # Call the function to get the Word document content
+    document_content = get_word_document_content()
+
+    # Use the retrieved document content as needed
+    print(document_content)
