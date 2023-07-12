@@ -26,12 +26,15 @@ def copy_list():
         response = make_response("Failed to create list or copy items.")
         response.status_code=500
     return response
+
 @sharepoint.route("/api/download_pdf", methods=["POST"])
 def get_pdf():
     {"Sitename":"",
      "Filepath":"",
      "Library":""}
-    return download_pdf(**request.get_json())
+    rs = make_response(jsonify(download_pdf(**request.get_json())))
+    rs.headers["Content-Type"]="application/json"
+    return rs
 
 @sharepoint.route("/api/sharepoint/FieldTypes", methods=["GET"])
 @require_api_key
