@@ -15,6 +15,7 @@ import io
 from PIL import Image
 import numpy as np
 from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
+from functions.Image_api import resize_and_autoorient
 
 def create_word_document(js, doc=None):
     
@@ -148,7 +149,7 @@ def create_footer(doc, js):
             if "runs" in para.keys():
                 fill_paragraph(doc, p,paragraph_content=para["runs"])
     return doc
-def resize_and_autoorient(file, height,width):
+def resize_and_autoorients(file, height,width):
     """Accepts a file bytes object and returns a file bytes object
     Resizes an image based on specifications in the config."""
     f = Image.open(file)
@@ -327,7 +328,7 @@ def create_word_table_from_json(doc, js):
                         #while len(imagefile)%4 != 0: imagefile = imagefile + "="
                         file = io.BytesIO(base64.b64decode(imagefile))
                         file.seek(0)
-                        file = resize_and_autoorient(file,*image_size)
+                        file = resize_and_autoorient(file,image_size[0])
                         p=row[i].paragraphs[0]
                         p.style.paragraph_format.keep_with_next=True
                         run = p.add_run()

@@ -93,8 +93,7 @@ def get_fields__2(site, list_, ID):
     text = '\n'.join(["- "+object['Moment']+": "+"Kontrollmoment klart" if item[object['link']] else "- " +object['Moment']+": Ej kontrollerat" for object in js if object['Moment'] in kontrollmoment and object['Moment']])
     [boollista.append(item[object['link']]) if object["Moment"] in kontrollmoment else None for object in js]
                      
-    print({'text':text, "Alla klara": "Ja" if all(boollista) else "Nej"})
-    print(boollista)
+
     return {'text':text, "Alla klara": "Ja" if all(boollista) else "Nej"}
 
 

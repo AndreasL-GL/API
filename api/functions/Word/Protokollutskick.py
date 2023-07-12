@@ -122,7 +122,13 @@ def mailmerge_fun(doc,js):
         doc.seek(0) 
         doc=MailMerge(doc.getvalue())
     elif type(doc)==bytes: doc=MailMerge(bytes)
+    
+    
     if isinstance(js,list): js=js[0]
+    print(doc.get_merge_fields())
+    print(js.keys())
+    print(js["Period"])
+    print(js["Omrade"])
     doc.merge(**js)
     file = io.BytesIO()
     doc.write(file)
