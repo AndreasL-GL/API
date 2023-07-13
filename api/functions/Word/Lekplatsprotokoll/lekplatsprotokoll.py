@@ -69,12 +69,13 @@ def create_protocol(site, lista, js):
     
     if "Adresstillprotokoll" not in certifikatjs.keys():certifikatjs["Adresstillprotokoll"] = "-"
     if not certifikatjs: js1['Certnr'] = 'saknas'
+    js1['I_bed'] = '-' if js1['Informationsskylt'] else 'C'
+    js1['A_bed'] = '-' if js1['Anv_x00e4_ndarinformation'] else 'C'
+    js1['M_bed'] = '-' if js1['M_x00e4_rkningavredskap_x002f_ty'] else 'C'
     js1['Informationsskylt'] = ['Finns' if js1['Informationsskylt'] else 'Saknas på ett eller flera redskap'][0]
     js1['Anv_x00e4_ndarinformation'] = ['Finns' if js1['Anv_x00e4_ndarinformation'] else 'Saknas på ett eller flera redskap'][0]
     js1['M_x00e4_rkningavredskap_x002f_ty'] = ['Finns' if js1['M_x00e4_rkningavredskap_x002f_ty'] else 'Saknas på ett eller flera redskap'][0]
-    js1['I_bed'] = ['-' if js1['Informationsskylt']=='Finns' else 'C'][0]
-    js1['A_bed'] = ['-' if js1['Anv_x00e4_ndarinformation']=='Finns' else 'C'][0]
-    js1['M_bed'] = ['-' if js1['M_x00e4_rkningavredskap_x002f_ty']=='Finns' else 'C'][0]
+
     if "Telefonnummer" not in js1.keys(): js1["Telefonnummer"] = '-'
 
     js1['Hemsida'] = certifikatjs['Hemsida'] if certifikatjs else "-"

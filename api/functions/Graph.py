@@ -67,10 +67,11 @@ class Files:
         headers = self.headers
 
         response = requests.get(url, headers=headers)
-        response.raise_for_status()
+        print(response)
         drive = response.json()["value"] if "value" in response.json().keys() else response.json()
         import json
-        print(json.dumps(drive,indent=4,ensure_ascii=False))
+        #print(json.dumps(drive,indent=4,ensure_ascii=False))
+        print(drive)
         if type(drive)==dict:return drive['id']
         else:
             for item in drive:
@@ -85,7 +86,7 @@ class Files:
         rs=requests.get(url, headers=headers)
 
         data = rs.content
-        filename = filepath.split('/')[-1].split(".")[0]+"."+filetype if filetype else filepath.split('/')[-1]
+        filename = ".".join(filepath.split('/')[-1].split(".")[:-1])+"."+filetype if filetype else filepath.split('/')[-1]
         i=filename.split('.')[-1]
         
         return {"Filename":filename,"File Content":{"$content": base64.b64encode(data).decode(), "$content-type":
@@ -106,6 +107,11 @@ def download_pdf(Sitename,Filepath,Library):
 
 if __name__ == '__main__':
     File = Files()
-    print(download_pdf("Stena Fastigheter","/Protokoll/Stena_Kortedala_daglig_tillsyn_vecka_13.docx","Dokument"))
+    f = {
+  "Sitename": "Stena Fastigheter",
+  "Filepath": "/Protokoll/Stena_Lunden_periodiska_07.Juli_2023.docx",
+  "Library": "Dokument"
+}
+    print(download_pdf(**f)['Filename'])
     
     
