@@ -98,7 +98,7 @@ if __name__ == '__main__':
     import os, json
     with open(os.path.join(os.path.dirname(__file__),'merge.json'), 'r') as f:
         js = json.load(f)
-    js = js['body']
+    js = js
     #print(js['body'].keys())
     print("Json2Word" in js.keys() and "Document" in js.keys() and "Items" in js.keys())
     [print("Json2Word" in js.keys()), print("Document" in js.keys()),print("Items" in js.keys())]

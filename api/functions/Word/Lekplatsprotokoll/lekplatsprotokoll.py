@@ -53,21 +53,27 @@ def create_protocol(site, lista, js):
         else: 
             certifikatjs = [item if not item['Utegym'] else None for item in js['Certifikatinfo']['value']][0]
             
-    
 
     
     for item in js['Items']['value']:
         if 'Adress' not in item.keys():
             item['Adress'] = ' '
     trigger = js['Trigger']
-    if "Hemsida" not in certifikatjs.keys(): certifikatjs["Hemsida"] = "-"
-    if "Anv_x00e4_ndarinformation" not in certifikatjs.keys(): js1["Anv_x00e4_ndarinformation"] = "-"
-    if "Email" not in certifikatjs.keys(): certifikatjs["Email"] = "-"
-    if "Dagensdatum" not in certifikatjs.keys(): certifikatjs["Dagensdatum"] = "-"
-    if "Bolag" not in certifikatjs.keys():certifikatjs["Bolag"] = "-"
-    if "Telefonnummer" not in certifikatjs.keys():certifikatjs["Telefonnummer"] = "-"
+    if certifikatjs: 
+        if "Hemsida" not in certifikatjs.keys(): certifikatjs["Hemsida"] = "-"
+    if certifikatjs: 
+        if "Anv_x00e4_ndarinformation" not in certifikatjs.keys(): js1["Anv_x00e4_ndarinformation"] = "-"
+    if certifikatjs: 
+        if "Email" not in certifikatjs.keys(): certifikatjs["Email"] = "-"
+    if certifikatjs: 
+        if "Dagensdatum" not in certifikatjs.keys(): certifikatjs["Dagensdatum"] = "-"
+    if certifikatjs: 
+        if "Bolag" not in certifikatjs.keys():certifikatjs["Bolag"] = "-"
+    if certifikatjs: 
+        if "Telefonnummer" not in certifikatjs.keys():certifikatjs["Telefonnummer"] = "-"
     
-    if "Adresstillprotokoll" not in certifikatjs.keys():certifikatjs["Adresstillprotokoll"] = "-"
+    if certifikatjs: 
+        if "Adresstillprotokoll" not in certifikatjs.keys():certifikatjs["Adresstillprotokoll"] = "-"
     if not certifikatjs: js1['Certnr'] = 'saknas'
     js1['I_bed'] = '-' if js1['Informationsskylt'] else 'C'
     js1['A_bed'] = '-' if js1['Anv_x00e4_ndarinformation'] else 'C'
@@ -765,7 +771,7 @@ def run_functions(js):
 
 if __name__ == '__main__':
 
-    test_one=True
+    test_one=None
     if not test_one:
         jsonpath = os.path.join(os.path.dirname(__file__),'Lekplatsprotokoll_json_filer')
         destpath = os.path.join(os.path.dirname(__file__), 'Testing_word_filer')

@@ -1,7 +1,3 @@
-# from Json2Word.footer import create_footer
-# from Json2Word.header import create_header
-# from Json2Word.paragraph import add_paragraph
-# from Json2Word.table import create_word_table_from_json
 import docx
 import base64
 import os
@@ -216,9 +212,9 @@ def create_word_table_from_json(doc, js):
                         item[old] = ""
                     item[new] = item[old]
                 columns = params["rename_columns"][1]
-    if image_columns:
+    #if image_columns:
         #print([item[image_column] for image_column in image_columns for item in js])
-        if not any([item[image_column] for image_column in image_columns for item in js]): return doc
+    #    if not any([item[image_column] for image_column in image_columns for item in js]): return doc
     table = doc.add_table(rows=1, cols = len(columns))
     if table_style:
         table.style=table_style
