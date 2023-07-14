@@ -15,23 +15,24 @@ from flask import Flask
 import datetime
 import sys
 # Configure logging
-
+import Printer
+from Printer import log, error_log
 #logging.basicConfig(filename=os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'flask_app.log'),level=logging.INFO)
 #logging.basicConfig(filename=os.path.join(os.path.dirname(__file__),'error.log'),level=logging.ERROR)
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(__file__),'config'),"config.ini"))
 # Create loggers
-error_logger = logging.getLogger('error_logger')
+#error_logger = logging.getLogger('error_logger')
 info_logger = logging.getLogger('info_logger')
 request_logger = logging.getLogger("request_logger")
 
 # Set log levels
-error_logger.setLevel(logging.ERROR)
+#error_logger.setLevel(logging.ERROR)
 info_logger.setLevel(logging.INFO)
 request_logger.setLevel(logging.INFO)
 
 # Create file handlers for each log file
-error_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'error.log'))
+##error_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'error.log'))
 info_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'info.log'))
 request_handler = logging.FileHandler(os.path.join(os.path.join(os.path.dirname(__file__),"logs"),'responses.log'))
 # Create formatters for the log messages
@@ -42,7 +43,7 @@ info_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
 conn_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
 request_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
 # Set formatters for the handlers
-error_handler.setFormatter(error_formatter)
+#error_handler.setFormatter(error_formatter)
 info_handler.setFormatter(info_formatter)
 request_handler.setFormatter(request_formatter)
 
@@ -52,7 +53,7 @@ request_handler.setFormatter(request_formatter)
 # Add handler to the logger
 
 # Add handlers to the loggers
-error_logger.addHandler(error_handler)
+#error_logger.addHandler(error_handler)
 info_logger.addHandler(info_handler)
 request_logger.addHandler(request_handler)
 
@@ -73,15 +74,18 @@ app.register_blueprint(sharepoint)
 
 
 
-
+@error_log
 @app.route("/", methods=['GET', 'POST'])
 def Home():
     sql = Sql()
     sql.initialize_db()
+
+
+
     return render_template('home.html')
 
 
-@app.before_request
+#@app.before_request
 def limit_remote_addr():
     def json_logger(js = {
         'Time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -128,4 +132,6 @@ def api():
     return render_template("Json2Word.html")
 
 if __name__ == '__main__':
+    error_file = open(os.path.join(os.path.join(os.path.dirname(__file__),'logs'),'errors.txt'),'a')
+    sys.stderr = error_file
     app.run(debug=True, host='0.0.0.0', port=5000)

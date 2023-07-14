@@ -6,7 +6,7 @@ import base64
 import io
 import json, os
 from mailmerge import MailMerge
-
+import Printer
 
 import functions.Word.get_template as get_template
 import functions.Word.create_json as create_json
@@ -121,10 +121,6 @@ def mailmerge_fun(doc,js):
     
     
     if isinstance(js,list): js=js[0]
-    print(doc.get_merge_fields())
-    print(js.keys())
-    print(js["Period"])
-    print(js["Omrade"])
     doc.merge(**js)
     file = io.BytesIO()
     doc.write(file)

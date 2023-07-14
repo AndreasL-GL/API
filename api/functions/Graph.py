@@ -113,6 +113,5 @@ if __name__ == '__main__':
   "Library": "Dokument"
 }
     
-    print(download_pdf(**f)['Filename'])
     
     
