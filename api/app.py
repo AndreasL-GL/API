@@ -47,7 +47,16 @@ request_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s
 info_handler.setFormatter(info_formatter)
 request_handler.setFormatter(request_formatter)
 
+# Create a file handler for logging
+file_handler = logging.FileHandler('logs/flask.log')
 
+# Configure the log format
+formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_handler.setFormatter(formatter)
+
+# Add the file handler to the root logger
+root_logger = logging.getLogger()
+root_logger.addHandler(file_handler)
 
 
 # Add handler to the logger

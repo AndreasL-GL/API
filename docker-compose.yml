@@ -3,7 +3,7 @@ version: '3.8'
 services:
   api:
     build: ./api
-    command: gunicorn --bind 0.0.0.0:5000 --timeout 400 --log-level debug app:app > /home/green/api_output.log
+    command: gunicorn --bind 0.0.0.0:5000 --timeout 400 --log-level debug app:app
     volumes: 
     - ./api:/home/app
     - ./logs:/home/app/logs
