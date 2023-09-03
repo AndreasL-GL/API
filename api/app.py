@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, abort
+from flask import Flask, render_template, request, jsonify, abort, send_from_directory
 import configparser
 import os
 import requests
@@ -68,7 +68,7 @@ request_logger.addHandler(request_handler)
 
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static')
 app.secret_key = config["DEFAULTS"]["SECRET_KEY"]
 app.register_blueprint(word_path)
 app.register_blueprint(image_resize)
@@ -140,7 +140,10 @@ def log_finished_request(response):
 def api():
     return render_template("Json2Word.html")
 
+
+
 if __name__ == '__main__':
     error_file = open(os.path.join(os.path.join(os.path.dirname(__file__),'logs'),'errors.txt'),'a')
     sys.stderr = error_file
     app.run(debug=True, host='0.0.0.0', port=5000)
+    

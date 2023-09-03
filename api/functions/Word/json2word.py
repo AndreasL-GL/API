@@ -13,7 +13,7 @@ import numpy as np
 from functions.Sharepoint.get_sharepoint_columns import get_sharepoint_access_headers_through_client_id
 from functions.Image_api import resize_and_autoorient
 
-def create_word_document(js, doc=None):
+def create_word_document(js:dict, doc:docx.Document=None) -> dict:
     
     if not doc: doc = docx.Document()
     elif isinstance(doc, io.BytesIO):
@@ -149,6 +149,7 @@ def create_footer(doc, js):
 def create_word_table_from_json(doc, js):
     params = {}
     if "params" in js.keys(): params = js['params']
+    print(js)
     js = js['items']
     if not any(js): return doc
     ## Handling of input parameters
@@ -384,6 +385,7 @@ if __name__ == '__main__':
         js = json.load(f)
     print(type(js['body']))
     js = js['body']
+
     #js = json.loads(js['body'])
     doc = create_word_document(js)
     

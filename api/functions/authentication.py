@@ -183,3 +183,4 @@ if __name__=='__main__':
     d = get_app_only_token(tenant_id,client_id,client_secret, scope="https://greenlandscapingmalmo.sharepoint.com/.default")
     rs = requests.get("https://greenlandscapingmalmo.sharepoint.com/sites/Digitaliseringsportal/_api/web/lists", headers=d)
     print(rs.content)"""
+    

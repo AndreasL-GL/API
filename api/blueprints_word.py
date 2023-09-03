@@ -97,7 +97,7 @@ def compose_document(js):
 if __name__ == '__main__':
     import os, json
     with open(os.path.join(os.path.dirname(__file__),'merge.json'), 'r') as f:
-        js = json.load(f)
+        js = json.load(f)['body']
     js = js
     #print(js['body'].keys())
     print("Json2Word" in js.keys() and "Document" in js.keys() and "Items" in js.keys())
@@ -108,4 +108,3 @@ if __name__ == '__main__':
         item.seek(0)
         item = create_word_document(js['Json2Word'],item)
         print(item.keys())
-        print(item)

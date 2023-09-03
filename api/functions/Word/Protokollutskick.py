@@ -126,7 +126,7 @@ def mailmerge_fun(doc,js):
     doc.write(file)
     file.seek(0)
     return {"$content-type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "$content":base64.b64encode(file.getvalue()).decode('utf-8')}
+            "$content":base64.b64encode(file.getvalue()).decode('utf-8')}
 
 def download_template_file():
     """Downloads the word template for this program."""
@@ -141,6 +141,6 @@ if __name__ == '__main__':
    # run_functions(js)
     with open(os.path.join(os.path.dirname(__file__),'mailmergetest.json'), encoding='utf-8') as f:
         js = json.load(f)['body']
-    doc = mailmerge_fun(js['Document']['$content'],js['Items'])
-    with open(os.path.join(os.path.dirname(__file__),'mailmergetest.docx'),mode='wb') as f:
+    doc = mailmerge_fun(js['Document'],js['Items'])
+    with open(os.path.join(os.path.dirname(__file__),'mailmergetest2.docx'),mode='wb') as f:
         f.write(base64.b64decode(doc["$content"]))

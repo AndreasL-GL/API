@@ -112,6 +112,13 @@ if __name__ == '__main__':
   "Filepath": "/Protokoll/Stena_Lunden_periodiska_07.Juli_2023.docx",
   "Library": "Dokument"
 }
-    
-    
-    
+    import json
+    headers = File.headers
+    drive_name = "Dokument"
+    site_name = "Digitalisering"
+    rq = requests.get("https://graph.microsoft.com/v1.0/sites",headers=headers)
+    site_id = [item for item in rq.json()['value'] if site_name in item["displayName"]][0]['id']
+    graph_url = f"https://graph.microsoft.com/v1.0/sites/{site_id}/drives"
+    rs = requests.get(graph_url,headers=headers)
+    drive_id = [item['id'] for item in rs.json()['value'] if item['name'] =='Dokument'][0]
+    print(drive_id)

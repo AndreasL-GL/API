@@ -104,15 +104,23 @@ def create_word_table_from_json(doc, js,params={'image_properties':{'columns':['
                     cell.width = Inches(width)
                     
     return doc
-
+import pymsteams
+import datetime
+def send_teams_message_on_error(traceb,error, endpoint):
+    url = "https://greenlandscapingmalmo.webhook.office.com/webhookb2/43a85ea2-3435-499b-b306-5c31f6431e43@a096cfba-db7b-4c9c-9506-d8e91da824ee/IncomingWebhook/9e43227248f24e158edcde42edc492a1/2456bd7a-1ad6-4d50-b98f-da307991dee8"
+    myTeamsMessage = pymsteams.connectorcard(url)
+    myTeamsMessage.title("Error: "+error+", At: "+endpoint)
+    myTeamsMessage.text(traceb+'<br>'+datetime.datetime.now().strftime('%Y-%m-%d'))
+    myTeamsMessage.send()
 
 if __name__ == '__main__':
     doc = docx.Document()
-    
-    
-    with open('image.jpg', 'rb') as f:
-        img = base64.b64encode(f.read())
-        
+    import traceback
+    try:
+        with open('image.jpg', 'rb') as f:
+            img = base64.b64encode(f.read())
+    except Exception as e:
+        print(type(traceback.format_exc())) 
     params={
             'image_properties':
                 {
@@ -146,4 +154,4 @@ if __name__ == '__main__':
         "image": img
     }
 ]
-    create_word_table_from_json(doc, js, params).save('001.docx')
+    #create_word_table_from_json(doc, js, params).save('001.docx')

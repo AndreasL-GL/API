@@ -55,3 +55,5 @@ certificate_path=os.path.join(os.path.dirname(__file__),'Green.cer')
 
 access_token = get_access_token(tenant_id, client_id, certificate_path)
 print(access_token)
+
+thumbprint = "A10ED32674EA529D6267F683726996BAB8BF0121"

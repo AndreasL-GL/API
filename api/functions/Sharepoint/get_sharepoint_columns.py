@@ -98,14 +98,45 @@ def get_fields__2(site, list_, ID):
 
 
 if __name__ == '__main__':
-    f ={
-  "Site": "https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter",
-  "List": "Stena Kortedala skötsel - periodiska",
-  "ID": 72
+#     f ={
+#   "Site": "https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter",
+#   "List": "Stena Kortedala skötsel - periodiska",
+#   "ID": 72
+# }
+    
+#     get_fields__2("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska", 72)
+#     headers=get_sharepoint_access_headers_through_client_id()
+#     tenant = "greenlandscapingmalmo"
+#     url = f["Site"] + f"""/_api/web/lists/getbytitle('{f['List']}')/fields"""
+#     [print(item["EntityPropertyName"]) for item in requests.get(url,headers=headers).json()['d']['results'] if "mment" in item["Title"]]
+    URL ="https://greenlandscapingmalmo.sharepoint.com/sites/SvenskMarkservice"
+    uri = "/_api/thememanager/GetTenantThemingOptions"
+    js = {
+  "themePrimary": "#007D83",
+  "themeLighterAlt": "#f0fafa",
+  "themeLighter": "#c5e9eb",
+  "themeLight": "#98d6da",
+  "themeTertiary": "#48afb4",
+  "themeSecondary": "#118b91",
+  "themeDarkAlt": "#006f75",
+  "themeDark": "#005e63",
+  "themeDarker": "#004549",
+  "neutralLighterAlt": "#faf9f8",
+  "neutralLighter": "#f3f2f1",
+  "neutralLight": "#edebe9",
+  "neutralQuaternaryAlt": "#e1dfdd",
+  "neutralQuaternary": "#d0d0d0",
+  "neutralTertiaryAlt": "#c8c6c4",
+  "neutralTertiary": "#a19f9d",
+  "neutralSecondary": "#605e5c",
+  "neutralSecondaryAlt": "#8a8886",
+  "neutralPrimaryAlt": "#3b3a39",
+  "neutralPrimary": "#323130",
+  "neutralDark": "#201f1e",
+  "black": "#000000",
+  "white": "#ffffff"
 }
     
-    get_fields__2("https://greenlandscapingmalmo.sharepoint.com/sites/StenaFastigheter","Stena Kortedala skötsel - periodiska", 72)
-    headers=get_sharepoint_access_headers_through_client_id()
-    tenant = "greenlandscapingmalmo"
-    url = f["Site"] + f"""/_api/web/lists/getbytitle('{f['List']}')/fields"""
-    [print(item["EntityPropertyName"]) for item in requests.get(url,headers=headers).json()['d']['results'] if "mment" in item["Title"]]
+    
+    rs = requests.get(URL+uri,headers=get_sharepoint_access_headers_through_client_id())
+    print(rs.content)

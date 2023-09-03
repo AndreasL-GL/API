@@ -1,14 +1,8 @@
 from PIL import Image
 import io, os
 import configparser
-from flask import request
 config = configparser.ConfigParser()
 config.read(os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__)),'config'),"config.ini"))
-if __name__ == '__main__':
-    from tools_get_files import save_file_on_error
-else:
-    from tools_get_files import save_file_on_error
-
 
 def autoorient(image):
     """Accepts a PIL image item as input, returns a PIL image item as output."""
@@ -140,7 +134,7 @@ def autoorient_2(file):
     return img_file
 
 
-def resize_and_autoorient(file, width=None,height=None):
+def resize_and_autoorient(file:io.BytesIO, width:int=None,height:int=None):
     """Accepts a file bytes object and returns a file bytes object
     Resizes an image based on specifications in the config."""
     f = Image.open(file)
@@ -160,3 +154,12 @@ def resize_and_autoorient(file, width=None,height=None):
     f.save(img_file, format='PNG')
     img_file.seek(0)
     return img_file
+
+
+if __name__ == '__main__':
+    
+    with open(os.path.join(os.path.dirname(__file__),'Camel.jpg'),'rb') as f:
+        img = io.BytesIO(f.read())
+        #img = Image.open(img)
+    img = Image.open(resize_and_autoorient(img, height=400))
+    img.show()
